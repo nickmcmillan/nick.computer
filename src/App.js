@@ -61,7 +61,7 @@ export default class App extends Component {
   }
 
   handleOnMove = val => {
-    const parallaxFactor = -18
+    const parallaxFactor = -12
     this.videoRefs.forEach((ref, i) => {
       const x = val.x + this.outerRefs[i].offsetLeft
       ref.style.transform = `translateX(${x / (parallaxFactor )}px)`
