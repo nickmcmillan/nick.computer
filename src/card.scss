@@ -1,6 +1,8 @@
 $itemWidth: 20rem;
 $itemHeight: 30rem;
 $borderRadius: 12px;
+$timing: 300ms;
+$easing: cubic-bezier(0, 0, 0.2, 1);
 
 .item {
   outline: 0;
@@ -12,10 +14,12 @@ $borderRadius: 12px;
   font-size: 1rem;
   height: $itemHeight;
   width: $itemWidth;
-  transition: transform 300ms cubic-bezier(0, 0, 0.2, 1);
+  transition: transform $timing $easing;
   will-change: transform;
+  white-space: normal;
 
-  &:hover {
+  &:hover,
+  &.is-active {
     transform: translate3d(0, -1.5rem, 0);
 
     .backdrop::before {
@@ -40,6 +44,7 @@ $borderRadius: 12px;
   z-index: -1;
   background: #fff;
   border-radius: $borderRadius;
+  transition: transform $timing * 2 $easing;
 
   &::after,
   &::before {
@@ -47,7 +52,7 @@ $borderRadius: 12px;
     position: absolute;
     top: 0;
     z-index: -1;
-    transition: opacity 300ms cubic-bezier(0, 0, 0.2, 1), transform 300ms cubic-bezier(0, 0, 0.2, 1);
+    transition: opacity $timing cubic-bezier(0, 0, 0.2, 1), transform $timing $easing;
     height: $itemHeight;
     width: $itemWidth;
     border-radius: $borderRadius;
@@ -85,6 +90,7 @@ $borderRadius: 12px;
 
 .item_content {
   padding: 2rem;
+  transition: transform $timing * 2 $easing;
 }
 
 .item_title {
@@ -105,4 +111,5 @@ $borderRadius: 12px;
   width: 100%;
   transform: scale(1.25);
   pointer-events: none;
+  transition: transform $timing * 4 $easing;
 }
