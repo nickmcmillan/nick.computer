@@ -1,0 +1,17 @@
+
+.title {
+  pointer-events: none;
+  margin-bottom: 2rem;
+  letter-spacing: -0.4px;
+  max-width: 22rem;
+  opacity: 0;
+  animation: fadeIn 200ms 150ms linear forwards;
+  will-change: opacity;
+}
+
+
+.logo {
+  margin-bottom: 1.25rem;
+  max-width: 10rem;
+  max-height: 11rem;
+}

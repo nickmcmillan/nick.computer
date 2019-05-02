@@ -1,13 +1,11 @@
-
-
-:root {
-  --blackish: #333;
-  --white: #fff;
-  --pinkish: #e6a7c9;
-  --blueish: #21294d;
-  --timing-s: 100ms;
-  --timing-m: 200ms;
-}
+// :root {
+//   --blackish: #333;
+//   --white: #fff;
+//   --pinkish: #e6a7c9;
+//   --blueish: #21294d;
+//   --timing-s: 100ms;
+//   --timing-m: 200ms;
+// }
 
 @import url('https://fonts.googleapis.com/css?family=Rammetto+One|Source+Code+Pro');
 
@@ -54,15 +52,6 @@ body {
   }
 }
 
-.title {
-  pointer-events: none;
-  margin-bottom: 2rem;
-  letter-spacing: -0.4px;
-  max-width: 22rem;
-  opacity: 0;
-  animation: fadeIn 200ms 150ms linear forwards;
-  will-change: opacity;
-}
 
 a {
   background-color: transparent;
@@ -115,11 +104,6 @@ ul {
   list-style: none;
 }
 
-.logo {
-  margin-bottom: 1.25rem;
-  max-width: 10rem;
-  max-height: 11rem;
-}
 
 h1,
 h2 {
@@ -141,7 +125,6 @@ p {
     margin: 0 auto;
   }
 }
-
 
 h2 {
   margin: 0 0 0.5rem;
