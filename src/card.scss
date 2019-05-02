@@ -1,19 +1,45 @@
 $itemWidth: 20rem;
 $itemHeight: 30rem;
+$borderRadius: 12px;
 
 .item {
-  background-color: #fff;
   outline: 0;
   border: 0;
   display: inline-block;
   padding: 0;
-  border-radius: 12px;
+  border-radius: $borderRadius;
   margin: 0 1rem;
   font-size: 1rem;
   height: $itemHeight;
   width: $itemWidth;
   transition: transform 300ms cubic-bezier(0, 0, 0.2, 1);
   will-change: transform;
+
+  &:hover {
+    transform: translate3d(0, -1.5rem, 0);
+
+    .backdrop::before {
+      opacity: 0.5;
+      transform: none;
+    }
+
+    .backdrop::after {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
+.backdrop {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  z-index: -1;
+  background: #fff;
+  border-radius: $borderRadius;
 
   &::after,
   &::before {
@@ -24,7 +50,7 @@ $itemHeight: 30rem;
     transition: opacity 300ms cubic-bezier(0, 0, 0.2, 1), transform 300ms cubic-bezier(0, 0, 0.2, 1);
     height: $itemHeight;
     width: $itemWidth;
-    border-radius: 12px;
+    border-radius: $borderRadius;
     will-change: opacity, transform;
   }
 
@@ -40,35 +66,16 @@ $itemHeight: 30rem;
     transform-origin: top right;
     box-shadow: -60px 60px 40px 10px rgba(#666, 0.3);
   }
-
-  &:hover {
-    transform: translate3d(0, -1.5rem, 0);
-    
-    &::before {
-      opacity: 0.5;
-      transform: none;
-    }
-
-    &::after {
-      opacity: 1;
-      transform: none;
-    }
-  }
-
-  // &:focus {
-  //   outline: 1px solid #fff;
-  // }
 }
 
 .inner {
-  overflow: hidden;
   height: 100%;
-  // background: orange;
-  background-color: #fff;
-  border-radius: 12px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  overflow: hidden;
+  border-radius: $borderRadius;
+  background-color: #fff;
 }
 
 .transitioner {
@@ -77,10 +84,7 @@ $itemHeight: 30rem;
 }
 
 .item_content {
-  // position: absolute;
-  // z-index: 1;
   padding: 2rem;
-  // width: 100%;
 }
 
 .item_title {
