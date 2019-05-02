@@ -25,9 +25,10 @@ export default class App extends Component {
 
     this.state = {
       friction: 0.9,
+      isActive: false,
       items: [
         {
-          title: 'Listen to Fenton',
+          title: 'Fenton',
           // video: fentonMp4,
           image: ltfImg,
           color: '#ccc',
@@ -70,6 +71,17 @@ export default class App extends Component {
     })
   }
 
+  handleActivate = (item, i) => {
+    const btn = this.outerRefs[i]
+    const { x, y, width, height } = btn.getBoundingClientRect()
+    // this.setState({ isActive: true })
+    const centerX = (window.innerWidth / 2) - (width / 2) - x
+    const centerY = (window.innerHeight / 2) - (height / 2) - y
+    const screenY = window.innerHeight / height 
+    const screenX = window.innerWidth / width
+    btn.style.transform = `translate(${centerX}px, ${centerY}px) scale(${screenX}, ${screenY})`
+  }
+
   render() {
     return (
       <main className="container">
@@ -82,10 +94,18 @@ export default class App extends Component {
           padding={-16}
           onMove={this.handleOnMove}
           className="dragger"
+          disabled={this.state.isActive}
         >
           {this.state.items.map((item, i) => (
 
-            <button className="item" key={`${item}-${i}`} style={{ backgroundColor: item.color }} ref={this.setOuterRefs}>
+            <button
+              className="item"
+              key={`${item}-${i}`}
+              style={{ backgroundColor: item.color }}
+              ref={this.setOuterRefs}
+              onClick={() => this.handleActivate(item, i)}
+              href="/"
+            >
 
               <div className="inner">
               
