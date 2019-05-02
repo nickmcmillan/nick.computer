@@ -21,6 +21,8 @@ $easing: cubic-bezier(0, 0, 0.2, 1);
   &:hover,
   &.is-active {
     transform: translate3d(0, -1.5rem, 0);
+    z-index: 1;
+    position: relative;
 
     .backdrop::before {
       opacity: 0.5;
@@ -90,7 +92,7 @@ $easing: cubic-bezier(0, 0, 0.2, 1);
 
 .item_content {
   padding: 2rem;
-  transition: transform $timing * 2 $easing;
+  transition: transform $timing $easing;
 }
 
 .item_title {
@@ -109,7 +111,8 @@ $easing: cubic-bezier(0, 0, 0.2, 1);
   object-fit: cover;
   height: 100%;
   width: 100%;
-  transform: scale(1.25);
+  // transform: scale(1.25);
   pointer-events: none;
-  transition: transform $timing * 4 $easing;
+  transition: transform $timing * 2 $easing, filter $timing linear;
+  will-change: transform, filter;
 }

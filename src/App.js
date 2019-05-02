@@ -122,7 +122,7 @@ export default class App extends Component {
             <button
               className={`item ${this.state.activeCard === i && 'is-active'}`}
               key={`${item}-${i}`}
-              style={{ backgroundColor: item.color }}
+              // style={{ backgroundColor: item.color }}
               ref={this.setOuterRefs}
               onClick={() => this.handleActivate(item, i)}
               href="/"
@@ -130,7 +130,7 @@ export default class App extends Component {
               <div
                 className="backdrop"
                 style={{
-                  transform: this.state.activeCard === i ? `translate(${this.state.centerX}px, ${this.state.centerY}px) scale(${this.state.screenX}, ${this.state.screenY})` : 'none'
+                  transform: this.state.activeCard === i ? `translate(${this.state.centerX}px, ${this.state.centerY}px) scale(${this.state.screenX}, ${this.state.screenY})` : 'none',
                 }}
               />
 
@@ -156,7 +156,8 @@ export default class App extends Component {
                     src={item.image}
                     alt=""
                     style={{
-                      transform: this.state.activeCard === i ? `translate(${this.state.centerX - getTranslateX(this.videoRefs[i])}px, ${this.state.centerY / 2}px) scale(5)` : 'none'
+                      transform: this.state.activeCard === i ? `translate(${(this.state.centerX) - getTranslateX(this.videoRefs[i])}px, ${this.state.centerY / 2}px) scale(5)` : 'scale(1.5)',
+                      filter: this.state.activeCard === i ? 'blur(3px)' : 'none',
                     }}
                 />
 
