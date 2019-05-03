@@ -13,8 +13,6 @@ const Card = ({
   handleActivate,
   draggerX,
 }) => {
-
-  // const refTransformer = useRef(null);
   
   // backdrop
   const refBackdrop = useRef(null);
@@ -31,8 +29,6 @@ const Card = ({
   const transformerRefOffsetLeft = useElementResizer(refBackdrop).left
   const parallaxVal = (draggerX + transformerRefOffsetLeft) / parallaxFactor
 
-  console.log(parallaxVal)
-
   // image
   const refImage = useRef(null);
   const { width: imageWidth, height: imageHeight, x: imageX, y: imageY } = useElementResizer(refImage)
@@ -42,8 +38,8 @@ const Card = ({
   // const imageScreenX = window.innerWidth / imageWidth
   // const imageScreenY =  window.innerHeight / imageHeight
 
-  const imageOff = `translate3d(${parallaxVal}px, 0px, 0px) scale(2, 2)`
-  const imageOn = `translate3d(${imageCenterX + parallaxVal}px, ${imageCenterY}px, 0px) scale(${backdropScreenX}, ${backdropScreenX})`
+  const imageOff = `translate3d(${0}px, 0px, 0px) scale(2, 2)`
+  const imageOn = `translate3d(${imageCenterX }px, ${imageCenterY}px, 0px) scale(${backdropScreenX}, ${backdropScreenX})`
   const { transformImage } = useSpring({
     transformImage: isActive ? imageOn : imageOff,
     config: { mass: 1.5, tension: 400, friction: 40 }
