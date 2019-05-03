@@ -19,6 +19,7 @@ $easing: cubic-bezier(0, 0, 0.2, 1);
   transition: transform $timing $easing;
   will-change: transform;
   white-space: normal;
+  justify-content: space-between;
 
   &:hover,
   &.is-active {
@@ -88,9 +89,10 @@ $easing: cubic-bezier(0, 0, 0.2, 1);
   background-color: #fff;
 }
 
-.hider {
-  overflow: hidden;
-
+.clipper {
+  // height: 50%;
+  // border-radius: $borderRadius;
+  // flex-shrink: 0;
 }
 
 .transitioner {
@@ -104,6 +106,10 @@ $easing: cubic-bezier(0, 0, 0.2, 1);
 .item_content {
   padding: 2rem;
   transition: transform $timingLong $easing;
+  height: 100%;
+  width: 100%;
+  // border-radius: $borderRadius;
+  // background-color: #fff;
 }
 
 .item_title {
@@ -124,7 +130,7 @@ $easing: cubic-bezier(0, 0, 0.2, 1);
   width: 100%;
   // top: 0;
   // width: 150%;
-  border-radius: 12px;
+  border-radius: $borderRadius;
   will-change: transform;
   // position: absolute;
   border-radius: $borderRadius;

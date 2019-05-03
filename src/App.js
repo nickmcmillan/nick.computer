@@ -77,7 +77,7 @@ const App = () => {
 
       <Dragger
         ResizeObserver={ResizeObserver}
-        padding={-16}
+        // padding={-16}
         onMove={e => setDraggerX(e.x)}
         className="dragger"
         disabled={active}
