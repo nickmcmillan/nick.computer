@@ -1,42 +1,19 @@
 import React, { useState } from 'react'
 import ResizeObserver from 'resize-observer-polyfill'
 import Dragger from 'react-physics-dragger'
-import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
-
-
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
 // import Title from './Title'
 import SocialLinks from './SocialLinks'
 import Card from './Card'
+import Detail from './Detail'
 
 import './index.scss';
 import './card.scss';
 
 import fentonSm from './imgs/fenton-sm.png'
 import ltfImg from './imgs/fenton.png'
-// import ltfImg from './imgs/img.webp'
 
-
-
-//   handleActivate = (item, i) => {
-//     const btn = this.outerRefs[i]
-//     const { x, y, width, height } = btn.getBoundingClientRect()
-//     const centerX = (window.innerWidth / 2) - (width / 2) - x
-//     const centerY = (window.innerHeight / 2) - (height / 2) - y
-//     const screenY = window.innerHeight / height 
-//     const screenX = window.innerWidth / width
-
-//     this.setState({ 
-//       active: i,
-//       centerX,
-//       centerY,
-//       screenX,
-//       screenY,
-//     })
-
-//   }
-
-// }
 
 const cardData = [
   {
@@ -75,6 +52,9 @@ const App = () => {
   const [draggerX, setDraggerX] = useState(0)
   const [hovered, setHovered] = useState(null)
 
+  console.log(active)
+  
+
   return (
     <main className="container">
 
@@ -92,9 +72,8 @@ const App = () => {
           <Card
             draggerX={draggerX}
             key={item.title}
-            i={i}
-            isActive={active === i}
-            isHovered={hovered === i}
+            isActive={active === item.title}
+            isHovered={hovered === item.title}
             item={item}
             handleActivate={i => {
               if (i === active) {
@@ -102,7 +81,7 @@ const App = () => {
                 enableBodyScroll()
               } else {
                 disableBodyScroll()
-                setActive(i)
+                setActive(item.title)
 
               }
             }}
@@ -110,13 +89,17 @@ const App = () => {
               if (i === hovered) {
                 setHovered(null)
               } else {
-                setHovered(i)
+                setHovered(item.title)
               }
             }}
           />
           
         ))}
       </Dragger>
+
+      {active && <Detail />}
+      
+
     </main>
   )
 }

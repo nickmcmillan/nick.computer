@@ -13,7 +13,7 @@ const config = { tension: 300, friction: 70, mass: 5 }
 const Card = ({
   isActive,
   item,
-  i,
+  // i,
   isHovered,
   handleHover,
   handleActivate,
@@ -30,8 +30,6 @@ const Card = ({
   
   // const imageCenterX = -imageX + (window.innerWidth / 2) - (imageWidth / 2) - draggerX - padding
   // const imageCenterY = (window.innerHeight / 2) - (imageHeight / 2) - imageY
-  
-  console.log(imageY, imageHeight, backdropY, backdropHeight)
 
   const backdropCenterX = (window.innerWidth / 2) - (backdropWidth / 2) - backdropX - draggerX - padding
   // const backdropCenterY = (window.innerHeight / 2) - (backdropHeight / 2) - backdropY - imageY//+ hoverY
@@ -78,10 +76,10 @@ const Card = ({
   return (
     <animated.button
       className={`item ${isActive ? 'is-active' : ''}`}
-      key={`${item}-${i}`}
-      onClick={() => handleActivate(i)}
-      onFocus={() => handleHover(i)}
-      onMouseEnter={() => handleHover(i)}
+      key={item.title}
+      onClick={() => handleActivate(item.title)}
+      onFocus={() => handleHover(item.title)}
+      onMouseEnter={() => handleHover(item.title)}
       onMouseLeave={() => handleHover(null)}
       onBlur={() => handleHover(null)}
       href="/"
