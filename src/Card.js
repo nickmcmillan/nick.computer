@@ -4,7 +4,9 @@ import { useSpring, animated } from 'react-spring'
 
 const parallaxFactor = -12
 const hoverY = -30
-const padding = 0 // 16
+const padding = 16
+
+const tension = 400
 
 const Card = ({
   isActive,
@@ -24,7 +26,7 @@ const Card = ({
   const backdropOn = `translate3d(${backdropCenterX}px, ${backdropCenterY}px, 0px) scale(${backdropScreenX}, ${backdropScreenX})`
   const { transformBackdrop } = useSpring({
     transformBackdrop: isActive ? backdropOn : backdropOff,
-    config: { mass: 1.5, tension: 400, friction: 40 }
+    config: { mass: 0.5, tension: tension*2, friction: 40 }
   })
   const transformerRefOffsetLeft = useElementResizer(refBackdrop).left
   const parallaxVal = (draggerX + transformerRefOffsetLeft) / parallaxFactor
@@ -34,20 +36,20 @@ const Card = ({
   const { width: imageWidth, height: imageHeight, x: imageX, y: imageY } = useElementResizer(refImage)
   const imageCenterX = -imageX + (window.innerWidth / 2) - (imageWidth / 2) - draggerX - padding
   // const imageCenterX = -imageX + (imageWidth / 2) - (window.innerWidth /2 )// - draggerX - padding
-  const imageCenterY = (window.innerHeight / 2) - (imageHeight /2 ) - imageY
+  const imageCenterY = (window.innerHeight / 2) - (imageHeight / 2 ) - imageY
   // const imageScreenX = window.innerWidth / imageWidth
   // const imageScreenY =  window.innerHeight / imageHeight
 
-  const imageOff = `translate3d(${0}px, 0px, 0px) scale(2, 2)`
+  const imageOff = `translate3d(${parallaxVal}px, 0px, 0px) scale(2, 2)`
   const imageOn = `translate3d(${imageCenterX }px, ${imageCenterY}px, 0px) scale(${backdropScreenX}, ${backdropScreenX})`
   const { transformImage } = useSpring({
     transformImage: isActive ? imageOn : imageOff,
-    config: { mass: 1.5, tension: 400, friction: 40 }
+    config: { mass: 3.5, tension: tension*0.5, friction: 40 }
   })
 
   const { clipPath } = useSpring({
-    clipPath: isActive ? `inset(${-500}px ${-1000}px ${-500}px ${-2000}px)` : `inset(${0}px ${0}px ${0}px ${0}px)`,
-    config: { mass: 1.5, tension: 400, friction: 60 }
+    clipPath: isActive ? `inset(${-175}% ${-165}% ${-165}% ${-195}% round 0 0 0 0)` : `inset(${0}% ${0}% ${0}% ${0}% round 0 0 12px 12px)`,
+    config: { tension: 210, friction: 20 }
   })
 
 
