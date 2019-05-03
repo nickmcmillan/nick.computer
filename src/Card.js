@@ -2,18 +2,20 @@ import React, { useRef } from 'react'
 import useElementResizer from './useElementResizer'
 import { useSpring, animated } from 'react-spring'
 
+import './Shadow.scss'
+
 const parallaxFactor = -12
 const hoverY = -30
 const padding = 16
 
-const tension = 400
-
-const config = { tension: 200, friction: 40, mass: 2.5 }
+const config = { tension: 300, friction: 70, mass: 5 }
 
 const Card = ({
   isActive,
   item,
   i,
+  isHovered,
+  handleHover,
   handleActivate,
   draggerX,
 }) => {
@@ -22,33 +24,42 @@ const Card = ({
   const refImage = useRef(null);
   const { width: imageWidth, height: imageHeight, x: imageX, y: imageY } = useElementResizer(refImage)
 
-  
   // backdrop
   const refBackdrop = useRef(null);
   const { width: backdropWidth, height: backdropHeight, x: backdropX, y: backdropY } = useElementResizer(refBackdrop)
   
-  const imageCenterX = -imageX + (window.innerWidth / 2) - (imageWidth / 2) - draggerX - padding
-  const imageCenterY = (window.innerHeight / 2) - (imageHeight / 2) - imageY
+  // const imageCenterX = -imageX + (window.innerWidth / 2) - (imageWidth / 2) - draggerX - padding
+  // const imageCenterY = (window.innerHeight / 2) - (imageHeight / 2) - imageY
   
   console.log(imageY, imageHeight, backdropY, backdropHeight)
 
   const backdropCenterX = (window.innerWidth / 2) - (backdropWidth / 2) - backdropX - draggerX - padding
-  const backdropCenterY = (window.innerHeight / 2) - (backdropHeight / 2) - backdropY - imageY//+ hoverY
+  // const backdropCenterY = (window.innerHeight / 2) - (backdropHeight / 2) - backdropY - imageY//+ hoverY
   const backdropScaleX = window.innerWidth / backdropWidth
-  const backdropScaleY = window.innerHeight / backdropHeight
+  // const backdropScaleY = window.innerHeight / backdropHeight
 
-  const bdScale = window.innerWidth >= window.innerHeight ? backdropY + (imageHeight / 2) : (backdropY + (imageHeight/2)) * 0.33
+  // const bdScale = window.innerWidth >= window.innerHeight ? backdropY + (imageHeight / 2) : (backdropY + (imageHeight/2)) * 0.33
 
   
   const backdropOff = 'translate3d(0px, 0px, 0px) scale(1)'
-  const backdropOn = `translate3d(${backdropCenterX}px, ${imageCenterY + bdScale }px, 0px) scale(${backdropScaleX })` //backdropScaleX
-  const { transformBackdrop } = useSpring({
+  const backdropOn = `translate3d(${backdropCenterX}px, ${window.innerHeight - backdropHeight - backdropY }px, 0px) scale(${backdropScaleX })` //backdropScaleX
+  const { transformBackdrop, cardTextTransform } = useSpring({
+    cardTextTransform: isActive ? `translate3d(0px, ${-backdropHeight}px, 0px)` : `translate3d(0px, 0px, 0px)`,
     transformBackdrop: isActive ? backdropOn : backdropOff,
     config
   })
   const transformerRefOffsetLeft = useElementResizer(refBackdrop).left
   const parallaxVal = (draggerX + transformerRefOffsetLeft) / parallaxFactor
 
+  // hover interaction spring
+  const { shadowTransform, shadowOpacityUpper, shadowOpacityLower, zIndex, cardTransform } = useSpring({
+    cardTransform: isHovered ? `translate3d(0px, -20px, 0px)` : `translate3d(0px, 0px, 0px)`,
+    shadowTransform: isHovered ? 'scale(1)' : 'scale(0.75)',
+    shadowOpacityUpper: isHovered ? 1 : 0.1,
+    shadowOpacityLower: isHovered ? 0.5 : 1,
+    zIndex: isHovered || isActive ? 1 : 0,
+    config: { tension: 600, friction: 80, mass: 2 },
+  })
   
   
   // const imageCenterX = -imageX + (imageWidth / 2) - (window.innerWidth /2 )// - draggerX - padding
@@ -56,35 +67,49 @@ const Card = ({
   // const imageScreenX = window.innerWidth / imageWidth
   // const imageScreenY =  window.innerHeight / imageHeight
 
-  const imageOff = `translate3d(${parallaxVal}px, 0px, 0px) scale(1.5)` // 1.5
+  const imageOff = `translate3d(${parallaxVal}px, 0px, 0px) scale(2)` // 1.5
   const imageOn = `translate3d(${0}px, 0px, 0px) scale(1)` // 1.25
   // const imageOn = `translate3d(${imageCenterX }px, ${imageCenterY}px, 0px) scale(${backdropScaleX}, ${backdropScaleX})`
   const { transformImage } = useSpring({
     transformImage: isActive ? imageOn : imageOff,
-    config
+    config//: { tension: 400, friction: 80, mass: 4 }
   })
 
-  // console.log(imageCenterY, backdropCenterY, imageY, backdropY)
-
-  // const { clipPath } = useSpring({
-  //   clipPath: isActive ? `inset(${-window.innerHeight/2}px ${-165}px ${-165}px ${-195}px round 0 0 0 0)` : `inset(${0}px ${0}px ${0}px ${0}px round 0 0 12px 12px)`,
-  //   config: { mass: 0.5, tension: tension * 0.5, friction: 40 }
-  // })
-
-
   return (
-    <button
+    <animated.button
       className={`item ${isActive ? 'is-active' : ''}`}
       key={`${item}-${i}`}
       onClick={() => handleActivate(i)}
+      onFocus={() => handleHover(i)}
+      onMouseEnter={() => handleHover(i)}
+      onMouseLeave={() => handleHover(null)}
+      onBlur={() => handleHover(null)}
       href="/"
+      style={{
+        transform: cardTransform.interpolate(t => t),
+        zIndex: zIndex.interpolate(t => Math.round(t)), // smooths out shoadow transition when hovering from one card to another
+      }}
     >
 
+      <animated.div
+        className="shadow shadow-upper"
+        style={{
+          opacity: shadowOpacityUpper.interpolate(t => t),
+          transform: shadowTransform.interpolate(t => t),
+        }}
+        />
+      <animated.div
+        className="shadow shadow-lower"
+        style={{
+          // transform: shadowTransform.interpolate(t => t),
+          opacity: shadowOpacityLower.interpolate(t => t),
+        }}
+      />
 
       <animated.div
         className="item_content"
         style={{
-          transform: isActive ? `translateY(-200%)` : 'none'
+          transform: cardTextTransform.interpolate(t => t),
         }}
       >
         <h2 className="item_title">{item.title}</h2>
@@ -94,36 +119,21 @@ const Card = ({
       <animated.div
         ref={refBackdrop}
         className="backdrop"
-        style={{ 
+        style={{
           transform: transformBackdrop.interpolate(t => t),
-          // clipPath: clipPath.interpolate(t => t),
         }}
       >
-        {/* <animated.div
-          className="clipper"
-          style={{
-            clipPath: clipPath.interpolate(t => t),
-            // overflow: isActive ? 'visible' : 'hidden',
-          }}
-        > */}
-
           <animated.img
             className="item_media"
-            src={item.image}
+            src={isActive ? item.image : item.imageSm}
             alt=""
             ref={refImage}
             style={{
               transform: transformImage.interpolate(t => t),
             }}
-          // style={{
-          //   transform: isActive ? `translate(${(backdropCenterX) - getTranslateX(this.mediaRefs[i])}px, ${backdropCenterY / 2}px) scale(5)` : 'scale(1.5)',
-          //   filter: isActive ? 'blur(3px)' : 'none',
-          // }}
           />
-
-        {/* </animated.div> */}
       </animated.div>
-    </button>
+    </animated.button>
   )
 }
 

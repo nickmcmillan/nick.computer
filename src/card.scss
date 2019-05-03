@@ -11,16 +11,16 @@ $easing: cubic-bezier(0, 0, 0.2, 1);
   display: inline-flex;
   flex-direction: column;
   padding: 0;
-  border-radius: $borderRadius;
   margin: 0 1rem;
   font-size: 1rem;
   height: $itemHeight;
   width: $itemWidth;
-  transition: transform $timing $easing;
+  // border-radius: $borderRadius;
+  // transition: transform $timing $easing;
   will-change: transform;
   white-space: normal;
   justify-content: space-between;
-  // background-color: #fff;
+  position: relative;
 
   &:hover,
   &.is-active {
@@ -28,12 +28,12 @@ $easing: cubic-bezier(0, 0, 0.2, 1);
     z-index: 1;
     position: relative;
 
-    .backdrop::before {
+    .shadow::before {
       opacity: 0.5;
       transform: none;
     }
 
-    .backdrop::after {
+    .shadow::after {
       opacity: 1;
       transform: none;
     }
@@ -48,8 +48,8 @@ $easing: cubic-bezier(0, 0, 0.2, 1);
   height: 100%;
   z-index: -1;
   background: #d7dfff;
-  border-radius: $borderRadius;
-  transition: transform $timing*3 $easing;
+  // border-radius: $borderRadius;
+  // transition: transform $timing*3 $easing;
   will-change: transform;
   overflow: hidden;
   transform-origin: bottom;
@@ -61,17 +61,13 @@ $easing: cubic-bezier(0, 0, 0.2, 1);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border-radius: $borderRadius;
+  // border-radius: $borderRadius;
   background-color: #fff;
-}
-
-.clipper {
-  height: 100%;
 }
 
 .item_content {
   padding: 2rem;
-  transition: transform $timingLong $easing;
+  // transition: transform $timingLong $easing;
   width: 100%;
 }
 

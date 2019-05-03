@@ -1,0 +1,37 @@
+$itemWidth: 20rem;
+$itemHeight: 30rem;
+$borderRadius: 12px;
+$timing: 300ms;
+$timingLong: 500ms;
+$easing: cubic-bezier(0, 0, 0.2, 1);
+
+.shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background: #fff;
+  border-radius: $borderRadius;
+  will-change: transform;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  height: $itemHeight;
+  width: $itemWidth;
+  border-radius: $borderRadius;
+  will-change: opacity, transform;
+}
+
+.shadow-upper {
+  opacity: 0.1;
+  transform: scale(0.75);
+  transform-origin: top right;
+  box-shadow: -60px 60px 40px 10px rgba(#666, 0.3);
+}
+
+// before
+.shadow-lower {
+  box-shadow: -6px 6px 15px 4px rgba(#666, 0.1);
+}

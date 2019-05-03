@@ -12,6 +12,7 @@ import Card from './Card'
 import './index.scss';
 import './card.scss';
 
+import fentonSm from './imgs/fenton-sm.png'
 import ltfImg from './imgs/fenton.png'
 // import ltfImg from './imgs/img.webp'
 
@@ -41,33 +42,38 @@ const cardData = [
   {
     title: 'Fenton',
     image: ltfImg,
+    imageSm: fentonSm,
     description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus, quos excepturi? Temporibus aspernatur a et quasi at quos',
     color: '#ccc',
   },
-  // {
-  //   title: 'Bike Repair',
-  //   image: ltfImg,
-  //   description: 'Lorem ipibus, saepe tempore, veniam neque iusto aperiam! Id!',
-  //   color: 'blue',
-  // },
-  // {
-  //   title: 'RealAs',
-  //   image: ltfImg,
-  //   description: 'Lorem ipsum dolor sit, am',
-  //   color: '#fff',
-  // },
-  // {
-  //   title: 'Tekentool',
-  //   image: ltfImg,
-  //   description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus, quos excepturi? Temporibus aspernatur a',
-  //   color: 'green'
-  // },
+  {
+    title: 'Bike Repair',
+    image: ltfImg,
+    imageSm: fentonSm,
+    description: 'Lorem ipibus, saepe tempore, veniam neque iusto aperiam! Id!',
+    color: 'blue',
+  },
+  {
+    title: 'RealAs',
+    image: ltfImg,
+    imageSm: fentonSm,
+    description: 'Lorem ipsum dolor sit, am',
+    color: '#fff',
+  },
+  {
+    title: 'Tekentool',
+    image: ltfImg,
+    imageSm: fentonSm,
+    description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus, quos excepturi? Temporibus aspernatur a',
+    color: 'green'
+  },
 ]
 
 const App = () => {
 
   const [active, setActive] = useState(null)
   const [draggerX, setDraggerX] = useState(0)
+  const [hovered, setHovered] = useState(null)
 
   return (
     <main className="container">
@@ -88,6 +94,7 @@ const App = () => {
             key={item.title}
             i={i}
             isActive={active === i}
+            isHovered={hovered === i}
             item={item}
             handleActivate={i => {
               if (i === active) {
@@ -97,6 +104,13 @@ const App = () => {
                 disableBodyScroll()
                 setActive(i)
 
+              }
+            }}
+            handleHover={i => {
+              if (i === hovered) {
+                setHovered(null)
+              } else {
+                setHovered(i)
               }
             }}
           />
