@@ -1,6 +1,8 @@
-import React, { useState, useRef } from 'react'
+import React, { useState } from 'react'
 import ResizeObserver from 'resize-observer-polyfill'
 import Dragger from 'react-physics-dragger'
+import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
+
 
 
 // import Title from './Title'
@@ -10,7 +12,8 @@ import Card from './Card'
 import './index.scss';
 import './card.scss';
 
-import ltfImg from './imgs/ltf.jpg'
+// import ltfImg from './imgs/ltf.jpg'
+import ltfImg from './imgs/img.webp'
 
 
 
@@ -77,16 +80,25 @@ const App = () => {
         padding={-16}
         onMove={e => setDraggerX(e.x)}
         className="dragger"
-        // disabled={active}
+        disabled={active}
       >
         {cardData.map((item, i) => (
           <Card
             draggerX={draggerX}
             key={item.title}
             i={i}
-            active={active}
+            isActive={active === i}
             item={item}
-            handleActivate={i => setActive(i)}
+            handleActivate={i => {
+              if (i === active) {
+                setActive(null)
+                enableBodyScroll()
+              } else {
+                disableBodyScroll()
+                setActive(i)
+
+              }
+            }}
           />
           
         ))}

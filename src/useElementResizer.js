@@ -33,7 +33,7 @@ export default (ref) => {
       resizeObserver = null
     }
   
-  }, [ref.current])
+  }, [ref, handleResize])
 
   return rect
 }

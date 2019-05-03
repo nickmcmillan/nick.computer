@@ -3,95 +3,107 @@ import useElementResizer from './useElementResizer'
 import { useSpring, animated } from 'react-spring'
 
 const parallaxFactor = -12
+const hoverY = -30
+const padding = 16
 
 const Card = ({
-  active,
+  isActive,
   item,
   i,
-  setOuterRefs,
-  // setMediaRefs,
   handleActivate,
   draggerX,
 }) => {
 
+  // const refTransformer = useRef(null);
+  
+  // backdrop
   const refBackdrop = useRef(null);
-  const refTransformer = useRef(null);
-  const { width, height, x, y } = useElementResizer(refBackdrop)
-
+  const { width: backdropWidth, height: backdropHeight, x: backdropX, y: backdropY } = useElementResizer(refBackdrop)
+  const backdropCenterX = (window.innerWidth / 2) - (backdropWidth / 2) - backdropX - draggerX - padding
+  const backdropCenterY = (window.innerHeight / 2) - (backdropHeight / 2) - backdropY //+ hoverY
+  const backdropScreenX = window.innerWidth / backdropWidth
+  // const backdropScreenY = window.innerHeight / backdropHeight
+  const backdropOff = 'translate3d(0px, 0px, 0px) scale(1, 1)'
+  const backdropOn = `translate3d(${backdropCenterX}px, ${backdropCenterY}px, 0px) scale(${backdropScreenX}, ${backdropScreenX})`
+  const { transformBackdrop } = useSpring({
+    transformBackdrop: isActive ? backdropOn : backdropOff,
+    config: { mass: 1.5, tension: 400, friction: 40 }
+  })
   const transformerRefOffsetLeft = useElementResizer(refBackdrop).left
 
-  const centerX = (window.innerWidth / 2) - (width / 2) - x - draggerX
-  const centerY = (window.innerHeight / 2) - (height / 2) - y
+  console.log({backdropScreenX, })
+  
 
-  const backdropOff = 'translate3d(0px, 0px, 0)'
-  const backdropOn = `translate3d(${centerX}px, ${centerY}px, 0px)`
-
-
-  const { transformBackdrop } = useSpring({
-    transformBackdrop: (active === i) ? backdropOn : backdropOff,
+  // image
+  const refImage = useRef(null);
+  const { width: imageWidth, height: imageHeight, x: imageX, y: imageY } = useElementResizer(refImage)
+  const imageCenterX = (window.innerWidth / 2) - (imageWidth / 2) - imageX - draggerX
+  const imageCenterY = (window.innerHeight / 2) - (imageHeight /2 ) - imageY
+  const imageScreenX = window.innerWidth / imageWidth
+  const imageScreenY =  window.innerHeight / imageHeight
+  // const imageScreenY = (window.innerHeight /2) / (imageHeight) + ((window.innerWidth ) / imageWidth)
+  const imageOff = 'translate3d(0px, 0px, 0px) scale(1.5, 1.5)'
+  // const imageOn = `translate3d(${0}px, ${imageCenterY}px, 0px) scale(${((1 / backdropScreenX))}, ${((1 / backdropScreenX) )})`
+  const imageOn = `translate3d(${imageCenterX}px, ${imageCenterY}px, 0px) scale(${4 }, ${4  })`
+  const { transformImage } = useSpring({
+    transformImage: (isActive) ? imageOn : imageOff,
     config: { mass: 1.5, tension: 400, friction: 40 }
   })
 
   return (
     <button
-      className={`item ${active === i ? 'is-active' : ''}`}
+      className={`item ${isActive ? 'is-active' : ''}`}
       key={`${item}-${i}`}
       onClick={() => handleActivate(i)}
       href="/"
     >
+
+      <animated.div
+        className="item_content"
+        style={{
+          transform: isActive ? `translateY(-200%)` : 'none'
+        }}
+      >
+        <h2 className="item_title">{item.title}</h2>
+        <p>{item.description}</p>
+      </animated.div>
+
+
       <animated.div
         ref={refBackdrop}
-        className={`backdrop ${active === i ? 'backdrop--is-active' : ''}`}
+        className={`backdrop`}
         style={{
           transform: transformBackdrop.interpolate(t => t)
         }}
       />
 
       <div
-        className="inner"
-      // style={{ overflow: active === i ? 'inherit' : 'hidden' }}
+        className="hider"
+        style={{ overflow: isActive ? 'inherit' : 'hidden' }}
       >
-
-        <animated.div
-          className="item_content"
-          style={{
-            transform: active === i ? `translateY(-200%)` : 'none'
-          }}
-        >
-          <h2 className="item_title">{item.title}</h2>
-          <p>{item.description}</p>
-        </animated.div>
 
         <div
           className="transitioner"
           style={{
-            transform: `translateX(${(draggerX + transformerRefOffsetLeft) / parallaxFactor }px)`
+            transform: `translateX(${(draggerX + transformerRefOffsetLeft) / parallaxFactor}px)`
           }}
-          ref={refTransformer}
         >
 
-          <img
+          <animated.img
             className="item_media"
             src={item.image}
             alt=""
+            ref={refImage}
+            style={{
+              transform: transformImage.interpolate(t => t),
+              // transformOrigin: isActive ? 'inherit' : 'bottom'
+            }}
           // style={{
-          //   transform: active === i ? `translate(${(this.state.centerX) - getTranslateX(this.mediaRefs[i])}px, ${this.state.centerY / 2}px) scale(5)` : 'scale(1.5)',
-          //   filter: active === i ? 'blur(3px)' : 'none',
+          //   transform: isActive ? `translate(${(backdropCenterX) - getTranslateX(this.mediaRefs[i])}px, ${backdropCenterY / 2}px) scale(5)` : 'scale(1.5)',
+          //   filter: isActive ? 'blur(3px)' : 'none',
           // }}
           />
-
-          {/* <video
-                    src={item.video}
-                    className="item_media"
-                    autoPlay
-                    playsInline
-                    muted
-                    loop
-                  /> */}
         </div>
-
-
-
       </div>
     </button>
   )

@@ -8,7 +8,8 @@ $easing: cubic-bezier(0, 0, 0.2, 1);
 .item {
   outline: 0;
   border: 0;
-  display: inline-block;
+  display: inline-flex;
+  flex-direction: column;
   padding: 0;
   border-radius: $borderRadius;
   margin: 0 1rem;
@@ -21,7 +22,7 @@ $easing: cubic-bezier(0, 0, 0.2, 1);
 
   &:hover,
   &.is-active {
-    transform: translate3d(0, -1.5rem, 0);
+    // transform: translate3d(0, -1.5rem, 0);
     z-index: 1;
     position: relative;
 
@@ -43,7 +44,6 @@ $easing: cubic-bezier(0, 0, 0.2, 1);
   bottom: 0;
   left: 0;
   right: 0;
-  height: 100%;
   z-index: -1;
   background: #fff;
   border-radius: $borderRadius;
@@ -55,6 +55,7 @@ $easing: cubic-bezier(0, 0, 0.2, 1);
     content: '';
     position: absolute;
     top: 0;
+    left: 0;
     z-index: -1;
     transition: opacity $timing cubic-bezier(0, 0, 0.2, 1), transform $timing $easing;
     height: $itemHeight;
@@ -77,27 +78,27 @@ $easing: cubic-bezier(0, 0, 0.2, 1);
   }
 }
 
-.backdrop--is-active {
-  border-radius: 0;
-}
-
-.wut {
-  overflow: hidden;
-}
-
 .inner {
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  overflow: hidden;
+  // overflow: hidden;
   border-radius: $borderRadius;
   background-color: #fff;
+}
+
+.hider {
+  overflow: hidden;
+
 }
 
 .transitioner {
   // height: 50%;
   will-change: transform;
+  // position: relative;
+  // padding-top: 80%;
+  // overflow: hidden;
 }
 
 .item_content {
@@ -118,12 +119,20 @@ $easing: cubic-bezier(0, 0, 0.2, 1);
   right: 0;
   height: 100%;
   bottom: 0; */
-  object-fit: cover;
-  height: 100%;
+  // object-fit: cover;
+  // height: 100%;
   width: 100%;
-  transform: scale(1.25);
+  // top: 0;
+  // width: 150%;
+  border-radius: 12px;
+  will-change: transform;
+  // position: absolute;
+  border-radius: $borderRadius;
+  // transform: scale(1.25);
   pointer-events: none;
-  transition: transform $timing * 2 $easing, filter $timing linear;
-  will-change: transform, filter;
+  will-change: transform;
+  // transform-origin: bottom;
+  // transition: transform $timing * 2 $easing, filter $timing linear;
+  // will-change: transform, filter;
   // transform-origin: bottom right;
 }
