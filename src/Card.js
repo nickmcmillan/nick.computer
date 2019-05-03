@@ -8,7 +8,7 @@ const padding = 16
 
 const tension = 400
 
-const config = { tension: 200, friction: 30, mass: 2.2 }
+const config = { tension: 200, friction: 40, mass: 2.5 }
 
 const Card = ({
   isActive,
@@ -37,9 +37,11 @@ const Card = ({
   const backdropScaleX = window.innerWidth / backdropWidth
   const backdropScaleY = window.innerHeight / backdropHeight
 
+  const bdScale = window.innerWidth >= window.innerHeight ? backdropY + (imageHeight / 2) : (backdropY + (imageHeight/2)) * 0.33
+
   
   const backdropOff = 'translate3d(0px, 0px, 0px) scale(1)'
-  const backdropOn = `translate3d(${backdropCenterX}px, ${-imageY - backdropY}px, 0px) scale(${backdropScaleX })` //backdropScaleX
+  const backdropOn = `translate3d(${backdropCenterX}px, ${imageCenterY + bdScale }px, 0px) scale(${backdropScaleX })` //backdropScaleX
   const { transformBackdrop } = useSpring({
     transformBackdrop: isActive ? backdropOn : backdropOff,
     config
@@ -54,7 +56,7 @@ const Card = ({
   // const imageScreenX = window.innerWidth / imageWidth
   // const imageScreenY =  window.innerHeight / imageHeight
 
-  const imageOff = `translate3d(${0}px, 0px, 0px) scale(1.5)` // 1.5
+  const imageOff = `translate3d(${parallaxVal}px, 0px, 0px) scale(1.5)` // 1.5
   const imageOn = `translate3d(${0}px, 0px, 0px) scale(1)` // 1.25
   // const imageOn = `translate3d(${imageCenterX }px, ${imageCenterY}px, 0px) scale(${backdropScaleX}, ${backdropScaleX})`
   const { transformImage } = useSpring({

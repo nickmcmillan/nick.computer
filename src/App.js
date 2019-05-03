@@ -12,7 +12,7 @@ import Card from './Card'
 import './index.scss';
 import './card.scss';
 
-import ltfImg from './imgs/ltf.jpg'
+import ltfImg from './imgs/fenton.png'
 // import ltfImg from './imgs/img.webp'
 
 
