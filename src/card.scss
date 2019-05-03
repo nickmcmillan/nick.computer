@@ -2,6 +2,7 @@ $itemWidth: 20rem;
 $itemHeight: 30rem;
 $borderRadius: 12px;
 $timing: 300ms;
+$timingLong: 500ms;
 $easing: cubic-bezier(0, 0, 0.2, 1);
 
 .item {
@@ -46,7 +47,8 @@ $easing: cubic-bezier(0, 0, 0.2, 1);
   z-index: -1;
   background: #fff;
   border-radius: $borderRadius;
-  transition: transform $timing * 2 $easing;
+  transition: transform $timing*3 $easing;
+  will-change: transform;
 
   &::after,
   &::before {
@@ -75,6 +77,14 @@ $easing: cubic-bezier(0, 0, 0.2, 1);
   }
 }
 
+.backdrop--is-active {
+  border-radius: 0;
+}
+
+.wut {
+  overflow: hidden;
+}
+
 .inner {
   height: 100%;
   display: flex;
@@ -86,13 +96,13 @@ $easing: cubic-bezier(0, 0, 0.2, 1);
 }
 
 .transitioner {
-  height: 50%;
+  // height: 50%;
   will-change: transform;
 }
 
 .item_content {
   padding: 2rem;
-  transition: transform $timing $easing;
+  transition: transform $timingLong $easing;
 }
 
 .item_title {
@@ -111,8 +121,9 @@ $easing: cubic-bezier(0, 0, 0.2, 1);
   object-fit: cover;
   height: 100%;
   width: 100%;
-  // transform: scale(1.25);
+  transform: scale(1.25);
   pointer-events: none;
   transition: transform $timing * 2 $easing, filter $timing linear;
   will-change: transform, filter;
+  // transform-origin: bottom right;
 }

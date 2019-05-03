@@ -8,6 +8,7 @@
     "react-dom": "^16.8.6",
     "react-physics-dragger": "^1.0.0",
     "react-scripts": "3.0.0",
+    "react-spring": "^8.0.19",
     "resize-observer-polyfill": "^1.5.1"
   },
   "scripts": {
