@@ -1,0 +1,42 @@
+.backdrop {
+  // position: absolute;
+  // top: 0;
+  // bottom: 0;
+  // left: 0;
+  // right: 0;
+  // height: $itemHeight;
+  // width: $itemWidth;
+  z-index: -1;
+  background: #fff;
+  border-radius: $borderRadius;
+  transition: transform $timing*3 $easing;
+  will-change: transform;
+  overflow: hidden;
+
+  &::after,
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: opacity $timing cubic-bezier(0, 0, 0.2, 1), transform $timing $easing;
+    height: $itemHeight;
+    width: $itemWidth;
+    border-radius: $borderRadius;
+    will-change: opacity, transform;
+  }
+
+  // ground shadow
+  &::before {
+    box-shadow: -6px 6px 15px 4px rgba(#666, 0.1);
+  }
+
+  // air shadow
+  &::after {
+    opacity: 0.1;
+    transform: scale(0.75);
+    transform-origin: top right;
+    box-shadow: -60px 60px 40px 10px rgba(#666, 0.3);
+  }
+}

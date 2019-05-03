@@ -12,8 +12,8 @@ import Card from './Card'
 import './index.scss';
 import './card.scss';
 
-// import ltfImg from './imgs/ltf.jpg'
-import ltfImg from './imgs/img.webp'
+import ltfImg from './imgs/ltf.jpg'
+// import ltfImg from './imgs/img.webp'
 
 
 
@@ -44,24 +44,24 @@ const cardData = [
     description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus, quos excepturi? Temporibus aspernatur a et quasi at quos',
     color: '#ccc',
   },
-  {
-    title: 'Bike Repair',
-    image: ltfImg,
-    description: 'Lorem ipibus, saepe tempore, veniam neque iusto aperiam! Id!',
-    color: 'blue',
-  },
-  {
-    title: 'RealAs',
-    image: ltfImg,
-    description: 'Lorem ipsum dolor sit, am',
-    color: '#fff',
-  },
-  {
-    title: 'Tekentool',
-    image: ltfImg,
-    description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus, quos excepturi? Temporibus aspernatur a',
-    color: 'green'
-  },
+  // {
+  //   title: 'Bike Repair',
+  //   image: ltfImg,
+  //   description: 'Lorem ipibus, saepe tempore, veniam neque iusto aperiam! Id!',
+  //   color: 'blue',
+  // },
+  // {
+  //   title: 'RealAs',
+  //   image: ltfImg,
+  //   description: 'Lorem ipsum dolor sit, am',
+  //   color: '#fff',
+  // },
+  // {
+  //   title: 'Tekentool',
+  //   image: ltfImg,
+  //   description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus, quos excepturi? Temporibus aspernatur a',
+  //   color: 'green'
+  // },
 ]
 
 const App = () => {
