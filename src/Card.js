@@ -51,7 +51,7 @@ const Card = ({
 
   // hover interaction spring
   const { shadowTransform, shadowOpacityUpper, shadowOpacityLower, zIndex, cardTransform } = useSpring({
-    cardTransform: isHovered ? `translate3d(0px, -20px, 0px)` : `translate3d(0px, 0px, 0px)`,
+    cardTransform: isHovered && !isActive ? `translate3d(0px, -20px, 0px)` : `translate3d(0px, 0px, 0px)`,
     shadowTransform: isHovered ? 'scale(1)' : 'scale(0.75)',
     shadowOpacityUpper: isHovered ? 1 : 0.1,
     shadowOpacityLower: isHovered ? 0.5 : 1,
@@ -66,7 +66,7 @@ const Card = ({
   // const imageScreenY =  window.innerHeight / imageHeight
 
   const imageOff = `translate3d(${parallaxVal}px, 0px, 0px) scale(2)` // 1.5
-  const imageOn = `translate3d(${0}px, 0px, 0px) scale(1)` // 1.25
+  const imageOn = `translate3d(${0}px, ${item.offsetY || 0}px, 0px) scale(1)` // 1.25
   // const imageOn = `translate3d(${imageCenterX }px, ${imageCenterY}px, 0px) scale(${backdropScaleX}, ${backdropScaleX})`
   const { transformImage } = useSpring({
     transformImage: isActive ? imageOn : imageOff,
@@ -111,7 +111,7 @@ const Card = ({
         }}
       >
         <h2 className="item_title">{item.title}</h2>
-        <p>{item.description}</p>
+        <p>{item.intro}</p>
       </animated.div>
       
       <animated.div
@@ -119,17 +119,23 @@ const Card = ({
         className="backdrop"
         style={{
           transform: transformBackdrop.interpolate(t => t),
+          backgroundColor: item.theme,
         }}
       >
-          <animated.img
-            className="item_media"
-            src={isActive ? item.image : item.imageSm}
-            alt=""
-            ref={refImage}
-            style={{
-              transform: transformImage.interpolate(t => t),
-            }}
-          />
+        {/* <animated.div
+          className="filter"
+        /> */}
+        <animated.img
+          className="item_media"
+          src={isActive ? item.imageLg : item.imageSm} // perf: switch for larger version when active
+          alt=""
+          ref={refImage}
+          style={{
+            // mixBlendMode: isActive ? 'lighten' : 'inherit',
+            transform: transformImage.interpolate(t => t),
+          }}
+        />
+
       </animated.div>
     </animated.button>
   )

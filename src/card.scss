@@ -47,7 +47,7 @@ $easing: cubic-bezier(0, 0, 0.2, 1);
   justify-content: flex-end;
   height: 100%;
   z-index: -1;
-  background: #d7dfff;
+  // background: #d7dfff;
   // border-radius: $borderRadius;
   // transition: transform $timing*3 $easing;
   will-change: transform;
@@ -81,4 +81,18 @@ $easing: cubic-bezier(0, 0, 0.2, 1);
   // object-fit: cover;
   pointer-events: none;
   will-change: transform;
+  z-index: -1;
+  transform-origin: bottom;
 }
+
+// .filter {
+//   height: 100%;
+//   width: 100%;
+//   top: 0;
+//   left: 0;
+//   position: absolute;
+//   pointer-events: none;
+//   background: rgba(243,106,188,.3);
+//   mix-blend-mode: screen;
+//   z-index: 1;
+// }
