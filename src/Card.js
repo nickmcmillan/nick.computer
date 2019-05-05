@@ -13,7 +13,6 @@ const config = { tension: 300, friction: 70, mass: 5 }
 const Card = ({
   isActive,
   item,
-  // i,
   isHovered,
   handleHover,
   handleActivate,
@@ -21,8 +20,8 @@ const Card = ({
 }) => {
 
   // image
-  const refImage = useRef(null);
-  const { width: imageWidth, height: imageHeight, x: imageX, y: imageY } = useElementResizer(refImage)
+  // const refImage = useRef(null);
+  // const { width: imageWidth, height: imageHeight, x: imageX, y: imageY } = useElementResizer(refImage)
 
   // backdrop
   const refBackdrop = useRef(null);
@@ -129,7 +128,7 @@ const Card = ({
           className="item_media"
           src={isActive ? item.imageLg : item.imageSm} // perf: switch for larger version when active
           alt=""
-          ref={refImage}
+          // ref={refImage}
           style={{
             // mixBlendMode: isActive ? 'lighten' : 'inherit',
             transform: transformImage.interpolate(t => t),

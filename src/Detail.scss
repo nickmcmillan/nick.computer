@@ -1,10 +1,13 @@
 .Detail {
   position: absolute;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 1;
   // max-width: 34rem;
   font-size: 1.05rem;
   margin: 0 auto;
+  max-width: 60rem;
   padding: 6rem 2rem;
   display: flex;
 }
@@ -17,10 +20,6 @@
 }
 
 .Detail-anchor {
-  &:visited {
-    color: inherit;
-  }
-
   &:hover,
   &:focus {
     text-decoration: underline;
@@ -62,6 +61,7 @@
 .Icon-list-item {
   max-width: 6rem;
   max-height: 3rem;
+  margin-right: 1rem;
 }
 
 .Detail-panel {
@@ -81,10 +81,6 @@
 
 .Detail-paragraph {
   margin-bottom: 3rem;
-
-  a:visited {
-    color: inherit;
-  }
 
   a {
     text-decoration: underline;

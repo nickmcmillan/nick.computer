@@ -29,7 +29,7 @@ export default function Detail({
         className="Detail"
       >
 
-        <button className="Back-btn" onClick={handleClose}>
+        <button className="Back-btn" onClick={() => handleClose(item.title)}>
           <BackIcon className="Back-icon" />
         </button>
 
@@ -50,8 +50,8 @@ export default function Detail({
           <h3>Technologies used</h3>
 
           <div className="Detail-iconlist">
-            {item.icons.map(icon => (
-              <img className="Icon-list-item" src={icon} key={icon} />
+            {item.icons.map(({icon, title}) => (
+              <img className="Icon-list-item" src={icon} key={icon} title={title} />
             ))}
           </div>
         </div>

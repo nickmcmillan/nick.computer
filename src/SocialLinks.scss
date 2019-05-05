@@ -38,7 +38,7 @@
   top: 1px;
   display: none;
 
-  /* &::after {
+  &::after {
     width: 100%;
     content: '';
     height: 3px;
@@ -48,10 +48,10 @@
     bottom: -4px;
     // left: 0;
     position: absolute;
-    transition: opacity var(--timing-m) linear, transform var(--timing-m) ease-in;
+    transition: opacity 200ms linear, transform 200ms ease-in;
     transform: translateY(-2px);
     will-change: opacity, transform;
-  } */
+  }
 }
 
 @media screen and (min-width: 500px) {

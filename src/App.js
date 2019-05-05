@@ -66,7 +66,10 @@ const App = () => {
     </main>
       <Detail
         active={cardData.find(x => x.title === active)}
-        handleClose={() => setActive(false)}
+        handleClose={(i) => {
+          setActive(null)
+          // TODO: focus on active card here
+        }}
       />
     </>
   )

@@ -2,19 +2,20 @@
 .title {
   margin-bottom: 2rem;
   // letter-spacing: -0.4px;
-  max-width: 60%;
+  // max-width: 60%;
   will-change: opacity;
   display: flex;
 }
 
 .name {
   font-family: 'Rammetto One';
-  margin-right: 2rem;
+  // margin-right: 2rem;
   font-size: 2rem;
+  width: 15rem;
 }
 
 .intro {
-
+    max-width: 20rem;
 }
 
 .logo {

@@ -5,7 +5,12 @@ import mcfrench from './imgs/mcfrench.png'
 
 import fentonSvg from './icons/fenton.svg'
 import bikerepairSvg from './icons/bikerepair.svg'
+
+// tech
 import threeSvg from './icons/threejs.svg'
+import craft from './icons/craft.svg'
+import react from './icons/react.svg'
+import redux from './icons/redux.svg'
 
 export default [
   {
@@ -13,7 +18,10 @@ export default [
     offsetY: 60,
     logo: fentonSvg,
     icons: [
-      threeSvg,
+      {
+        icon: threeSvg,
+        title: 'three.js'
+      },
     ],
     url: 'https://www.listentofenton.com/',
     imageLg: ltfImg,
@@ -28,7 +36,18 @@ export default [
     offsetY: 0,
     logo: bikerepairSvg,
     icons: [
-      threeSvg,
+      {
+        icon: react,
+        title: 'React'
+      },
+      {
+        icon: redux,
+        title: 'Redux'
+      },
+      {
+        icon: craft,
+        title: 'Craft CMS'
+      }, 
     ],
     url: 'https://www.bikerepair.com/',
     imageLg: bgLg,
@@ -36,7 +55,7 @@ export default [
     intro: 'blahblahahah',
     subtitle: 'Bike shops and stuff',
     description: '<p>Built using a combination of ThreeJS for the 3D rendering and CannonJS which provides the physics.</p><p>The models used were found online but were tweaked and simplified using Blender.</p><p>It works great on mobile and desktop, and on larger screens you can play around with a few of the camera and physics settings for fun.</p><p>Made in 2019. The source code is available on <a href="https://github.com/nickmcmillan/fenton-three-cannon" target="_blank">Github</a>.</p>',
-    theme: '#d7dfff',
+    theme: '#d4e9ff',
   },
   {
     title: 'mcfrench.co',

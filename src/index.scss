@@ -1,3 +1,4 @@
+$maxWidth: 60rem;
 // :root {
 //   --blackish: #333;
 //   --white: #fff;
@@ -57,11 +58,7 @@ a {
   background-color: transparent;
   color: inherit;
   text-decoration: none;
-  position: relative;
-
-  &:visited {
-    color: #888;
-  }
+  // position: relative;
 }
 
 a:hover,
@@ -126,13 +123,6 @@ p {
   margin: 0 0 1rem;
 }
 
-@media screen and (min-width: 768px) {
-  .container {
-    max-width: 1260px;
-    margin: 0 auto;
-  }
-}
-
 h2 {
   margin: 0 0 0.5rem;
 }
@@ -151,9 +141,17 @@ h2 {
   max-width: 60rem;
   margin: 0 auto;
   padding: 2rem;
-  position: fixed;
+  // position: fixed;
 }
 
 .dragger {
   padding-bottom: 3rem;
+}
+
+
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 1260px;
+    margin: 0 auto;
+  }
 }
