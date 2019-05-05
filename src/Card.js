@@ -65,7 +65,7 @@ const Card = ({
   // const imageScreenX = window.innerWidth / imageWidth
   // const imageScreenY =  window.innerHeight / imageHeight
 
-  const imageOff = `translate3d(${parallaxVal}px, 0px, 0px) scale(2)` // 1.5
+  const imageOff = `translate3d(${parallaxVal}px, 0px, 0px) scale(1.5)` // 1.5
   const imageOn = `translate3d(${0}px, ${item.offsetY || 0}px, 0px) scale(1)` // 1.25
   // const imageOn = `translate3d(${imageCenterX }px, ${imageCenterY}px, 0px) scale(${backdropScaleX}, ${backdropScaleX})`
   const { transformImage } = useSpring({

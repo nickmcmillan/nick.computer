@@ -83,6 +83,9 @@ $easing: cubic-bezier(0, 0, 0.2, 1);
   will-change: transform;
   z-index: -1;
   transform-origin: bottom;
+      // mix-blend-mode: overlay;
+    //   top: -10%;
+    // position: relative;
 }
 
 // .filter {

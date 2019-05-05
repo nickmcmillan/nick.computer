@@ -23,7 +23,7 @@ const App = () => {
     <>
     <main className="container">
 
-      {/* <Title /> */}
+      <Title />
       <SocialLinks />
 
       <Dragger
@@ -66,6 +66,7 @@ const App = () => {
     </main>
       <Detail
         active={cardData.find(x => x.title === active)}
+        handleClose={() => setActive(false)}
       />
     </>
   )

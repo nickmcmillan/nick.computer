@@ -1,14 +1,21 @@
 
 .title {
-  pointer-events: none;
   margin-bottom: 2rem;
-  letter-spacing: -0.4px;
-  max-width: 22rem;
-  opacity: 0;
-  animation: fadeIn 200ms 150ms linear forwards;
+  // letter-spacing: -0.4px;
+  max-width: 60%;
   will-change: opacity;
+  display: flex;
 }
 
+.name {
+  font-family: 'Rammetto One';
+  margin-right: 2rem;
+  font-size: 2rem;
+}
+
+.intro {
+
+}
 
 .logo {
   margin-bottom: 1.25rem;

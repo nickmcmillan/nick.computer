@@ -2,14 +2,102 @@
   position: absolute;
   top: 0;
   z-index: 1;
-  max-width: 34rem;
-  font-size: 1.25rem;
+  // max-width: 34rem;
+  font-size: 1.05rem;
   margin: 0 auto;
   padding: 6rem 2rem;
+  display: flex;
 }
 
 .Detail-title {
   font-size: 2rem;
+  font-family: 'Rammetto One';
+  margin-bottom: 2rem;
+  font-weight: 100;
+}
+
+.Detail-anchor {
+  &:visited {
+    color: inherit;
+  }
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+
+
+}
+
+.Detail-subtitle {
+  // font-size: 1.2rem;
+  opacity: 0.75;
+  // font-weight: 100;
   margin-bottom: 1rem;
 }
 
+.Back-btn {
+  position: fixed;
+  padding: 1rem;
+  left: 1rem;
+  top: 1rem;
+}
+
+.Back-icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+.Icon-project {
+  max-width: 6rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.Detail-iconlist {
+  display: flex;
+  margin-bottom: 2rem;
+}
+
+.Icon-list-item {
+  max-width: 6rem;
+  max-height: 3rem;
+}
+
+.Detail-panel {
+  // flex: 1;
+}
+
+.Detail-panel--primary {
+  // flex: 1.5;
+  // padding-right: 2rem;
+  min-width: 24rem
+}
+
+.Detail-panel--secondary {
+  // flex: 2.5;
+  // padding-right: 2rem;
+}
+
+.Detail-paragraph {
+  margin-bottom: 3rem;
+
+  a:visited {
+    color: inherit;
+  }
+
+  a {
+    text-decoration: underline;
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+    }
+  }
+}
+
+.Icon-open {
+  max-width: 1.25rem;
+  max-height: 1.25rem;
+  margin-left: 0.5rem;
+}
