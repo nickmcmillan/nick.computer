@@ -4,22 +4,39 @@
   // letter-spacing: -0.4px;
   // max-width: 60%;
   will-change: opacity;
-  display: flex;
+  
 }
 
 .name {
   font-family: 'Rammetto One';
-  // margin-right: 2rem;
   font-size: 2rem;
+  display: block;
   width: 15rem;
+  margin-bottom: 0.5rem;
 }
 
 .intro {
-    max-width: 20rem;
+  max-width: 22rem;
+  display: block;
 }
 
 .logo {
   margin-bottom: 1.25rem;
   max-width: 10rem;
   max-height: 11rem;
+}
+
+@media screen and (min-width: 768px) {
+  .title {
+    display: flex;
+  }
+
+  .intro {
+    max-width: 20rem;
+    margin-top: -2px;
+  }
+
+  .name {
+    margin-bottom: 0;
+  }
 }

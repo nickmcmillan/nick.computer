@@ -34,8 +34,8 @@ export default function Detail({
         </button>
 
         <div className="Detail-panel Detail-panel--primary">
-          <img className="Icon-project" src={item.logo} />
-          {/* <h2 className="Detail-subtitle">{item.title}</h2> */}
+          {item.logo ? <img className="Icon-project" src={item.logo} /> : <p className="Icon-fallback">{item.title}</p>}
+          
           <h1 className="Detail-title">
             <a className="Detail-anchor" href={item.url} target="_blank">
               {item.subtitle}

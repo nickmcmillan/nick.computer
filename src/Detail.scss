@@ -8,8 +8,7 @@
   font-size: 1.05rem;
   margin: 0 auto;
   max-width: 60rem;
-  padding: 6rem 2rem;
-  display: flex;
+  padding: 6rem 10%;
 }
 
 .Detail-title {
@@ -24,15 +23,6 @@
   &:focus {
     text-decoration: underline;
   }
-
-
-}
-
-.Detail-subtitle {
-  // font-size: 1.2rem;
-  opacity: 0.75;
-  // font-weight: 100;
-  margin-bottom: 1rem;
 }
 
 .Back-btn {
@@ -65,18 +55,12 @@
 }
 
 .Detail-panel {
-  // flex: 1;
+  // max-width: 32rem;
 }
 
-.Detail-panel--primary {
-  // flex: 1.5;
-  // padding-right: 2rem;
-  min-width: 24rem
-}
 
 .Detail-panel--secondary {
-  // flex: 2.5;
-  // padding-right: 2rem;
+
 }
 
 .Detail-paragraph {
@@ -96,4 +80,26 @@
   max-width: 1.25rem;
   max-height: 1.25rem;
   margin-left: 0.5rem;
+}
+
+.Icon-fallback {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+@media screen and (min-width: 768px) {
+  .Detail {
+    display: flex;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .Detail-panel--primary {
+    width: 55rem;
+    padding-right: 1rem;
+  }
+
+  .Detail-panel--secondary {
+    width: 100%;
+  }
 }

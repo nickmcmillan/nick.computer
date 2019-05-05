@@ -15,9 +15,8 @@ $easing: cubic-bezier(0, 0, 0.2, 1);
   font-size: 1rem;
   height: $itemHeight;
   width: $itemWidth;
-  // border-radius: $borderRadius;
   // transition: transform $timing $easing;
-  will-change: transform;
+  // will-change: transform;
   white-space: normal;
   justify-content: space-between;
   position: relative;
@@ -83,6 +82,9 @@ $easing: cubic-bezier(0, 0, 0.2, 1);
   will-change: transform;
   z-index: -1;
   transform-origin: bottom;
+  // .is-active & {
+  //   filter: blur(3px)
+  // }
       // mix-blend-mode: overlay;
     //   top: -10%;
     // position: relative;
