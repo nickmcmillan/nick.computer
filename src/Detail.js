@@ -16,13 +16,14 @@ export default function Detail({
 
   const springRef = useRef()
 
-  const imageOff = `translate3d(${0}%, ${-10}%, 0px)`
-  const imageOn = `translate3d(${0}%, ${0}%, 0px)`
+  const imageOff = `translate3d(${0}%, ${32}px, 0px)`
+  const imageOn = `translate3d(${0}%, ${0}px, 0px)`
 
   const { transform, opacity } = useSpring({
     ref: springRef,
     opacity: active ? 1 : 0,
-    transform: active ? imageOn : imageOff
+    transform: active ? imageOn : imageOff,
+    config
   })
 
   const transRef = useRef()
@@ -41,56 +42,62 @@ export default function Detail({
   
   return <>
     {transitions.map(({ item, key, props }) => item && (
+      <div key={key}>
+        <animated.div
+          className="Detail-background" 
+          style={{
+            background: `linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, ${item.theme} 70%)`,
+            opacity: opacity.interpolate(t => t)
+          }}
+        />
 
 
-      <animated.div
-        // style={props}
+      <section
         key={key}
         className="Detail"
-        
       >
-        <div className="Detail-inner">
+        {/* <div className="Detail-inner"> */}
         
-        <button className="Back-btn" onClick={() => handleClose(item.title)}>
-          <BackIcon className="Back-icon" />
-        </button>
+          <animated.button className="Back-btn" onClick={() => handleClose(item.title)} style={{ opacity: opacity.interpolate(t => t) }}>
+            <BackIcon className="Back-icon" />
+          </animated.button>
 
-        <animated.div
-          className="Detail-panel Detail-panel--primary"
-          style={props}
-        >
-          {item.logo ? <img className="Icon-project" src={item.logo} /> : <p className="Icon-fallback">{item.title}</p>}
-          
-          <h1 className="Detail-title">
-            <a className="Detail-anchor" href={item.url} target="_blank">
-              {item.subtitle}
-              <OpenIcon />
-            </a>
-          </h1>
-        </animated.div>
+          <animated.div
+            className="Detail-panel Detail-panel--primary"
+            style={props}
+          >
+            {item.logo ? <img className="Icon-project" src={item.logo} /> : <p className="Icon-fallback">{item.title}</p>}
+            
+            <h1 className="Detail-title">
+              <a className="Detail-anchor" href={item.url} target="_blank">
+                {item.subtitle}
+                <OpenIcon />
+              </a>
+            </h1>
+          </animated.div>
 
-        <animated.div 
-          className="Detail-panel Detail-panel--secondary"
-          style={{
+          <animated.div 
+            className="Detail-panel Detail-panel--secondary"
+            style={{
+              opacity: opacity.interpolate(t => t),
+              transform: transform.interpolate(t => t),
+            }}
+          >
+            <div className="Detail-paragraph" dangerouslySetInnerHTML={{__html: item.description}} />
 
-            opacity: opacity.interpolate(t => t),
-            transform: transform.interpolate(t => t),
-          }}
-        >
-          <div className="Detail-paragraph" dangerouslySetInnerHTML={{__html: item.description}} />
+            <h3>Technologies used</h3>
 
-          <h3>Technologies used</h3>
+            <div className="Detail-iconlist">
+              {item.icons.map(({icon, title}) => (
+                <img className="Icon-list-item" src={icon} key={icon} title={title} />
+              ))}
+            </div>
+          </animated.div>
 
-          <div className="Detail-iconlist">
-            {item.icons.map(({icon, title}) => (
-              <img className="Icon-list-item" src={icon} key={icon} title={title} />
-            ))}
-          </div>
-        </animated.div>
+        {/* </div> */}
 
+      </section>
       </div>
-
-      </animated.div>
 
     ))}
   </>
