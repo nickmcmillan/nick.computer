@@ -1,5 +1,5 @@
-import React from 'react'
-import { useTransition, animated } from 'react-spring'
+import React, { useRef, } from 'react'
+import { useTransition, useSpring,  useChain, animated } from 'react-spring'
 
 
 import './Detail.scss'
@@ -14,26 +14,51 @@ export default function Detail({
   handleClose
 }) {
 
+  const springRef = useRef()
+
+  const imageOff = `translate3d(${0}%, ${-10}%, 0px)`
+  const imageOn = `translate3d(${0}%, ${0}%, 0px)`
+
+  const { transform, opacity } = useSpring({
+    ref: springRef,
+    opacity: active ? 1 : 0,
+    transform: active ? imageOn : imageOff
+  })
+
+  const transRef = useRef()
+
   const transitions = useTransition(active, null, {
+    ref: transRef,
+    unique: true,
     from:  { transform: 'translate3d(-150%, 0, 0)'},
     enter: { transform: 'translate3d(0, 0, 0)' },
     leave: { transform: 'translate3d(-150%, 0, 0)' },
-    config
+    config,
   })
+
+  useChain(active ? [springRef, transRef] : [transRef, springRef], [active ? 0.5 : 0, 0 ])
+
   
   return <>
     {transitions.map(({ item, key, props }) => item && (
+
+
       <animated.div
-        style={props}
+        // style={props}
         key={key}
         className="Detail"
+        
       >
-
+        <div className="Detail-inner">
+        
         <button className="Back-btn" onClick={() => handleClose(item.title)}>
           <BackIcon className="Back-icon" />
         </button>
 
-        <div className="Detail-panel Detail-panel--primary">
+        <animated.div
+          className="Detail-panel Detail-panel--primary"
+          style={props}
+        >
           {item.logo ? <img className="Icon-project" src={item.logo} /> : <p className="Icon-fallback">{item.title}</p>}
           
           <h1 className="Detail-title">
@@ -42,9 +67,16 @@ export default function Detail({
               <OpenIcon />
             </a>
           </h1>
-        </div>
+        </animated.div>
 
-        <div className="Detail-panel Detail-panel--secondary">
+        <animated.div 
+          className="Detail-panel Detail-panel--secondary"
+          style={{
+
+            opacity: opacity.interpolate(t => t),
+            transform: transform.interpolate(t => t),
+          }}
+        >
           <div className="Detail-paragraph" dangerouslySetInnerHTML={{__html: item.description}} />
 
           <h3>Technologies used</h3>
@@ -54,13 +86,12 @@ export default function Detail({
               <img className="Icon-list-item" src={icon} key={icon} title={title} />
             ))}
           </div>
-        </div>
+        </animated.div>
 
-
+      </div>
 
       </animated.div>
-    ))}
 
-    
+    ))}
   </>
 }

@@ -11,11 +11,12 @@ import threeSvg from './icons/threejs.svg'
 import craft from './icons/craft.svg'
 import react from './icons/react.svg'
 import redux from './icons/redux.svg'
+import google from './icons/google.svg'
 
 export default [
   {
     title: 'Fenton',
-    offsetY: 60,
+    offsetY: 30,
     logo: fentonSvg,
     icons: [
       {
@@ -28,7 +29,7 @@ export default [
     imageSm: fentonSm,
     intro: 'Combining ThreeJS and Cannon for 3D graphics with physics in the browser.',
     subtitle: 'A website for the Melbourne band Fenton.',
-    description: '<p>Built using a combination of ThreeJS for the 3D rendering and CannonJS which provides the physics.</p><p>The models used were found online but were tweaked and simplified using Blender.</p><p>It works great on mobile and desktop, and on larger screens you can play around with a few of the camera and physics settings for fun.</p><p>Made in 2019. The source code is available on <a href="https://github.com/nickmcmillan/fenton-three-cannon" target="_blank">Github</a>.</p>',
+    description: '<p>Built as a playful online presence for the band which I\'m a part of.</p><p>It uses a combination of ThreeJS for the WebGL rendering and CannonJS which provides the physics. The models used were found online but were tweaked and simplified using Blender.</p><p>It works great on mobile and desktop, and on larger screens you can play around with a few of the camera and physics settings for fun.</p><p>Made in 2019. The source code is available on <a href="https://github.com/nickmcmillan/fenton-three-cannon" target="_blank">Github</a>.</p>',
     theme: '#d7dfff',
   },
     {
@@ -45,6 +46,10 @@ export default [
         title: 'Redux'
       },
       {
+        icon: google,
+        title: 'Google Places APIs'
+      }, 
+      {
         icon: craft,
         title: 'Craft CMS'
       }, 
@@ -52,9 +57,9 @@ export default [
     url: 'https://www.bikerepair.com/',
     imageLg: bgLg,
     imageSm: bgLg,
-    intro: 'Bikerepair.com is a curated list of high-end boutique bike shops.',
-      subtitle: 'Hand-picked repair services that keep you riding',
-    description: '<p>I build the front-end using React, Redux, and react-spring for the transitions/logo animation. I worked with a back-end developer who developed the APIs and headless CMS.</p>',
+    intro: 'Bikerepair.com is a curated list of high-end specialised bike shops.',
+    subtitle: 'Hand-picked repair services that keep you riding',
+    description: '<p><a href="https://www.bikerepair.com/" target="_blank">Bikerepair.com</a> is a curated list of high-end specialised bike shops.</p><p>I built the front-end using React + Redux, and used <a href="https://github.com/react-spring/react-spring" target="_blank">react-spring</a> for the transitions and animations throughout the site.</p><p>Data is provided by a headless instance of Craft CMS, combined with the Google Places API to fetch related bike shop ratings and customer reviews.</p><p>Built whilst at Momkai in 2018.</p>',
     theme: '#d4e9ff',
   },
   {

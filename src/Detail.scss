@@ -7,8 +7,33 @@
   // max-width: 34rem;
   font-size: 1.05rem;
   margin: 0 auto;
-  max-width: 60rem;
+  
   padding: 6rem 10%;
+  // background-color: #d7dfff;
+  // background: linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, #d7dfff 70%);
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+  }
+}
+
+.cheese {
+  position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+}
+
+.Detail-inner {
+  max-width: 60rem;
 }
 
 .Detail-title {
@@ -88,7 +113,7 @@
 }
 
 @media screen and (min-width: 768px) {
-  .Detail {
+  .Detail-inner {
     display: flex;
     padding-left: 2rem;
     padding-right: 2rem;
@@ -96,7 +121,7 @@
 
   .Detail-panel--primary {
     width: 55rem;
-    padding-right: 1rem;
+    padding-right: 2rem;
   }
 
   .Detail-panel--secondary {

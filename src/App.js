@@ -37,6 +37,7 @@ const App = () => {
           <Card
             draggerX={draggerX}
             key={item.title}
+            shouldHide={!!active && active !== item.title} // whether the card should translate downwards
             isActive={active === item.title}
             isHovered={hovered === item.title}
             item={item}

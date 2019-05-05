@@ -12,6 +12,7 @@ const config = { tension: 300, friction: 70, mass: 5 }
 
 const Card = ({
   isActive,
+  shouldHide,
   item,
   isHovered,
   handleHover,
@@ -50,7 +51,7 @@ const Card = ({
 
   // hover interaction spring
   const { shadowTransform, shadowOpacityUpper, shadowOpacityLower, zIndex, cardTransform } = useSpring({
-    cardTransform: isHovered && !isActive ? `translate3d(0px, -20px, 0px)` : `translate3d(0px, 0px, 0px)`,
+    cardTransform: isHovered && !isActive ? `translate3d(0px, -10%, 0px)` : `translate3d(0px, ${shouldHide ? 100 : 0}%, 0px)`,
     shadowTransform: isHovered ? 'scale(1)' : 'scale(0.75)',
     shadowOpacityUpper: isHovered ? 1 : 0.1,
     shadowOpacityLower: isHovered ? 0.5 : 1,
