@@ -14,6 +14,7 @@ const Card = ({
   isActive,
   shouldHide,
   item,
+  id,
   isHovered,
   handleHover,
   handleActivate,
@@ -75,9 +76,10 @@ const Card = ({
 
   return (
     <animated.button
+      id={id}
       className={`item ${isActive ? 'is-active' : ''}`}
       key={item.title}
-      onClick={() => handleActivate(item.title)}
+      // onClick={() => handleActivate(item.title)}
       onFocus={() => handleHover(item.title)}
       onMouseEnter={() => handleHover(item.title)}
       onMouseLeave={() => handleHover(null)}

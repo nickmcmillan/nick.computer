@@ -30,26 +30,24 @@ const App = () => {
         ResizeObserver={ResizeObserver}
         padding={-16}
         onMove={e => setDraggerX(e.x)}
+        onStaticClick={clickedEl => {
+          const btn = clickedEl.closest('button')
+          const id = parseInt(btn.id, 10)
+          setActive(cardData[id].title)
+        }}
         className="dragger"
         disabled={active}
       >
         {cardData.map((item, i) => (
           <Card
+            id={i}
             draggerX={draggerX}
             key={item.title}
             shouldHide={!!active && active !== item.title} // whether the card should translate downwards
             isActive={active === item.title}
             isHovered={hovered === item.title}
             item={item}
-            handleActivate={i => {
-              if (i === active) {
-                setActive(null)
-                // enableBodyScroll()
-              } else {
-                // disableBodyScroll()
-                setActive(item.title)
-              }
-            }}
+            
             handleHover={i => {
               if (i === null) {
                 setHovered(null)

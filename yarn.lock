@@ -7884,7 +7884,7 @@ prompts@^2.0.1:
     kleur "^3.0.2"
     sisteransi "^1.0.0"
 
-prop-types@^15.6.2:
+prop-types@^15.5.8, prop-types@^15.6.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -8110,10 +8110,10 @@ react-is@^16.8.1, react-is@^16.8.4:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.6.tgz#5bbc1e2d29141c9fbdfed456343fe2bc430a6a16"
   integrity sha512-aUk3bHfZ2bRSVFFbbeVS4i+lNPZr3/WM5jT2J5omUVV1zzcs1nAaf3l51ctA5FFvCRbhrH0bdAsRRQddFJZPtA==
 
-react-physics-dragger@^1.0.0:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/react-physics-dragger/-/react-physics-dragger-1.0.1.tgz#7a0c59d412083eae268d02523b9865ffb03a1e3b"
-  integrity sha512-UeQPg4YR1xIt/1CigsfQ9ez4jrsevHK6kc4Iy3uAp6BhhueZrfdhu12k18EBPEetPCv0OQLVLeQdEkkh3ylSbQ==
+react-physics-dragger@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/react-physics-dragger/-/react-physics-dragger-1.0.2.tgz#0ce4d4550d5a5bb9196e80a5ebfaabd1fa306800"
+  integrity sha512-xbgAB7AwfcWdqrsXnut3SKh2saSNAzN5OxYPPQCh3DDBpFfMBLDTCZY4RQPYOLJ2U6wVQuqJY6xORN8UE8nq0w==
 
 react-scripts@3.0.0:
   version "3.0.0"
@@ -8174,11 +8174,12 @@ react-scripts@3.0.0:
     fsevents "2.0.6"
 
 react-spring@^8.0.19:
-  version "8.0.19"
-  resolved "https://registry.yarnpkg.com/react-spring/-/react-spring-8.0.19.tgz#62f4f396b4b73fa402838200a1c80374338cb12e"
-  integrity sha512-DjrwjXqqVEitj6e6GqdW5dUp1BoVyeFQhEcXvPfoQxwyIVSJ9smNt8CNjSvoQqRujVllE7XKaJRWSZO/ewd1/A==
+  version "8.0.20"
+  resolved "https://registry.yarnpkg.com/react-spring/-/react-spring-8.0.20.tgz#e25967f6059364b09cf0339168d73014e87c9d17"
+  integrity sha512-40ZUQ5uI5YHsoQWLPchWNcEUh6zQ6qvcVDeTI2vW10ldoCN3PvDsII9wBH2xEbMl+BQvYmHzGdfLTQxPxJWGnQ==
   dependencies:
     "@babel/runtime" "^7.3.1"
+    prop-types "^15.5.8"
 
 react@^16.8.6:
   version "16.8.6"
