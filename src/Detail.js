@@ -66,10 +66,15 @@ export default function Detail({
             className="Detail-panel Detail-panel--primary"
             style={props}
           >
-            {item.logo ? <img className="Icon-project" src={item.logo} /> : <p className="Icon-fallback">{item.title}</p>}
+            {item.logo ? <img className="Icon-project" src={item.logo} alt={`${item.title} logo`} /> : <p className="Icon-fallback">{item.title}</p>}
             
             <h1 className="Detail-title">
-              <a className="Detail-anchor" href={item.url} target="_blank">
+              <a
+                className="Detail-anchor"
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 {item.subtitle}
                 <OpenIcon />
               </a>
@@ -89,7 +94,7 @@ export default function Detail({
 
             <div className="Detail-iconlist">
               {item.icons.map(({icon, title}) => (
-                <img className="Icon-list-item" src={icon} key={icon} title={title} />
+                <img className="Icon-list-item" src={icon} key={icon} title={title} alt={`${title} logo`}/>
               ))}
             </div>
           </animated.div>

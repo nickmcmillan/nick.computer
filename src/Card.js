@@ -5,7 +5,7 @@ import { useSpring, animated } from 'react-spring'
 import './Shadow.scss'
 
 const parallaxFactor = -12
-const hoverY = -30
+// const hoverY = -30
 const padding = 16
 
 const config = { tension: 300, friction: 70, mass: 5 }
