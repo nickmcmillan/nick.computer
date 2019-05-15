@@ -28,9 +28,9 @@ export default [
     url: 'https://www.listentofenton.com/',
     imageLg: fentonLg,
     imageSm: fentonSm,
-    intro: 'Combining ThreeJS and Cannon for 3D graphics with physics in the browser.',
+    intro: 'Smash some instruments!',
     subtitle: 'A website for the Melbourne band Fenton.',
-    description: '<p>Built as a playful online presence for the band which I\'m a part of.</p><p>It uses a combination of ThreeJS for the WebGL rendering and CannonJS which provides the physics. The models used were found online but were tweaked and simplified using Blender.</p><p>It works great on mobile and desktop, and on larger screens you can play around with a few of the camera and physics settings for fun.</p><p>Made in 2019. The source code is available on <a href="https://github.com/nickmcmillan/fenton-three-cannon" target="_blank">Github</a>.</p>',
+    description: '<p>Built as a playful online presence for the band which I\'m a part of.</p><p>In terms of the code it uses a combination of ThreeJS and CannonJS which provides the physics. The models used were found online but were tweaked and cleaned up using Blender to make them download as fast as possible.</p><p>It works great on mobile and desktop, and on larger screens you can play around with a few of the camera and physics settings for fun.</p><p>Made in 2019. The source code is available on <a href="https://github.com/nickmcmillan/fenton-three-cannon" target="_blank">Github</a>.</p>',
     theme: '#d7dfff',
   },
   {
@@ -74,9 +74,9 @@ export default [
     url: 'https://www.bikerepair.com/',
     imageLg: brLg,
     imageSm: brSm,
-    intro: 'Bikerepair.com is a curated search tool for high-end specialised bike shops.',
+    intro: 'A curated search tool for specialised bike shops.',
     subtitle: 'Hand-picked repair services that keep you riding',
-    description: '<p><a href="https://www.bikerepair.com/" target="_blank">Bikerepair.com</a> is a curated search tool for high-end specialised bike shops.</p><p>I built the front-end using React + Redux for the UI and state management, <a href="https://github.com/google-map-react/google-map-react" target="_blank">Google Maps React</a> for the map, and <a href="https://github.com/react-spring/react-spring" target="_blank">react-spring</a> for the transitions and animations throughout the site.</p><p>Craft CMS runs on the backend to provide all the bike shop data which is then combined with ratings and customer reviews from Google Places API.</p><p>Built whilst at Momkai in 2018.</p>',
+    description: '<p><a href="https://www.bikerepair.com/" target="_blank">Bikerepair.com</a> is a curated search tool for specialised bike shops.</p><p>I built the front-end using React + Redux for the UI and state management, <a href="https://github.com/google-map-react/google-map-react" target="_blank">Google Maps React</a> for the map, and <a href="https://github.com/react-spring/react-spring" target="_blank">react-spring</a> for the transitions and animations throughout the site.</p><p>Craft CMS runs on the backend to provide all the bike shop data which is then combined with ratings and customer reviews from Google Places API.</p><p>Built whilst at Momkai in 2018.</p>',
     theme: '#0268bb',
     textColor: '#fff'
   },
