@@ -17,7 +17,7 @@ import google from './icons/google.svg'
 export default [
   {
     title: 'Fenton',
-    offsetY: 60,
+    offsetY: 0,
     logo: fentonSvg,
     icons: [
       {

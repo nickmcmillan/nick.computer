@@ -1,11 +1,11 @@
 import React, { useRef, } from 'react'
 import { useTransition, useSpring,  useChain, animated } from 'react-spring'
+import { ReactComponent as BackIcon } from './icons/left.svg'
+import { ReactComponent as OpenIcon } from './icons/open.svg'
 
 
 import './Detail.scss'
 import './Icon.scss'
-import {ReactComponent as BackIcon } from './icons/left.svg'
-import {ReactComponent as OpenIcon } from './icons/open.svg'
 
 const config = { tension: 300, friction: 70, mass: 5 }
 
@@ -39,22 +39,21 @@ export default function Detail({
 
   useChain(active ? [springRef, transRef] : [transRef, springRef], [active ? 0.5 : 0, 0 ])
 
-  
   return <>
     {transitions.map(({ item, key, props }) => item && (
-      <div key={key}>
+      // <div key={key}>
 
-      <section
-        key={key}
-        className="Detail"
-      >
-        <animated.div
+        <section
+          key={key}
+          className="Detail"
+        >
+        {/* <animated.div
           className="Detail-background" 
           style={{
             background: `linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, ${item.theme} 70%)`,
             opacity: opacity.interpolate(t => t)
           }}
-        />
+        /> */}
         {/* <div className="Detail-inner"> */}
         
           <animated.button className="Back-btn" onClick={() => handleClose(item.title)} style={{ opacity: opacity.interpolate(t => t) }}>
@@ -84,7 +83,7 @@ export default function Detail({
             className="Detail-panel Detail-panel--secondary"
             style={{
               opacity: opacity.interpolate(t => t),
-              transform: transform.interpolate(t => t),
+              // transform: transform.interpolate(t => t),
             }}
           >
             <div className="Detail-paragraph" dangerouslySetInnerHTML={{__html: item.description}} />
@@ -98,10 +97,9 @@ export default function Detail({
             </div>
           </animated.div>
 
-        {/* </div> */}
 
-      </section>
-      </div>
+        </section>
+      // </div>
 
     ))}
   </>
