@@ -64,9 +64,9 @@ const App = () => {
       </main>
       <Detail
         active={cardData.find(x => x.title === active)}
-        handleClose={(i) => {
+        handleClose={title => {
           setActive(null)
-          // TODO: focus on active card here
+          setHovered(title) // keep it hovered, for z-index reasons
         }}
       />
     </>

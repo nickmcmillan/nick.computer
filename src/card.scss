@@ -110,3 +110,10 @@ $easing: cubic-bezier(0, 0, 0.2, 1);
 //   mix-blend-mode: screen;
 //   z-index: 1;
 // }
+
+@media screen and (min-width: 768px) {
+  .card {
+    width: 20rem;
+    height: 32rem;
+  }
+}

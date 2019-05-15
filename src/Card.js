@@ -23,9 +23,6 @@ const Card = ({
   const backdropCenterX = (window.innerWidth / 2) - (backdropWidth / 2) - backdropX - draggerX
   const backdropScaleX = window.innerWidth / backdropWidth
 
-  console.log(backdropWidth, window.innerWidth)
-
-
   const backdropOff = 'translate3d(0px, 0px, 0px) scale(1)'
   const backdropOn = `translate3d(${backdropCenterX}px, ${window.innerHeight - backdropHeight - backdropY }px, 0px) scale(${backdropScaleX })` //backdropScaleX
   const { transformBackdrop, cardTextTransform } = useSpring({
@@ -66,6 +63,7 @@ const Card = ({
       onBlur={() => handleHover(null)}
       href="/"
       style={{
+        color: item.textColor || '#333',
         transform: cardTransform.interpolate(t => t),
         zIndex: zIndex.interpolate(t => Math.round(t)), // smooths out shoadow transition when hovering from one card to another
       }}

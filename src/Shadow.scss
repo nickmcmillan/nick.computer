@@ -1,9 +1,6 @@
 $itemWidth: 20rem;
 $itemHeight: 30rem;
 $borderRadius: 12px;
-$timing: 300ms;
-$timingLong: 500ms;
-$easing: cubic-bezier(0, 0, 0.2, 1);
 
 .shadow {
   position: absolute;
@@ -34,4 +31,13 @@ $easing: cubic-bezier(0, 0, 0.2, 1);
 // before
 .shadow-lower {
   box-shadow: -6px 6px 15px 4px rgba(#666, 0.1);
+}
+
+@media screen and (min-width: 768px) {
+  .shadow {
+    width: 20rem;
+    height: 32rem;
+  }
+
+  
 }

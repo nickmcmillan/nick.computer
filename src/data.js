@@ -8,11 +8,11 @@ import fentonSvg from './icons/fenton.svg'
 import bikerepairSvg from './icons/bikerepair.svg'
 
 // tech
-import threeSvg from './icons/threejs.svg'
-import craft from './icons/craft.svg'
-import react from './icons/react.svg'
-import redux from './icons/redux.svg'
-import google from './icons/google.svg'
+import { ReactComponent as ThreeIcon } from './icons/threejs.svg'
+import { ReactComponent as CraftIcon } from './icons/craft.svg'
+import { ReactComponent as ReactIcon } from './icons/react.svg'
+import { ReactComponent as ReduxIcon } from './icons/redux.svg'
+import { ReactComponent as Google } from './icons/google.svg'
 
 export default [
   {
@@ -21,7 +21,7 @@ export default [
     logo: fentonSvg,
     icons: [
       {
-        icon: threeSvg,
+        Icon: ThreeIcon,
         title: 'three.js'
       },
     ],
@@ -39,43 +39,44 @@ export default [
     logo: bikerepairSvg,
     icons: [
       {
-        icon: react,
+        Icon: ReactIcon,
         title: 'React'
       },
       {
-        icon: redux,
+        Icon: ReduxIcon,
         title: 'Redux'
       },
       {
-        icon: google,
+        Icon: Google,
         title: 'Google Places APIs'
       }, 
       {
-        icon: craft,
+        Icon: CraftIcon,
         title: 'Craft CMS'
       }, 
     ],
     url: 'https://www.bikerepair.com/',
     imageLg: brLg,
     imageSm: brSm,
-    intro: 'Bikerepair.com is a curated list of high-end specialised bike shops.',
+    intro: 'Bikerepair.com is a curated search tool for high-end specialised bike shops.',
     subtitle: 'Hand-picked repair services that keep you riding',
-    description: '<p><a href="https://www.bikerepair.com/" target="_blank">Bikerepair.com</a> is a curated list of high-end specialised bike shops.</p><p>I built the front-end using React + Redux, and used <a href="https://github.com/react-spring/react-spring" target="_blank">react-spring</a> for the transitions and animations throughout the site.</p><p>Data is provided by a headless instance of Craft CMS, combined with the Google Places API to fetch related bike shop ratings and customer reviews.</p><p>Built whilst at Momkai in 2018.</p>',
-    theme: '#d4e9ff',
+      description: '<p><a href="https://www.bikerepair.com/" target="_blank">Bikerepair.com</a> is a curated search tool for high-end specialised bike shops.</p><p>I built the front-end using React + Redux for the UI and state management, <a href="https://github.com/google-map-react/google-map-react" target="_blank">Google Maps React</a> for the map, and <a href="https://github.com/react-spring/react-spring" target="_blank">react-spring</a> for the transitions and animations throughout the site.</p><p>Craft CMS runs on the backend to provide all the bike shop data which is then combined with ratings and customer reviews from Google Places API.</p><p>Built whilst at Momkai in 2018.</p>',
+    theme: '#0268bb',
+    textColor: '#fff'
   },
   {
     title: 'mcfrench.co',
     icons: [
       {
-        icon: react,
+        Icon: ReactIcon,
         title: 'React'
       },
       {
-        icon: redux,
+        Icon: ReduxIcon,
         title: 'Redux'
       },
       {
-        icon: craft,
+        Icon: CraftIcon,
         title: 'Craft CMS'
       },
     ],

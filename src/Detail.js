@@ -46,6 +46,9 @@ export default function Detail({
         <section
           key={key}
           className="Detail"
+          style={{
+            color: item.textColor || '#333'
+          }}
         >
         {/* <animated.div
           className="Detail-background" 
@@ -91,9 +94,7 @@ export default function Detail({
             <h3>Technologies used</h3>
 
             <div className="Detail-iconlist">
-              {item.icons.map(({icon, title}) => (
-                <img className="Icon-list-item" src={icon} key={icon} title={title} alt={`${title} logo`}/>
-              ))}
+              {item.icons.map(({Icon, title}) => <Icon className="Icon-list-item" key={title} title={title} /> )}
             </div>
           </animated.div>
 
