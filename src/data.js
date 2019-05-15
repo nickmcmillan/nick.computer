@@ -1,6 +1,7 @@
 import fentonSm from './imgs/fenton-sm.png'
-import ltfImg from './imgs/fenton.png'
-import bgLg from './imgs/br.jpg'
+import fentonLg from './imgs/fenton-lg.png'
+import brSm from './imgs/br-sm.jpg'
+import brLg from './imgs/br-lg.jpg'
 import mcfrench from './imgs/mcfrench.png'
 
 import fentonSvg from './icons/fenton.svg'
@@ -25,7 +26,7 @@ export default [
       },
     ],
     url: 'https://www.listentofenton.com/',
-    imageLg: ltfImg,
+    imageLg: fentonLg,
     imageSm: fentonSm,
     intro: 'Combining ThreeJS and Cannon for 3D graphics with physics in the browser.',
     subtitle: 'A website for the Melbourne band Fenton.',
@@ -55,8 +56,8 @@ export default [
       }, 
     ],
     url: 'https://www.bikerepair.com/',
-    imageLg: bgLg,
-    imageSm: bgLg,
+    imageLg: brLg,
+    imageSm: brSm,
     intro: 'Bikerepair.com is a curated list of high-end specialised bike shops.',
     subtitle: 'Hand-picked repair services that keep you riding',
     description: '<p><a href="https://www.bikerepair.com/" target="_blank">Bikerepair.com</a> is a curated list of high-end specialised bike shops.</p><p>I built the front-end using React + Redux, and used <a href="https://github.com/react-spring/react-spring" target="_blank">react-spring</a> for the transitions and animations throughout the site.</p><p>Data is provided by a headless instance of Craft CMS, combined with the Google Places API to fetch related bike shop ratings and customer reviews.</p><p>Built whilst at Momkai in 2018.</p>',
@@ -88,7 +89,7 @@ export default [
   },
   {
     title: 'Tekentool',
-    imageLg: ltfImg,
+    imageLg: fentonLg,
     imageSm: fentonSm,
     description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus, quos excepturi? Temporibus aspernatur a',
     theme: 'green'

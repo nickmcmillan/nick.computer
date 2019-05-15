@@ -5,7 +5,6 @@ import { useSpring, animated } from 'react-spring'
 import './Shadow.scss'
 
 const parallaxFactor = -12
-// const hoverY = -30
 const padding = 16
 
 const config = { tension: 300, friction: 70, mass: 5 }
@@ -52,7 +51,7 @@ const Card = ({
 
   // hover interaction spring
   const { shadowTransform, shadowOpacityUpper, shadowOpacityLower, zIndex, cardTransform } = useSpring({
-    cardTransform: isHovered && !isActive ? `translate3d(0px, -5%, 0px)` : `translate3d(0px, ${shouldHide ? 75 : 0}%, 0px)`,
+    cardTransform: isHovered && !isActive ? `translate3d(0px, -2.5%, 0px)` : `translate3d(0px, ${shouldHide ? 75 : 0}%, 0px)`,
     shadowTransform: isHovered ? 'scale(1)' : 'scale(0.75)',
     shadowOpacityUpper: isHovered ? 1 : 0.1,
     shadowOpacityLower: isHovered ? 0.5 : 1,

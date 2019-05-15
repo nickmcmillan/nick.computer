@@ -8111,9 +8111,9 @@ react-is@^16.8.1, react-is@^16.8.4:
   integrity sha512-aUk3bHfZ2bRSVFFbbeVS4i+lNPZr3/WM5jT2J5omUVV1zzcs1nAaf3l51ctA5FFvCRbhrH0bdAsRRQddFJZPtA==
 
 react-physics-dragger@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/react-physics-dragger/-/react-physics-dragger-1.0.2.tgz#0ce4d4550d5a5bb9196e80a5ebfaabd1fa306800"
-  integrity sha512-xbgAB7AwfcWdqrsXnut3SKh2saSNAzN5OxYPPQCh3DDBpFfMBLDTCZY4RQPYOLJ2U6wVQuqJY6xORN8UE8nq0w==
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/react-physics-dragger/-/react-physics-dragger-1.0.4.tgz#3f80a5249c47904faac1f339b940e4cac811dbcf"
+  integrity sha512-JV0UM6mFW1aZ3+NXG8HMiYdImktyO3OHW26jgO06h0ZjovMZ5RDNuCeOqSkhtdzY5uRlJuRDAyqBXFyyZDQA2w==
 
 react-scripts@3.0.0:
   version "3.0.0"

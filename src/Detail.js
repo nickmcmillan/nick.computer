@@ -43,6 +43,11 @@ export default function Detail({
   return <>
     {transitions.map(({ item, key, props }) => item && (
       <div key={key}>
+
+      <section
+        key={key}
+        className="Detail"
+      >
         <animated.div
           className="Detail-background" 
           style={{
@@ -50,12 +55,6 @@ export default function Detail({
             opacity: opacity.interpolate(t => t)
           }}
         />
-
-
-      <section
-        key={key}
-        className="Detail"
-      >
         {/* <div className="Detail-inner"> */}
         
           <animated.button className="Back-btn" onClick={() => handleClose(item.title)} style={{ opacity: opacity.interpolate(t => t) }}>
