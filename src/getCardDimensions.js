@@ -3,10 +3,12 @@ export default function ({
   backdropHeight,
   backdropX,
   backdropY,
-  draggerX
+  draggerX,
+  containerX,
 }) {
 
-  const backdropPosX = (window.innerWidth / 2) - (backdropWidth / 2) - backdropX - draggerX
+  // const backdropPosX = (window.innerWidth / 2) - (backdropWidth / 2) - backdropX - draggerX// - containerX
+  const backdropPosX = (window.innerWidth / 2) - backdropX - draggerX// - containerX
   const backdropPosY = (window.innerHeight) - backdropHeight - backdropY
   const backdropScaleX = window.innerWidth / backdropWidth
   const backdropScaleY = window.innerHeight / backdropHeight

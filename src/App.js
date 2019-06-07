@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import ResizeObserver from 'resize-observer-polyfill'
 import Dragger from 'react-physics-dragger'
+import useDimensions from 'react-use-dimensions'
 
 import Title from './Title'
 import SocialLinks from './SocialLinks'
@@ -19,10 +20,11 @@ const App = () => {
   const [active, setActive] = useState(null)
   const [draggerX, setDraggerX] = useState(0)
   const [hovered, setHovered] = useState(null)
+  const [outerRef, stepSize] = useDimensions()
 
   return (
     <>
-      <main className="container">
+      <main className="container" ref={outerRef}>
 
         <Title />
         <SocialLinks />
@@ -44,6 +46,7 @@ const App = () => {
               key={item.title}
               id={i}
               draggerX={draggerX}
+              containerX={stepSize.x}
               shouldHide={active && active !== item.title} // whether the card should translate downwards
               isActive={active === item.title}
               isHovered={hovered === item.title}

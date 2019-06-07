@@ -36,6 +36,7 @@ const Card = ({
   isHovered,
   handleHover,
   draggerX,
+  containerX,
 }) => {
 
   // backdrop
@@ -45,7 +46,7 @@ const Card = ({
     height: backdropHeight,
     x: backdropX,
     y: backdropY,
-    left: transformerRefOffsetLeft
+    // left: transformerRefOffsetLeft
   } = useElementResizer(refBackdrop)
   
   const {
@@ -53,7 +54,7 @@ const Card = ({
     backdropPosY,
     backdropScaleX,
     backdropScaleY,
-  } = getCardDimensions({ backdropWidth, backdropHeight, backdropX, backdropY, draggerX })
+  } = getCardDimensions({ backdropWidth, backdropHeight, backdropX, backdropY, draggerX, containerX, })
 
   const backdropOff = 'translate3d(0px, 0px, 0px) scale(1)'
   const backdropOn = `translate3d(${backdropPosX}px, ${backdropPosY}px, 0px) scale(${window.innerWidth < window.innerHeight ? backdropScaleX : backdropScaleX })` //backdropScaleX
@@ -74,7 +75,7 @@ const Card = ({
     config: { tension: 600, friction: 80, mass: 2 },
   })
 
-  const parallaxVal = (draggerX + transformerRefOffsetLeft) / parallaxFactor
+  const parallaxVal = (draggerX + backdropX) / parallaxFactor
   const imageOff = `translate3d(${parallaxVal}px, 0px, 0px) scale(1.5)` // 1.5
   const imageOn = `translate3d(${0}px, 0px, 0px) scale(1.25)` // 1.25
   const { transformImage, opacityImage } = useSpring({
