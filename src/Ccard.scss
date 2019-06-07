@@ -31,9 +31,7 @@ $easing: cubic-bezier(0, 0, 0.2, 1);
 
   &:hover,
   &.is-active {
-    // transform: translate3d(0, -1.5rem, 0);
     z-index: 1;
-    position: relative;
 
     .shadow::before {
       opacity: 0.5;

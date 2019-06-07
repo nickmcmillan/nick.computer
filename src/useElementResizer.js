@@ -42,7 +42,11 @@ export default (ref) => {
     let resizeObserver = new ResizeObserver(() => handleResize())
     resizeObserver.observe(element)
 
+    // window.addEventListener('resize', handleResize);
+
+
     return () => {
+      // window.removeEventListener('resize', handleResize);
       if (!resizeObserver) {
         return
       }

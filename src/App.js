@@ -37,7 +37,7 @@ const App = () => {
             setActive(cardData[id].title)
           }}
           className="dragger"
-          disabled={active}
+          disabled={!!active}
         >
           {cardData.map((item, i) => (
             <Card
@@ -69,6 +69,7 @@ const App = () => {
         active={cardData.find(x => x.title === active)}
         handleClose={title => {
           setActive(null)
+          if (window.innerWidth < breakpoint) return
           setHovered(title) // keep it hovered, for z-index reasons
         }}
       />

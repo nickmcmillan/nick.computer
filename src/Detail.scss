@@ -1,8 +1,11 @@
 .Detail {
-  position: relative;
+  overflow-y: scroll;
+  overscroll-behavior: none;
+  position: absolute;
   top: 0;
   left: 0;
   right: 0;
+  bottom: 0;
   z-index: 1;
   font-size: 1.05rem;
   margin: 0 auto;
@@ -24,7 +27,7 @@
 }
 
 .Detail-title {
-  font-size: 2rem;
+  font-size: 1.75rem;
   font-family: 'Rammetto One';
   margin-bottom: 2rem;
   font-weight: 100;
@@ -39,8 +42,6 @@
 }
 
 .Back-btn {
-  // position: fixed;
-  // padding: 1rem;
   padding-bottom: 2rem;
   left: 1rem;
   top: 1rem;
@@ -52,7 +53,7 @@
 }
 
 .Icon-project {
-  max-width: 6rem;
+  max-width: 4.5rem;
   display: block;
   margin-bottom: 1rem;
 }
@@ -73,9 +74,15 @@
   // max-width: 32rem;
 }
 
+.Detail-panel--primary {
+  max-width: 30rem;
+  padding-right: 1rem;
+}
 
 .Detail-panel--secondary {
-  margin-bottom: 10rem;
+  margin-bottom: 4rem;
+  max-width: 40rem;
+  padding-right: 1rem;
 }
 
 .Detail-paragraph {
@@ -109,6 +116,14 @@
     // padding-left: var(--padding-lg);
     // padding-right: var(--padding-lg);
     padding: var(--padding-lg);
+  }
+
+  .Icon-project {
+    max-width: 6rem;
+  }
+
+  .Detail-title {
+    font-size: 2rem;
   }
 
   .Detail-panel--primary {

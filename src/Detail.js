@@ -1,4 +1,4 @@
-import React, { useRef, } from 'react'
+import React, { useRef, useEffect } from 'react'
 import { useTransition, useSpring,  useChain, animated } from 'react-spring'
 import { ReactComponent as BackIcon } from './icons/left.svg'
 import { ReactComponent as OpenIcon } from './icons/open.svg'
@@ -38,6 +38,16 @@ export default function Detail({
   })
 
   useChain(active ? [springRef, transRef] : [transRef, springRef], [active ? 0.5 : 0, 0 ])
+
+
+  // scroll to top when detail becomes active
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    })
+  }, [active])
 
   return <>
     {transitions.map(({ item, key, props }) => item && (
