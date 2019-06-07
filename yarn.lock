@@ -782,7 +782,14 @@
   dependencies:
     regenerator-runtime "^0.13.2"
 
-"@babel/runtime@^7.3.1", "@babel/runtime@^7.4.2":
+"@babel/runtime@^7.3.1":
+  version "7.4.5"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.4.5.tgz#582bb531f5f9dc67d2fcb682979894f75e253f12"
+  integrity sha512-TuI4qpWZP6lGOGIuGWtp9sPluqYICmbk8T/1vpSysqJxRPkudh/ofFWyqdcMsDf2s7KvDL4/YHgKyvcS3g9CJQ==
+  dependencies:
+    regenerator-runtime "^0.13.2"
+
+"@babel/runtime@^7.4.2":
   version "7.4.4"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.4.4.tgz#dc2e34982eb236803aa27a07fea6857af1b9171d"
   integrity sha512-w0+uT71b6Yi7i5SE0co4NioIpSYS6lLiXvCzWzGSKvpK5vdQtCbICHMj+gbAKAOtxiV6HsVh/MBdaF9EQ6faSg==
@@ -8111,9 +8118,9 @@ react-is@^16.8.1, react-is@^16.8.4:
   integrity sha512-aUk3bHfZ2bRSVFFbbeVS4i+lNPZr3/WM5jT2J5omUVV1zzcs1nAaf3l51ctA5FFvCRbhrH0bdAsRRQddFJZPtA==
 
 react-physics-dragger@^1.0.2:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/react-physics-dragger/-/react-physics-dragger-1.0.4.tgz#3f80a5249c47904faac1f339b940e4cac811dbcf"
-  integrity sha512-JV0UM6mFW1aZ3+NXG8HMiYdImktyO3OHW26jgO06h0ZjovMZ5RDNuCeOqSkhtdzY5uRlJuRDAyqBXFyyZDQA2w==
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/react-physics-dragger/-/react-physics-dragger-1.1.0.tgz#ffdb0ce8d1d1652708a4ffffcdad5f075ae6c6bb"
+  integrity sha512-NIKPIQnCwbC1K24G5YB8iYjpHl8gl8NVR2W7KUEE0TTleNQIn1RUJCDsMXY49cBWA9PwL83dzQ/DCrxT/EM4gQ==
 
 react-scripts@3.0.0:
   version "3.0.0"
@@ -8174,9 +8181,9 @@ react-scripts@3.0.0:
     fsevents "2.0.6"
 
 react-spring@^8.0.19:
-  version "8.0.20"
-  resolved "https://registry.yarnpkg.com/react-spring/-/react-spring-8.0.20.tgz#e25967f6059364b09cf0339168d73014e87c9d17"
-  integrity sha512-40ZUQ5uI5YHsoQWLPchWNcEUh6zQ6qvcVDeTI2vW10ldoCN3PvDsII9wBH2xEbMl+BQvYmHzGdfLTQxPxJWGnQ==
+  version "8.0.22"
+  resolved "https://registry.yarnpkg.com/react-spring/-/react-spring-8.0.22.tgz#df55bba25ff0d7d31455bf9a1ff78b63dd968c07"
+  integrity sha512-X2E75K9JvwqUGzTE9v1B3f0po6eOr2LwErXG4MNZ+QXl5LmBsprbH+ZUEgyDj9p8ZRIhdtIlndvhYtmG9Etl6g==
   dependencies:
     "@babel/runtime" "^7.3.1"
     prop-types "^15.5.8"

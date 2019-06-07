@@ -1,6 +1,6 @@
 .social-links {
   display: flex;
-  margin-bottom: 6rem;
+  margin-bottom: 3rem;
   // opacity: 0;
   // animation: fadeIn 200ms 200ms linear forwards;
   // will-change: opacity;
@@ -54,6 +54,10 @@
 }
 
 @media screen and (min-width: 500px) {
+  .social-links {
+    margin-bottom: 6rem;
+  }
+
   .social-links-text {
     display: inherit;
   }

@@ -30,7 +30,7 @@ export default [
     imageSm: fentonSm,
     intro: 'Smash some instruments!',
     subtitle: 'A website for the Melbourne band Fenton.',
-    description: '<p>Built as a playful online presence for the band which I\'m a part of.</p><p>In terms of the code it uses a combination of ThreeJS and CannonJS which provides the physics. The models used were found online but were tweaked and cleaned up using Blender to make them download as fast as possible.</p><p>It works great on mobile and desktop, and on larger screens you can play around with a few of the camera and physics settings for fun.</p><p>Made in 2019. The source code is available on <a href="https://github.com/nickmcmillan/fenton-three-cannon" target="_blank">Github</a>.</p>',
+    description: '<p>Built as a playful online presence for the band which I\'m a part of.</p><p>Built as a playful online presence for the band which I\'m a part of.</p><p>In terms of the code it uses a combination of ThreeJS and CannonJS which provides the physics. The models used were found online but were tweaked and cleaned up using Blender to make them download as fast as possible.</p><p>It works great on mobile and desktop, and on larger screens you can play around with a few of the camera and physics settings for fun.</p><p>Made in 2019. The source code is available on <a href="https://github.com/nickmcmillan/fenton-three-cannon" target="_blank">Github</a>.</p>',
     theme: '#d7dfff',
   },
   {

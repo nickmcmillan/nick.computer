@@ -19,7 +19,7 @@ html {
 body {
   margin: 0;
   font-family: sans-serif;
-  background-color: #eceff7;
+  background-color: #fff;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -111,16 +111,35 @@ h2 {
 
 .container {
   margin: 0 auto;
-  padding: var(--padding);
+  padding: 1.5rem 1.25rem;//var(--padding);
   max-width: 60rem;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  
+}
+
+.dragger {
+  position: fixed;
+  bottom: 0;
+  left: 1.25rem;
+  right: 1.25rem;
 }
 
 @media screen and (min-width: 768px) {
   .container {
-    padding-left: var(--padding-lg);
-    padding-right: var(--padding-lg);
+    position: inherit;
+    padding: var(--padding-lg);
+    // padding-top: var(--padding-lg);
+    // padding-bottom: var(--padding-lg);
+    // padding-left: var(--padding-lg);
+    // padding-right: var(--padding-lg);
+  }
+
+  .dragger {
+    position: inherit;
   }
 }
-.dragger {
-  padding-bottom: 3rem;
-}
+

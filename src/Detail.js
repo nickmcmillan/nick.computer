@@ -16,13 +16,13 @@ export default function Detail({
 
   const springRef = useRef()
 
-  const imageOff = `translate3d(${0}%, ${32}px, 0px)`
-  const imageOn = `translate3d(${0}%, ${0}px, 0px)`
+  // const imageOff = `translate3d(${0}%, ${32}px, 0px)`
+  // const imageOn = `translate3d(${0}%, ${0}px, 0px)`
 
-  const { transform, opacity } = useSpring({
+  const { opacity } = useSpring({
     ref: springRef,
     opacity: active ? 1 : 0,
-    transform: active ? imageOn : imageOff,
+    // transform: active ? imageOn : imageOff,
     config
   })
 
@@ -59,28 +59,32 @@ export default function Detail({
         /> */}
         {/* <div className="Detail-inner"> */}
         
-          <animated.button className="Back-btn" onClick={() => handleClose(item.title)} style={{ opacity: opacity.interpolate(t => t) }}>
-            <BackIcon className="Back-icon" />
-          </animated.button>
 
-          <animated.div
-            className="Detail-panel Detail-panel--primary"
-            style={props}
-          >
-            {item.logo ? <img className="Icon-project" src={item.logo} alt={`${item.title} logo`} /> : <p className="Icon-fallback">{item.title}</p>}
-            
-            <h1 className="Detail-title">
-              <a
-                className="Detail-anchor"
-                href={item.url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {item.subtitle}
-                <OpenIcon />
-              </a>
-            </h1>
-          </animated.div>
+          <div className="Detail-panel Detail-panel--primary">
+            <animated.button className="Back-btn" onClick={() => handleClose(item.title)} style={{ opacity: opacity.interpolate(t => t) }}>
+              <BackIcon className="Back-icon" />
+            </animated.button>
+
+            <animated.div
+              
+              style={props}
+            >
+              {item.logo ? <img className="Icon-project" src={item.logo} alt={`${item.title} logo`} /> : <p className="Icon-fallback">{item.title}</p>}
+              
+              <h1 className="Detail-title">
+                <a
+                  className="Detail-anchor"
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {item.subtitle}
+                  <OpenIcon />
+                </a>
+              </h1>
+            </animated.div>
+          </div>
+
 
           <animated.div 
             className="Detail-panel Detail-panel--secondary"

@@ -10,13 +10,12 @@ $borderRadius: 12px;
   background: #fff;
   border-radius: $borderRadius;
   will-change: transform;
-
   position: absolute;
   top: 0;
   left: 0;
   z-index: -1;
-  height: $itemHeight;
-  width: $itemWidth;
+  height: $itemHeight * 0.75;
+  width: $itemWidth * 0.75;
   border-radius: $borderRadius;
   will-change: opacity, transform;
 }
@@ -35,9 +34,7 @@ $borderRadius: 12px;
 
 @media screen and (min-width: 768px) {
   .shadow {
-    width: 20rem;
-    height: 32rem;
+    width: $itemWidth;
+    height: $itemHeight;
   }
-
-  
 }

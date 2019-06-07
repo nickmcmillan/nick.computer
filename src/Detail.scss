@@ -1,12 +1,12 @@
 .Detail {
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1;
   font-size: 1.05rem;
   margin: 0 auto;
-  padding: var(--padding);
+  padding: 1.5rem 1.25rem;//var(--padding);
   max-width: 60rem;
 }
 
@@ -39,8 +39,9 @@
 }
 
 .Back-btn {
-  position: fixed;
-  padding: 1rem;
+  // position: fixed;
+  // padding: 1rem;
+  padding-bottom: 2rem;
   left: 1rem;
   top: 1rem;
 }
@@ -74,7 +75,7 @@
 
 
 .Detail-panel--secondary {
-
+  margin-bottom: 10rem;
 }
 
 .Detail-paragraph {
@@ -103,9 +104,11 @@
 
 @media screen and (min-width: 768px) {
   .Detail {
+    position: absolute;
     display: flex;
-    padding-left: var(--padding-lg);
-    padding-right: var(--padding-lg);
+    // padding-left: var(--padding-lg);
+    // padding-right: var(--padding-lg);
+    padding: var(--padding-lg);
   }
 
   .Detail-panel--primary {
@@ -115,5 +118,6 @@
 
   .Detail-panel--secondary {
     width: 100%;
+    margin-bottom: 0;
   }
 }
