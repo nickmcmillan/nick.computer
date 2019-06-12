@@ -1,6 +1,6 @@
 // https://gist.github.com/morajabi/523d7a642d8c0a2f71fcfa0d8b3d2846
 import { useLayoutEffect, useCallback, useState } from 'react'
-import ResizeObserver from 'resize-observer-polyfill'
+// import ResizeObserver from 'resize-observer-polyfill'
 
 function getRect(element) {
   if (!element) {
@@ -27,8 +27,13 @@ export default (ref) => {
       return
     }
 
+    
+    const tit = getRect(ref.current)
+    console.log(tit)
+    
+
     // Update client rect
-    setRect(getRect(ref.current))
+    setRect(tit)
   }, [ref])
 
   useLayoutEffect(() => {
@@ -39,20 +44,21 @@ export default (ref) => {
 
     handleResize()
 
-    let resizeObserver = new ResizeObserver(() => handleResize())
-    resizeObserver.observe(element)
+    // let resizeObserver = new ResizeObserver(() => handleResize())
+    // resizeObserver.observe(element)
+    
 
-    // window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', handleResize);
 
 
     return () => {
-      // window.removeEventListener('resize', handleResize);
-      if (!resizeObserver) {
-        return
-      }
+      window.removeEventListener('resize', handleResize);
+      // if (!resizeObserver) {
+      //   return
+      // }
 
-      resizeObserver.disconnect()
-      resizeObserver = null
+      // resizeObserver.disconnect()
+      // resizeObserver = null
     }
   
   }, [ref, handleResize])

@@ -1,6 +1,5 @@
-import React, { useRef } from 'react'
+import React, { useRef, useLayoutEffect } from 'react'
 import useElementResizer from './useElementResizer'
-import getCardDimensions from './getCardDimensions'
 import { useSpring, animated } from 'react-spring'
 
 import './Ccard.scss';
@@ -11,23 +10,6 @@ import { breakpoint } from './App'
 const parallaxFactor = -12
 const config = { tension: 300, friction: 70, mass: 5 }
 
-function getRect(element) {
-  if (!element) {
-    return {
-      bottom: 0,
-      height: 0,
-      left: 0,
-      right: 0,
-      top: 0,
-      width: 0,
-      x: 0,
-      y: 0,
-    }
-  }
-
-  return element.getBoundingClientRect()
-}
-
 const Card = ({
   isActive,
   shouldHide,
@@ -36,9 +18,10 @@ const Card = ({
   isHovered,
   handleHover,
   draggerX,
-  containerX,
 }) => {
 
+  console.log(isActive)
+  
   // backdrop
   const refBackdrop = useRef(null)
   const { 
@@ -46,18 +29,14 @@ const Card = ({
     height: backdropHeight,
     x: backdropX,
     y: backdropY,
-    // left: transformerRefOffsetLeft
   } = useElementResizer(refBackdrop)
-  
-  const {
-    backdropPosX,
-    backdropPosY,
-    backdropScaleX,
-    backdropScaleY,
-  } = getCardDimensions({ backdropWidth, backdropHeight, backdropX, backdropY, draggerX, containerX, })
+
+  const xLarge = (window.innerWidth / 2) - (backdropWidth / 2) - backdropX - draggerX
+  const yLarge = window.innerHeight - backdropHeight - backdropY
+  const scaleLarge = window.innerWidth / backdropWidth
 
   const backdropOff = 'translate3d(0px, 0px, 0px) scale(1)'
-  const backdropOn = `translate3d(${backdropPosX}px, ${backdropPosY}px, 0px) scale(${window.innerWidth < window.innerHeight ? backdropScaleX : backdropScaleX })` //backdropScaleX
+  const backdropOn = `translate3d(${xLarge}px, ${yLarge}px, 0px) scale(${window.innerWidth < window.innerHeight ? scaleLarge : scaleLarge })` //scaleLarge
 
   const { transformBackdrop, cardTextTransform } = useSpring({
     cardTextTransform: isActive ? `translate3d(0px, ${-backdropHeight - backdropX * 2}px, 0px)` : `translate3d(0px, 0px, 0px)`,

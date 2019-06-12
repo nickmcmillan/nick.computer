@@ -57,7 +57,8 @@ export default function Detail({
           key={key}
           className="Detail"
           style={{
-            color: item.textColor || '#333'
+            color: item.textColor || '#333',
+            pointerEvents: active ? 'all' : 'none', // so cards are interactive faster
           }}
         >
         {/* <animated.div
@@ -71,7 +72,7 @@ export default function Detail({
         
 
           <div className="Detail-panel Detail-panel--primary">
-            <animated.button className="Back-btn" onClick={() => handleClose(item.title)} style={{ opacity: opacity.interpolate(t => t) }}>
+            <animated.button className="Back-btn" onClick={handleClose} style={{ opacity: opacity.interpolate(t => t) }}>
               <BackIcon className="Back-icon" />
             </animated.button>
 

@@ -55,6 +55,8 @@ $easing: cubic-bezier(0, 0, 0.2, 1);
   will-change: transform;
   overflow: hidden;
   transform-origin: bottom;
+  height: $itemHeight * 0.75;
+  width: $itemWidth * 0.75;
 }
 
 .inner {
@@ -87,7 +89,8 @@ $easing: cubic-bezier(0, 0, 0.2, 1);
 }
 
 @media screen and (min-width: 768px) {
-  .card {
+  .card,
+  .backdrop {
     width: $itemWidth;
     height: $itemHeight;
   }
