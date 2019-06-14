@@ -6,6 +6,7 @@ import realasSm from './imgs/realas-sm.jpg'
 import realasLg from './imgs/realas-lg.jpg'
 import mcfrench from './imgs/mcfrench.png'
 
+import realAsSvg from './icons/realas.svg'
 import fentonSvg from './icons/fenton.svg'
 import bikerepairSvg from './icons/bikerepair.svg'
 
@@ -38,7 +39,7 @@ export default [
   {
     title: 'Realas',
     offsetY: 0,
-    logo: fentonSvg,
+    logo: realAsSvg,
     icons: [
       {
         Icon: ReactIcon,

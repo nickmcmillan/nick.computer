@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import ResizeObserver from 'resize-observer-polyfill'
 import Dragger from 'react-physics-dragger'
-import useDimensions from 'react-use-dimensions'
+import useDimensions from './useDimensions'
 
 import Title from './Title'
 import SocialLinks from './SocialLinks'
@@ -14,13 +14,14 @@ import './index.scss';
 import cardData from './data.js'
 
 export const breakpoint = 800
+const desktopPadding = 48
 
 const App = () => {
 
   const [active, setActive] = useState(null)
   const [draggerX, setDraggerX] = useState(0)
   const [hovered, setHovered] = useState(null)
-  const [outerRef, stepSize] = useDimensions()
+  const [outerRef, outerRefSize] = useDimensions()
 
   return (
     <>
@@ -46,7 +47,7 @@ const App = () => {
               key={item.title}
               id={i}
               draggerX={draggerX}
-              containerX={stepSize.x}
+              containerX={outerRefSize.x}
               shouldHide={active && active !== item.title} // whether the card should translate downwards
               isActive={active === item.title}
               isHovered={hovered === item.title}

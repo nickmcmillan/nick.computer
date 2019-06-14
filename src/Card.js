@@ -1,5 +1,4 @@
-import React, { useRef, useLayoutEffect } from 'react'
-import useElementResizer from './useElementResizer'
+import React, { useRef, useLayoutEffect, useEffect, useState } from 'react'
 import { useSpring, animated } from 'react-spring'
 
 import './Ccard.scss';
@@ -18,28 +17,45 @@ const Card = ({
   isHovered,
   handleHover,
   draggerX,
+  containerX,
 }) => {
-
-  console.log(isActive)
   
-  // backdrop
   const refBackdrop = useRef(null)
-  const { 
-    width: backdropWidth,
-    height: backdropHeight,
-    x: backdropX,
-    y: backdropY,
-  } = useElementResizer(refBackdrop)
 
-  const xLarge = (window.innerWidth / 2) - (backdropWidth / 2) - backdropX - draggerX
-  const yLarge = window.innerHeight - backdropHeight - backdropY
-  const scaleLarge = window.innerWidth / backdropWidth
+  const [width, setWidth] = useState(0)
+  const [height, setHeight] = useState(0)
+  const [x, setX] = useState(0)
+  const [y, setY] = useState(0)
+  const [left, setLeft] = useState(0)
+
+  useLayoutEffect(() => {
+    
+    const { width, height, x, y } = refBackdrop.current.getBoundingClientRect()
+    // console.log(x)
+    
+    setWidth(width)
+    setHeight(height)
+    setX(x)
+    setY(y)
+    setLeft(left)
+  }, [])
+
+  // console.log(left)
+  
+
+  const padding = window.innerWidth > breakpoint ? 48 : 20
+  const xLarge = (window.innerWidth / 2) - (width / 2) - draggerX - containerX - padding - left
+  const yLarge = window.innerHeight - height - y
+  const scaleLarge = window.innerWidth / width
+
+  console.log(xLarge)
+  
 
   const backdropOff = 'translate3d(0px, 0px, 0px) scale(1)'
   const backdropOn = `translate3d(${xLarge}px, ${yLarge}px, 0px) scale(${window.innerWidth < window.innerHeight ? scaleLarge : scaleLarge })` //scaleLarge
 
   const { transformBackdrop, cardTextTransform } = useSpring({
-    cardTextTransform: isActive ? `translate3d(0px, ${-backdropHeight - backdropX * 2}px, 0px)` : `translate3d(0px, 0px, 0px)`,
+    cardTextTransform: isActive ? `translate3d(0px, ${-height - x * 2}px, 0px)` : `translate3d(0px, 0px, 0px)`,
     transformBackdrop: isActive ? backdropOn : backdropOff,
     config
   })
@@ -54,9 +70,9 @@ const Card = ({
     config: { tension: 600, friction: 80, mass: 2 },
   })
 
-  const parallaxVal = (draggerX + backdropX) / parallaxFactor
+  const parallaxVal = (draggerX + x) / parallaxFactor
   const imageOff = `translate3d(${parallaxVal}px, 0px, 0px) scale(1.5)` // 1.5
-  const imageOn = `translate3d(0px, ${item.offsetY}px, 0px) scale(1.25)` // 1.25
+  const imageOn = `translate3d(0px, ${item.offsetY || 0}px, 0px) scale(1.25)` // 1.25
   const { transformImage, opacityImage } = useSpring({
     transformImage: isActive ? imageOn : imageOff,
     opacityImage: window.innerWidth < breakpoint && isActive ? 0 : 1, // fade out on mobile
