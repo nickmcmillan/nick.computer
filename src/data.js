@@ -55,58 +55,58 @@ export default [
     theme: '#465b9b',
     textColor: '#fff',
   },
-  {
-    title: 'mcfrench.co',
-    icons: [
-      {
-        Icon: ReactIcon,
-        title: 'React'
-      }
-    ],
-    url: 'https://www.mcfrench.co',
-    imageLg: mcfrench,
-    imageSm: mcfrench,
-    intro: 'blahblahahah',
-    subtitle: 'A photo collection of our time spent living in Amsterdam.',
-    description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa, beatae autem consequatur quas natus, rerum corporis labore, optio omnis inventore maxime aspernatur voluptatum? Mollitia cumque laboriosam neque architecto enim necessitatibus!',
-    theme: '#fff',
-  },
-  {
-    title: 'Bike Repair',
-    offsetY: 0,
-    logo: bikerepairSvg,
-    icons: [
-      {
-        Icon: ReactIcon,
-        title: 'React'
-      },
-      {
-        Icon: ReduxIcon,
-        title: 'Redux'
-      },
-      {
-        Icon: Google,
-        title: 'Google Places APIs'
-      },
-      {
-        Icon: CraftIcon,
-        title: 'Craft CMS'
-      },
-    ],
-    url: 'https://www.bikerepair.com/',
-    imageLg: brLg,
-    imageSm: brSm,
-    intro: 'A curated search tool for specialised bike shops.',
-    subtitle: 'Hand-picked repair services that keep you riding',
-    description: '<p><a href="https://www.bikerepair.com/" target="_blank">Bikerepair.com</a> is a curated search tool for specialised bike shops.</p><p>I built the front-end using React + Redux for the UI and state management, <a href="https://github.com/google-map-react/google-map-react" target="_blank">Google Maps React</a> for the map, and <a href="https://github.com/react-spring/react-spring" target="_blank">react-spring</a> for the transitions and animations throughout the site.</p><p>Craft CMS runs on the backend to provide all the bike shop data which is then combined with ratings and customer reviews from Google Places API.</p><p>Built whilst at Momkai in 2018.</p>',
-    theme: '#188acd',
-    textColor: '#fff'
-  },
-  {
-    title: 'Tekentool',
-    imageLg: fentonLg,
-    imageSm: fentonSm,
-    description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus, quos excepturi? Temporibus aspernatur a',
-    theme: 'green'
-  },
+  // {
+  //   title: 'mcfrench.co',
+  //   icons: [
+  //     {
+  //       Icon: ReactIcon,
+  //       title: 'React'
+  //     }
+  //   ],
+  //   url: 'https://www.mcfrench.co',
+  //   imageLg: mcfrench,
+  //   imageSm: mcfrench,
+  //   intro: 'blahblahahah',
+  //   subtitle: 'A photo collection of our time spent living in Amsterdam.',
+  //   description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa, beatae autem consequatur quas natus, rerum corporis labore, optio omnis inventore maxime aspernatur voluptatum? Mollitia cumque laboriosam neque architecto enim necessitatibus!',
+  //   theme: '#fff',
+  // },
+  // {
+  //   title: 'Bike Repair',
+  //   offsetY: 0,
+  //   logo: bikerepairSvg,
+  //   icons: [
+  //     {
+  //       Icon: ReactIcon,
+  //       title: 'React'
+  //     },
+  //     {
+  //       Icon: ReduxIcon,
+  //       title: 'Redux'
+  //     },
+  //     {
+  //       Icon: Google,
+  //       title: 'Google Places APIs'
+  //     },
+  //     {
+  //       Icon: CraftIcon,
+  //       title: 'Craft CMS'
+  //     },
+  //   ],
+  //   url: 'https://www.bikerepair.com/',
+  //   imageLg: brLg,
+  //   imageSm: brSm,
+  //   intro: 'A curated search tool for specialised bike shops.',
+  //   subtitle: 'Hand-picked repair services that keep you riding',
+  //   description: '<p><a href="https://www.bikerepair.com/" target="_blank">Bikerepair.com</a> is a curated search tool for specialised bike shops.</p><p>I built the front-end using React + Redux for the UI and state management, <a href="https://github.com/google-map-react/google-map-react" target="_blank">Google Maps React</a> for the map, and <a href="https://github.com/react-spring/react-spring" target="_blank">react-spring</a> for the transitions and animations throughout the site.</p><p>Craft CMS runs on the backend to provide all the bike shop data which is then combined with ratings and customer reviews from Google Places API.</p><p>Built whilst at Momkai in 2018.</p>',
+  //   theme: '#188acd',
+  //   textColor: '#fff'
+  // },
+  // {
+  //   title: 'Tekentool',
+  //   imageLg: fentonLg,
+  //   imageSm: fentonSm,
+  //   description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus, quos excepturi? Temporibus aspernatur a',
+  //   theme: 'green'
+  // },
 ]

@@ -1,4 +1,4 @@
-import React, { useRef, useLayoutEffect, useEffect, useState } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import { useSpring, animated } from 'react-spring'
 
 import './Ccard.scss';
@@ -26,33 +26,22 @@ const Card = ({
   const [height, setHeight] = useState(0)
   const [x, setX] = useState(0)
   const [y, setY] = useState(0)
-  const [left, setLeft] = useState(0)
 
-  useLayoutEffect(() => {
-    
+  useEffect(() => {
     const { width, height, x, y } = refBackdrop.current.getBoundingClientRect()
-    // console.log(x)
-    
     setWidth(width)
     setHeight(height)
     setX(x)
     setY(y)
-    setLeft(left)
   }, [])
 
-  // console.log(left)
-  
-
-  const padding = window.innerWidth > breakpoint ? 48 : 20
-  const xLarge = (window.innerWidth / 2) - (width / 2) - draggerX - containerX - padding - left
-  const yLarge = window.innerHeight - height - y
-  const scaleLarge = window.innerWidth / width
-
-  console.log(xLarge)
-  
+  const cardMargin = 32
+  const expandedX = (window.innerWidth / 2) - (width / 2) - draggerX - containerX - (width + cardMargin) * id
+  const expandedY = window.innerHeight - height - y
+  const expandedScale = window.innerWidth / width
 
   const backdropOff = 'translate3d(0px, 0px, 0px) scale(1)'
-  const backdropOn = `translate3d(${xLarge}px, ${yLarge}px, 0px) scale(${window.innerWidth < window.innerHeight ? scaleLarge : scaleLarge })` //scaleLarge
+  const backdropOn = `translate3d(${expandedX}px, ${expandedY}px, 0px) scale(${window.innerWidth < window.innerHeight ? expandedScale : expandedScale })`
 
   const { transformBackdrop, cardTextTransform } = useSpring({
     cardTextTransform: isActive ? `translate3d(0px, ${-height - x * 2}px, 0px)` : `translate3d(0px, 0px, 0px)`,
@@ -82,6 +71,7 @@ const Card = ({
   return (
     <animated.button
       id={id}
+      ref={refBackdrop}
       className={`card ${isActive ? 'is-active' : ''}`}
       key={item.title}
       onFocus={() => handleHover(item.title)}
@@ -123,7 +113,7 @@ const Card = ({
       </animated.div>
       
       <animated.div
-        ref={refBackdrop}
+        
         className="backdrop"
         style={{
           transform: transformBackdrop.interpolate(t => t),
