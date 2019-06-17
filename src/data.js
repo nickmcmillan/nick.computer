@@ -69,7 +69,7 @@ export default [
     intro: 'blahblahahah',
     subtitle: 'A photo collection of our time spent living in Amsterdam.',
     description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa, beatae autem consequatur quas natus, rerum corporis labore, optio omnis inventore maxime aspernatur voluptatum? Mollitia cumque laboriosam neque architecto enim necessitatibus!',
-    theme: '#fff',
+    theme: '#eee',
   },
   {
     title: 'Bike Repair',

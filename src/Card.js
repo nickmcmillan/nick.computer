@@ -8,6 +8,7 @@ import { breakpoint } from './App'
 
 const parallaxFactor = -12
 const config = { tension: 300, friction: 70, mass: 5 }
+const configHover = { tension: 600, friction: 80, mass: 2 }
 
 const Card = ({
   isActive,
@@ -46,7 +47,7 @@ const Card = ({
   const backdropOn = `translate3d(${expandedX}px, ${expandedY}px, 0px) scale(${window.innerWidth < breakpoint ? expandedScaleY : expandedScaleX })`
 
   const { transformBackdrop, cardTextTransform } = useSpring({
-    cardTextTransform: isActive ? `translate3d(0px, ${-height - x * 2}px, 0px)` : `translate3d(0px, 0px, 0px)`,
+    cardTextTransform: isActive ? `translate3d(0px, ${-height - y * 2}px, 0px)` : `translate3d(0px, 0px, 0px)`,
     transformBackdrop: isActive ? backdropOn : backdropOff,
     config
   })
@@ -58,7 +59,7 @@ const Card = ({
     shadowOpacityUpper: isHovered ? 1 : 0.1,
     shadowOpacityLower: isHovered ? 0.5 : 1,
     zIndex: isHovered || isActive ? 1 : 0,
-    config: { tension: 600, friction: 80, mass: 2 },
+    config: configHover,
   })
 
   const parallaxVal = (draggerX + x) / parallaxFactor
@@ -124,7 +125,9 @@ const Card = ({
       >
         <animated.img
           className="card_media"
-          src={isActive ? item.imageLg : item.imageSm} // perf: switch for larger version when active
+          // perf: switch for larger version when active,
+          // but only if its on a large screen
+          src={!isActive || !isLarge ? item.imageSm : item.imageLg}
           alt=""
           style={{
             transform: transformImage.interpolate(t => t),
