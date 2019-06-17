@@ -18,6 +18,7 @@ const Card = ({
   handleHover,
   draggerX,
   containerX,
+  isLarge,
 }) => {
   
   const refBackdrop = useRef(null)
@@ -33,15 +34,16 @@ const Card = ({
     setHeight(height)
     setX(x)
     setY(y)
-  }, [])
+  }, [isLarge, isActive]) // when should we re-measure?
 
   const cardMargin = 32
   const expandedX = (window.innerWidth / 2) - (width / 2) - draggerX - containerX - (width + cardMargin) * id
   const expandedY = window.innerHeight - height - y
-  const expandedScale = window.innerWidth / width
+  const expandedScaleX = window.innerWidth / width
+  const expandedScaleY = window.innerHeight / height
 
   const backdropOff = 'translate3d(0px, 0px, 0px) scale(1)'
-  const backdropOn = `translate3d(${expandedX}px, ${expandedY}px, 0px) scale(${window.innerWidth < window.innerHeight ? expandedScale : expandedScale })`
+  const backdropOn = `translate3d(${expandedX}px, ${expandedY}px, 0px) scale(${window.innerWidth < breakpoint ? expandedScaleY : expandedScaleX })`
 
   const { transformBackdrop, cardTextTransform } = useSpring({
     cardTextTransform: isActive ? `translate3d(0px, ${-height - x * 2}px, 0px)` : `translate3d(0px, 0px, 0px)`,
@@ -113,7 +115,6 @@ const Card = ({
       </animated.div>
       
       <animated.div
-        
         className="backdrop"
         style={{
           transform: transformBackdrop.interpolate(t => t),

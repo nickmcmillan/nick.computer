@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import ResizeObserver from 'resize-observer-polyfill'
 import Dragger from 'react-physics-dragger'
 import useDimensions from './useDimensions'
+import useDebouncedWindowWidth from './useDebouncedWindowWidth'
 
 import Title from './Title'
 import SocialLinks from './SocialLinks'
@@ -10,11 +11,9 @@ import Detail from './Detail'
 
 import './index.scss';
 
-
 import cardData from './data.js'
 
-export const breakpoint = 800
-const desktopPadding = 48
+export const breakpoint = 768
 
 const App = () => {
 
@@ -22,6 +21,9 @@ const App = () => {
   const [draggerX, setDraggerX] = useState(0)
   const [hovered, setHovered] = useState(null)
   const [outerRef, outerRefSize] = useDimensions()
+
+  const windowWidth = useDebouncedWindowWidth(200)
+  const isLarge = windowWidth > breakpoint
 
   return (
     <>
@@ -53,6 +55,7 @@ const App = () => {
                 isActive={active === item.title}
                 isHovered={hovered === item.title}
                 item={item}
+                isLarge={isLarge}
 
                 handleHover={i => {
                   if (i === null) {
