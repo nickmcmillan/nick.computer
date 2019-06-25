@@ -4,13 +4,13 @@ import Dragger from 'react-physics-dragger'
 
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
-import useDimensions from './useDimensions'
-import useDebouncedWindowWidth from './useDebouncedWindowWidth'
+import useDimensions from './Hooks/useDimensions'
+import useDebouncedWindowWidth from './Hooks/useDebouncedWindowWidth'
 
-import Title from './Title'
-import SocialLinks from './SocialLinks'
-import Card from './Card'
-import Detail from './Detail'
+import Title from './Components/Title/Title'
+import SocialLinks from './Components/SocialLinks/SocialLinks'
+import Card from './Components/Card/Card'
+import Detail from './Components/Detail/Detail'
 
 import './index.scss';
 import './career.scss';

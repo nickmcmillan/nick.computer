@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useSpring, animated } from 'react-spring'
-import { ReactComponent as BackIcon } from './icons/left.svg'
+import { ReactComponent as BackIcon } from '../../icons/left.svg'
 
 import './BackButton.scss'
 const config = { mass: 5, tension: 2000, friction: 100 }

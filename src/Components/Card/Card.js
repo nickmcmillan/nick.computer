@@ -1,10 +1,10 @@
 import React, { useRef, useEffect, useState } from 'react'
 import { useSpring, animated } from 'react-spring'
 
-import './Ccard.scss';
+import './Card.scss';
 import './Shadow.scss'
 
-import { breakpoint } from './App'
+import { breakpoint } from '../../App'
 
 const parallaxFactor = -20
 const config = { tension: 300, friction: 70, mass: 5 }

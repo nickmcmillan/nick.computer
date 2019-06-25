@@ -1,14 +1,12 @@
 import React, { useRef, useEffect } from 'react'
 import { useTransition, useSpring,  useChain, animated } from 'react-spring'
-import { ReactComponent as BackIcon } from './icons/left.svg'
-import { ReactComponent as OpenIcon } from './icons/open.svg'
-import BackButton from './BackButton'
-
+import { ReactComponent as OpenIcon } from '../../icons/open.svg'
+import BackButton from '../BackButton/BackButton'
 
 import './Detail.scss'
-import './Icon.scss'
+import '../../Icon.scss'
 
-import { breakpoint } from './App'
+import { breakpoint } from '../../App'
 
 const config = { tension: 300, friction: 70, mass: 5 }
 
