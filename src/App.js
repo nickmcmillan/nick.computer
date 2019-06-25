@@ -11,9 +11,9 @@ import Title from './Components/Title/Title'
 import SocialLinks from './Components/SocialLinks/SocialLinks'
 import Card from './Components/Card/Card'
 import Detail from './Components/Detail/Detail'
+import Career from './Components/Career/Career'
 
 import './index.scss';
-import './career.scss';
 
 import cardData from './data.js'
 
@@ -82,32 +82,22 @@ const App = () => {
             ))}
           </Dragger>
 
+          <Detail
+            active={cardData.find(x => x.title === active)}
+            handleClose={title => {
+              setActive(null)
+              enableBodyScroll()
+
+              if (window.innerWidth < breakpoint) return
+              setHovered(title) // keep it hovered, for z-index reasons
+            }}
+          />
+
         </section>
 
-        <section className="section">
-          <h2 className="sub-heading">Career</h2>
-          <ul className="career">
-            <li>Job</li>
-            <li>job</li>
-            <li>job</li>
-            <li>job</li>
-          </ul>
-
-        </section>
+        <Career />
 
       </main>
-
-      <Detail
-        active={cardData.find(x => x.title === active)}
-        handleClose={title => {
-          setActive(null)
-          
-          enableBodyScroll()
-
-          if (window.innerWidth < breakpoint) return
-          setHovered(title) // keep it hovered, for z-index reasons
-        }}
-      />
 
     </>
   )

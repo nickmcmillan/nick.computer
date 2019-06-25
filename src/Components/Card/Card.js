@@ -6,7 +6,7 @@ import './Shadow.scss'
 
 import { breakpoint, configMain } from '../../App'
 
-const parallaxFactor = -20
+const parallaxFactor = -23
 // const configMain = { tension: 1000, friction: 200, mass: 5 }
 // const configMain = { tension: 400, friction: 100, mass: 0.1 }
 
@@ -17,8 +17,8 @@ const Card = ({
   id,
   isHovered,
   handleHover,
-  draggerX,
-  containerX,
+  draggerX = 0,
+  containerX = 0,
   isLarge,
 }) => {
   
@@ -65,13 +65,14 @@ const Card = ({
     config: configMain,
   })
 
-  const parallaxVal = (draggerX + x) / parallaxFactor
+  const parallaxVal = (draggerX + x) / (-winWidth / 30)
+  // const parallaxVal = (draggerX + x) / (-width + 0.001) * 30
   const imageOff = `translate3d(${parallaxVal}px, 0px, 0px) scale(1.5)` // 1.5
   const imageOn = `translate3d(0px, ${item.offsetY || 0}px, 0px) scale(1.25)` // 1.25
   const { transformImage, opacityImage } = useSpring({
     transformImage: isActive ? imageOn : imageOff,
     opacityImage: winWidth < breakpoint && isActive ? 0 : 1, // fade out on mobile
-    config: configMain
+    // config: configMain
   })
 
   return (
