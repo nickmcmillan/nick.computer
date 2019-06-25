@@ -3,6 +3,8 @@ import { useSpring, animated } from 'react-spring'
 import { ReactComponent as BackIcon } from '../../icons/left.svg'
 
 import './BackButton.scss'
+
+import { configBouncey } from '../../App'
 const config = { mass: 5, tension: 2000, friction: 100 }
 
 export default function BackButton({
@@ -11,14 +13,12 @@ export default function BackButton({
 }) {
 
   const [hovered, setHovered] = useState(false)
-
-  console.log(hovered)
   
   const { scale, opacity } = useSpring({
     // color: hovered ? '#fff' : 'currentColor',
     scale: hovered ? 'scale(1.25)' : 'scale(0.5)',
     opacity: hovered ? 1 : 0,
-    config
+    config//: configBouncey,
   })
 
   return (

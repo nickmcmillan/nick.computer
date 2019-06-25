@@ -18,6 +18,8 @@ import './career.scss';
 import cardData from './data.js'
 
 export const breakpoint = 800
+export const configMain = { tension: 500, friction: 80, mass: 3 }
+export const configBouncey = { mass: 5, tension: 2000, friction: 100 }
 
 const App = () => {
 
@@ -38,10 +40,10 @@ const App = () => {
 
         <section ref={outerRef} className="section">
 
-          <h2 className="sub-heading">Selected work</h2>
+          <h2 className="sub-heading">Recent work</h2>
 
           <Dragger
-            friction={0.92}
+            // friction={0.92}
             ResizeObserver={ResizeObserver}
             onFrame={e => setDraggerX(e.x)}
             onStaticClick={clickedEl => {

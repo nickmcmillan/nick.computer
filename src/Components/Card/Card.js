@@ -4,11 +4,11 @@ import { useSpring, animated } from 'react-spring'
 import './Card.scss';
 import './Shadow.scss'
 
-import { breakpoint } from '../../App'
+import { breakpoint, configMain } from '../../App'
 
 const parallaxFactor = -20
-const config = { tension: 300, friction: 70, mass: 5 }
-const configHover = { tension: 400, friction: 100, mass: 0.1 }
+// const configMain = { tension: 1000, friction: 200, mass: 5 }
+// const configMain = { tension: 400, friction: 100, mass: 0.1 }
 
 const Card = ({
   isActive,
@@ -47,12 +47,12 @@ const Card = ({
   const expandedScaleY = winHeight / height
 
   const backdropOff = 'translate3d(0px, 0px, 0px) scale(1)'
-  const backdropOn = `translate3d(${expandedX}px, ${expandedY}px, 0px) scale(${(winWidth < winHeight && winWidth < breakpoint) ? expandedScaleY : expandedScaleX })`
+  const backdropOn = `translate3d(${expandedX}px, ${expandedY}px, 0px) scale(${(winWidth < breakpoint && winWidth < winHeight) ? expandedScaleY : expandedScaleX })`
 
   const { transformBackdrop, cardTextTransform } = useSpring({
     cardTextTransform: isActive ? `translate3d(0px, ${-height - y * 2}px, 0px)` : `translate3d(0px, 0px, 0px)`,
     transformBackdrop: isActive ? backdropOn : backdropOff,
-    config
+    config: configMain
   })
 
   // hover interaction spring
@@ -62,7 +62,7 @@ const Card = ({
     shadowOpacityUpper: isHovered ? 1 : 0.1,
     shadowOpacityLower: isHovered ? 0.5 : 1,
     zIndex: isActive ? 1 : 0,
-    config: configHover,
+    config: configMain,
   })
 
   const parallaxVal = (draggerX + x) / parallaxFactor
@@ -71,7 +71,7 @@ const Card = ({
   const { transformImage, opacityImage } = useSpring({
     transformImage: isActive ? imageOn : imageOff,
     opacityImage: winWidth < breakpoint && isActive ? 0 : 1, // fade out on mobile
-    config
+    config: configMain
   })
 
   return (
