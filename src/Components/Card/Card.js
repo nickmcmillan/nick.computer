@@ -66,7 +66,6 @@ const Card = ({
   })
 
   const parallaxVal = (draggerX + x) / (-winWidth / 30)
-  // const parallaxVal = (draggerX + x) / (-width + 0.001) * 30
   const imageOff = `translate3d(${parallaxVal}px, 0px, 0px) scale(1.5)` // 1.5
   const imageOn = `translate3d(0px, ${item.offsetY || 0}px, 0px) scale(1.25)` // 1.25
   const { transformImage, opacityImage } = useSpring({
@@ -87,6 +86,7 @@ const Card = ({
       onBlur={() => handleHover(null)}
       href="/"
       style={{
+        
         color: item.textColor || '#333',
         transform: cardTransform.interpolate(t => t),
         zIndex: zIndex.interpolate(t => Math.ceil(t)), // smooths out shoadow transition when hovering from one card to another
@@ -125,6 +125,7 @@ const Card = ({
           transform: transformBackdrop.interpolate(t => t),
           backgroundColor: item.theme,
           borderRadius: isActive ? '0px' : '12px',
+          boxShadow: isActive ? '-60px 60px 40px 10px rgba(51, 51, 51, 0.15)' : 'none',
         }}
       >
         <animated.img

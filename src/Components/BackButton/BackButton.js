@@ -30,6 +30,8 @@ export default function BackButton({
         // color: color.interpolate(t => t),
         ...style
       }}
+      onFocus={() => setHovered(true)}
+      onBlur={() => setHovered(false)}
       onMouseOver={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import ResizeObserver from 'resize-observer-polyfill'
 import Dragger from 'react-physics-dragger'
+import { useSpring, animated } from 'react-spring'
 
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
@@ -29,7 +30,13 @@ const App = () => {
   const [outerRef, outerRefSize] = useDimensions()
 
   const windowWidth = useDebouncedWindowWidth(200)
-  const isLarge = windowWidth > breakpoint
+  const isLarge = windowWidth > breakpoint // TODO: this
+
+
+  const { overlayOpacity } = useSpring({
+    overlayOpacity: active ? 1 : 0,
+    config: configMain
+  })
 
   return (
     <>
@@ -40,10 +47,17 @@ const App = () => {
 
         <section ref={outerRef} className="section">
 
+
+          {/* <animated.div
+            className="Overlay"
+            style={{
+              opacity: overlayOpacity.interpolate(t => t),
+            }}
+          /> */}
+
           <h2 className="sub-heading">Recent work</h2>
 
           <Dragger
-            // friction={0.92}
             ResizeObserver={ResizeObserver}
             onFrame={e => setDraggerX(e.x)}
             onStaticClick={clickedEl => {
@@ -95,7 +109,7 @@ const App = () => {
 
         </section>
 
-        <Career />
+        {/* <Career /> */}
 
       </main>
 
