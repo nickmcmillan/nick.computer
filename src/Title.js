@@ -33,7 +33,7 @@ const Title = () => {
         ))}
 
       </div>
-        <span className="intro">I’m a freelance website developer who likes React, motion, and making music.</span>
+        <span className="intro">I’m a freelance website developer who likes Javascript, UI's, and making music.</span>
         
       </h1>
   )

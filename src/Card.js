@@ -6,9 +6,9 @@ import './Shadow.scss'
 
 import { breakpoint } from './App'
 
-const parallaxFactor = -12
+const parallaxFactor = -20
 const config = { tension: 300, friction: 70, mass: 5 }
-const configHover = { tension: 600, friction: 80, mass: 2 }
+const configHover = { tension: 400, friction: 100, mass: 0.1 }
 
 const Card = ({
   isActive,
@@ -37,14 +37,17 @@ const Card = ({
     setY(y)
   }, [isLarge, isActive]) // when should we re-measure?
 
+  const winWidth = window.innerWidth
+  const winHeight = window.innerHeight
+
   const cardMargin = 32
-  const expandedX = (window.innerWidth / 2) - (width / 2) - draggerX - containerX - (width + cardMargin) * id
-  const expandedY = window.innerHeight - height - y
-  const expandedScaleX = window.innerWidth / width
-  const expandedScaleY = window.innerHeight / height
+  const expandedX = (winWidth / 2) - (width / 2) - draggerX - containerX - (width + cardMargin) * id
+  const expandedY = winHeight - height - y
+  const expandedScaleX = winWidth / width
+  const expandedScaleY = winHeight / height
 
   const backdropOff = 'translate3d(0px, 0px, 0px) scale(1)'
-  const backdropOn = `translate3d(${expandedX}px, ${expandedY}px, 0px) scale(${window.innerWidth < breakpoint ? expandedScaleY : expandedScaleX })`
+  const backdropOn = `translate3d(${expandedX}px, ${expandedY}px, 0px) scale(${(winWidth < winHeight && winWidth < breakpoint) ? expandedScaleY : expandedScaleX })`
 
   const { transformBackdrop, cardTextTransform } = useSpring({
     cardTextTransform: isActive ? `translate3d(0px, ${-height - y * 2}px, 0px)` : `translate3d(0px, 0px, 0px)`,
@@ -67,7 +70,7 @@ const Card = ({
   const imageOn = `translate3d(0px, ${item.offsetY || 0}px, 0px) scale(1.25)` // 1.25
   const { transformImage, opacityImage } = useSpring({
     transformImage: isActive ? imageOn : imageOff,
-    opacityImage: window.innerWidth < breakpoint && isActive ? 0 : 1, // fade out on mobile
+    opacityImage: winWidth < breakpoint && isActive ? 0 : 1, // fade out on mobile
     config
   })
 
@@ -127,7 +130,9 @@ const Card = ({
           className="card_media"
           // perf: switch for larger version when active,
           // but only if its on a large screen
-          src={!isActive || !isLarge ? item.imageSm : item.imageLg}
+          // src={isHovered || isActive ? item.imageLg : item.imageSm}
+          // src={!isActive || !isLarge ? item.imageSm : item.imageLg}
+          src={winWidth < breakpoint ? item.imageSm : item.imageLg}
           alt=""
           style={{
             transform: transformImage.interpolate(t => t),

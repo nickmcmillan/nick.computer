@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import ResizeObserver from 'resize-observer-polyfill'
 import Dragger from 'react-physics-dragger'
+
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+
 import useDimensions from './useDimensions'
 import useDebouncedWindowWidth from './useDebouncedWindowWidth'
 
@@ -10,10 +13,11 @@ import Card from './Card'
 import Detail from './Detail'
 
 import './index.scss';
+import './career.scss';
 
 import cardData from './data.js'
 
-export const breakpoint = 768
+export const breakpoint = 800
 
 const App = () => {
 
@@ -32,13 +36,18 @@ const App = () => {
         <Title />
         <SocialLinks />
 
-        <div ref={outerRef}>
+        <section ref={outerRef} className="section">
+
+          <h2 className="sub-heading">Selected work</h2>
+
           <Dragger
+            friction={0.92}
             ResizeObserver={ResizeObserver}
             onFrame={e => setDraggerX(e.x)}
             onStaticClick={clickedEl => {
               const btn = clickedEl.closest('button')
               if (!btn) return
+              disableBodyScroll()
               const id = parseInt(btn.id, 10)
               setActive(cardData[id].title)
             }}
@@ -70,18 +79,34 @@ const App = () => {
 
             ))}
           </Dragger>
-        </div>
 
+        </section>
+
+        <section className="section">
+          <h2 className="sub-heading">Career</h2>
+          <ul className="career">
+            <li>Job</li>
+            <li>job</li>
+            <li>job</li>
+            <li>job</li>
+          </ul>
+
+        </section>
 
       </main>
+
       <Detail
         active={cardData.find(x => x.title === active)}
         handleClose={title => {
           setActive(null)
+          
+          enableBodyScroll()
+
           if (window.innerWidth < breakpoint) return
           setHovered(title) // keep it hovered, for z-index reasons
         }}
       />
+
     </>
   )
 }

@@ -7,6 +7,8 @@ import { ReactComponent as OpenIcon } from './icons/open.svg'
 import './Detail.scss'
 import './Icon.scss'
 
+import { breakpoint } from './App'
+
 const config = { tension: 300, friction: 70, mass: 5 }
 
 export default function Detail({
@@ -16,15 +18,17 @@ export default function Detail({
 
   const springRef = useRef()
 
-  // const imageOff = `translate3d(${0}%, ${32}px, 0px)`
-  // const imageOn = `translate3d(${0}%, ${0}px, 0px)`
+  // const imageOn = `translate3d(${0}%, ${window.scrollY}px, 0px)`
+  const imageOn = `translate3d(${0}%, ${0}px, 0px)`
+  const imageOff = `translate3d(${0}%, ${0}px, 0px)`
 
-  const { opacity } = useSpring({
+  const { opacity, transformy } = useSpring({
     ref: springRef,
     opacity: active ? 1 : 0,
-    // transform: active ? imageOn : imageOff,
+    transformy: active ? imageOn : imageOff,
     config
   })
+  
 
   const transRef = useRef()
 
@@ -39,9 +43,9 @@ export default function Detail({
 
   useChain(active ? [springRef, transRef] : [transRef, springRef], [active ? 0.5 : 0, 0 ])
 
-
   // scroll to top when detail becomes active
   useEffect(() => {
+    if (window.innerWidth < breakpoint) return
     window.scrollTo({
       top: 0,
       left: 0,
@@ -51,71 +55,74 @@ export default function Detail({
 
   return <>
     {transitions.map(({ item, key, props }) => item && (
-      // <div key={key}>
 
-        <section
-          key={key}
-          className="Detail"
+      <section
+        key={key}
+        className="Detail"
+        style={{
+          // transform: `translate3d(${0}%, ${window.scrollY}px, 0px)`,
+          // transform: transformy.interpolate(t => t),
+          color: item.textColor || '#333',
+          pointerEvents: active ? 'all' : 'none', // so cards are interactive faster
+        }}
+      >
+        {/* <animated.img
+          className="Detail_bg"
+          src={item.imageLg}
+          alt=""
+          // style={{
+          //   transform: transformImage.interpolate(t => t),
+          //   opacity: opacityImage.interpolate(t => t),
+          // }}
+        /> */}
+      {/* <div className="Detail-inner"> */}
+      
+
+        <div className="Detail-panel Detail-panel--primary">
+          <animated.button className="Back-btn" onClick={handleClose} style={{ opacity: opacity.interpolate(t => t) }}>
+            <BackIcon className="Back-icon" />
+          </animated.button>
+
+          <animated.div
+            
+            style={props}
+          >
+            {item.logo ? <img className="Icon-project" src={item.logo} alt={`${item.title} logo`} /> : <p className="Icon-fallback">{item.title}</p>}
+            
+            <h1 className="Detail-title">
+              <a
+                className="Detail-anchor"
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {item.subtitle}
+                <OpenIcon />
+              </a>
+            </h1>
+          </animated.div>
+        </div>
+
+
+        <animated.div 
+          className="Detail-panel Detail-panel--secondary"
           style={{
-            color: item.textColor || '#333',
-            pointerEvents: active ? 'all' : 'none', // so cards are interactive faster
+            opacity: opacity.interpolate(t => t),
+            // transform: transform.interpolate(t => t),
           }}
         >
-        {/* <animated.div
-          className="Detail-background" 
-          style={{
-            background: `linear-gradient(0deg, rgba(255, 255, 255, 0) 0%, ${item.theme} 70%)`,
-            opacity: opacity.interpolate(t => t)
-          }}
-        /> */}
-        {/* <div className="Detail-inner"> */}
-        
+          <div className="Detail-paragraph" dangerouslySetInnerHTML={{__html: item.description}} />
 
-          <div className="Detail-panel Detail-panel--primary">
-            <animated.button className="Back-btn" onClick={handleClose} style={{ opacity: opacity.interpolate(t => t) }}>
-              <BackIcon className="Back-icon" />
-            </animated.button>
+          <h3>Technologies used</h3>
 
-            <animated.div
-              
-              style={props}
-            >
-              {item.logo ? <img className="Icon-project" src={item.logo} alt={`${item.title} logo`} /> : <p className="Icon-fallback">{item.title}</p>}
-              
-              <h1 className="Detail-title">
-                <a
-                  className="Detail-anchor"
-                  href={item.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {item.subtitle}
-                  <OpenIcon />
-                </a>
-              </h1>
-            </animated.div>
+          <div className="Detail-iconlist">
+            {item.icons.map(({Icon, title}) => <Icon className="Icon-list-item" key={title} title={title} /> )}
           </div>
+        </animated.div>
 
 
-          <animated.div 
-            className="Detail-panel Detail-panel--secondary"
-            style={{
-              opacity: opacity.interpolate(t => t),
-              // transform: transform.interpolate(t => t),
-            }}
-          >
-            <div className="Detail-paragraph" dangerouslySetInnerHTML={{__html: item.description}} />
+      </section>
 
-            <h3>Technologies used</h3>
-
-            <div className="Detail-iconlist">
-              {item.icons.map(({Icon, title}) => <Icon className="Icon-list-item" key={title} title={title} /> )}
-            </div>
-          </animated.div>
-
-
-        </section>
-      // </div>
 
     ))}
   </>
