@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react'
 import { useTransition, useSpring,  useChain, animated } from 'react-spring'
 import { ReactComponent as BackIcon } from './icons/left.svg'
 import { ReactComponent as OpenIcon } from './icons/open.svg'
+import BackButton from './BackButton'
 
 
 import './Detail.scss'
@@ -18,17 +19,11 @@ export default function Detail({
 
   const springRef = useRef()
 
-  // const imageOn = `translate3d(${0}%, ${window.scrollY}px, 0px)`
-  const imageOn = `translate3d(${0}%, ${0}px, 0px)`
-  const imageOff = `translate3d(${0}%, ${0}px, 0px)`
-
-  const { opacity, transformy } = useSpring({
+  const { opacity } = useSpring({
     ref: springRef,
     opacity: active ? 1 : 0,
-    transformy: active ? imageOn : imageOff,
     config
   })
-  
 
   const transRef = useRef()
 
@@ -60,28 +55,21 @@ export default function Detail({
         key={key}
         className="Detail"
         style={{
-          // transform: `translate3d(${0}%, ${window.scrollY}px, 0px)`,
-          // transform: transformy.interpolate(t => t),
           color: item.textColor || '#333',
           pointerEvents: active ? 'all' : 'none', // so cards are interactive faster
         }}
       >
-        {/* <animated.img
-          className="Detail_bg"
-          src={item.imageLg}
-          alt=""
-          // style={{
-          //   transform: transformImage.interpolate(t => t),
-          //   opacity: opacityImage.interpolate(t => t),
-          // }}
-        /> */}
-      {/* <div className="Detail-inner"> */}
       
 
         <div className="Detail-panel Detail-panel--primary">
-          <animated.button className="Back-btn" onClick={handleClose} style={{ opacity: opacity.interpolate(t => t) }}>
-            <BackIcon className="Back-icon" />
-          </animated.button>
+          <BackButton
+            onClick={handleClose}
+            style={{ 
+              opacity: opacity.interpolate(t => t),
+
+            }}
+
+          />
 
           <animated.div
             
@@ -103,12 +91,10 @@ export default function Detail({
           </animated.div>
         </div>
 
-
         <animated.div 
           className="Detail-panel Detail-panel--secondary"
           style={{
             opacity: opacity.interpolate(t => t),
-            // transform: transform.interpolate(t => t),
           }}
         >
           <div className="Detail-paragraph" dangerouslySetInnerHTML={{__html: item.description}} />
@@ -120,9 +106,7 @@ export default function Detail({
           </div>
         </animated.div>
 
-
       </section>
-
 
     ))}
   </>

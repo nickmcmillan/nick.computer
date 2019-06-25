@@ -1,0 +1,29 @@
+
+.Back-btn {
+  margin-bottom: 2rem;
+  position: relative;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+.Back-icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+.Back-btn-circle {
+  position: absolute;
+  background-color: #fff;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: 50%;
+  z-index: -1;
+}

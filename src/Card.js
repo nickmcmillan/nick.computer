@@ -61,7 +61,7 @@ const Card = ({
     shadowTransform: isHovered ? 'scale(1)' : 'scale(0.75)',
     shadowOpacityUpper: isHovered ? 1 : 0.1,
     shadowOpacityLower: isHovered ? 0.5 : 1,
-    zIndex: isHovered || isActive ? 1 : 0,
+    zIndex: isActive ? 1 : 0,
     config: configHover,
   })
 
@@ -88,7 +88,7 @@ const Card = ({
       style={{
         color: item.textColor || '#333',
         transform: cardTransform.interpolate(t => t),
-        zIndex: zIndex.interpolate(t => Math.round(t)), // smooths out shoadow transition when hovering from one card to another
+        zIndex: zIndex.interpolate(t => Math.ceil(t)), // smooths out shoadow transition when hovering from one card to another
       }}
     >
 
