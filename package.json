@@ -10,10 +10,12 @@
     "body-scroll-lock": "^2.6.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-focus-lock": "^2.0.0",
     "react-physics-dragger": "^1.0.2",
     "react-scripts": "3.0.0",
     "react-spring": "^8.0.19",
-    "resize-observer-polyfill": "^1.5.1"
+    "resize-observer-polyfill": "^1.5.1",
+    "wouter": "^2.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -4,31 +4,41 @@ import { useSpring, animated } from 'react-spring'
 import { configBouncey } from '../../App'
 
 export default function SocialLink({
-  style,
   svg,
   href,
   screenReaderText,
 }) {
 
   const [hovered, setHovered] = useState(false)
+  const [pressed, setPressed] = useState(false)
   
   const { scale, opacity } = useSpring({
     scale: hovered ? 'scale(1.25)' : 'scale(0.5)',
     opacity: hovered ? 1 : 0,
     config: configBouncey,
   })
+  
+  const { pressedScale } = useSpring({
+    pressedScale: pressed ? 'scale(0.8)' : 'scale(1)',
+    config: configBouncey,
+  })
 
   return (
     <li>
-      <a
+      <animated.a
         href={href}
         className="social-anchor"
+        onMouseDown={() => setPressed(true)}
+        onMouseUp={() => setPressed(false)}
         onFocus={() => setHovered(true)}
         onBlur={() => setHovered(false)}
         onMouseOver={() => setHovered(true)}
-        onMouseLeave={() => setHovered(false)}
+        onMouseLeave={() => { setHovered(false); setPressed(false) }}
         target="_blank"
         rel="noopener noreferrer" 
+        style={{
+          transform: pressedScale.interpolate(t => t),
+        }}
       >
 
         {svg}
@@ -44,7 +54,7 @@ export default function SocialLink({
             opacity: opacity.interpolate(t => t),
           }}
         />
-      </a>
+      </animated.a>
     </li>
   )
 }

@@ -6,7 +6,7 @@ import './Shadow.scss'
 
 import { breakpoint, configMain } from '../../App'
 
-const parallaxFactor = -23
+// const parallaxFactor = -23
 // const configMain = { tension: 1000, friction: 200, mass: 5 }
 // const configMain = { tension: 400, friction: 100, mass: 0.1 }
 

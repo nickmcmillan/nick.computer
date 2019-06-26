@@ -1,5 +1,7 @@
 import React, { useRef } from 'react'
 import { useTransition, useSpring,  useChain, animated } from 'react-spring'
+import FocusLock from 'react-focus-lock';
+
 import { ReactComponent as OpenIcon } from '../../icons/open.svg'
 import BackButton from '../BackButton/BackButton'
 
@@ -36,7 +38,7 @@ export default function Detail({
 
   useChain(active ? [springRef, transRef] : [transRef, springRef], [active ? 0.5 : 0, 0 ])
 
-  return <>
+  return <FocusLock>
     {transitions.map(({ item, key, props }) => item && (
 
       <section
@@ -92,5 +94,5 @@ export default function Detail({
 
       </section>
     ))}
-  </>
+  </FocusLock>
 }
