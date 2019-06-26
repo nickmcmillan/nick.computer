@@ -7,7 +7,6 @@ import BackButton from '../BackButton/BackButton'
 import { ReactComponent as OpenIcon } from '../../icons/open.svg'
 
 import './Detail.scss'
-import '../../Icon.scss'
 
 import { breakpoint, configMain } from '../../App'
 
@@ -57,10 +56,14 @@ export default function Detail({
             transform: breakpoint > window.innerWidth ? 'none' : `translateY(${window.scrollY}px)`,
             color: item.textColor || '#333',
             pointerEvents: active ? 'all' : 'none', // so cards are interactive faster
+            filter: active ? `drop-shadow(2px 4px 6px ${item.theme})` : 'none',
           }}
         >
 
-          <div className="Detail-panel Detail-panel--primary">
+          <div
+            className="Detail-panel Detail-panel--primary" 
+            
+          >
 
             <BackButton
               onClick={handleClose}
@@ -69,7 +72,12 @@ export default function Detail({
               }}
             />
 
-            <animated.div style={props}>
+            <animated.div
+              style={{
+              // filter: `drop-shadow(${'#fff' || '#333'} 2px 4px 0)`,
+                ...props
+              }}
+            >
               {item.logo ? <img className="Icon-project" src={item.logo} alt={`${item.title} logo`} /> : <p className="Icon-fallback">{item.title}</p>}
 
               <h1 className="Detail-title">

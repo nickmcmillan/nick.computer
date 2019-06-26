@@ -13,7 +13,7 @@ import './index.scss';
 
 import cardData from './data.js'
 
-export const breakpoint = 800
+export const breakpoint = 768
 export const configMain = { tension: 500, friction: 80, mass: 3 }
 export const configBouncey = { mass: 5, tension: 2000, friction: 100 }
 
@@ -30,9 +30,6 @@ const App = () => {
       setIsExpanded(matchedLocationFromData.title)
     }, 0)
   }
-
-  console.log('ren app')
-  
 
   return (
     <main className="container">

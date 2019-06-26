@@ -6,7 +6,6 @@ import './Title.scss'
 const items = ['Nick', 'McMillan']
 const config = { mass: 5, tension: 4000, friction: 200 }
 
-
 const Title = () => {
 
   const [toggle, set] = useState(true)
@@ -18,21 +17,21 @@ const Title = () => {
     from: { x: 40, height: 0 },
   })
 
-
   return (
       <h1 className="title">
-      <div className="trails-main" onClick={() => set(state => !state)}>
+        <div className="trails-main" onClick={() => set(state => !state)}>
 
-        {trail.map(({ x, height, ...rest }, index) => (
-          <animated.div
-            key={items[index]}
-            className="trails-text"
-            style={{ ...rest, transform: x.interpolate(x => `translate3d(0,${x}px,0)`) }}>
-            <animated.div style={{ height }}>{items[index]}</animated.div>
-          </animated.div>
-        ))}
+          {trail.map(({ x, height, ...rest }, index) => (
+            <animated.div
+              key={items[index]}
+              className="trails-text"
+              style={{ ...rest, transform: x.interpolate(x => `translate3d(0,${x}px,0)`) }}>
+              <animated.div style={{ height }}>{items[index]}</animated.div>
+            </animated.div>
+          ))}
 
-      </div>
+        </div>
+
         <span className="intro">I’m a freelance website developer who likes Javascript, UI's, and making music.</span>
         
       </h1>

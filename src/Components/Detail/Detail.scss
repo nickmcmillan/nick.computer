@@ -34,7 +34,7 @@
 
 
 .Icon-project {
-  max-width: 4.5rem;
+  width: 4.5rem;
   display: block;
   margin-bottom: 1rem;
 }
@@ -46,7 +46,7 @@
 }
 
 .Icon-list-item {
-  max-width: 6rem;
+  // max-width: 8rem;
   max-height: 3rem;
   margin-right: 1rem;
 }
@@ -63,14 +63,16 @@
 .Detail-panel--secondary {
   margin-bottom: 4rem;
   max-width: 40rem;
-  padding-right: 1rem;
+  
 }
 
 .Detail-paragraph {
   margin-bottom: 3rem;
+  padding-right: 2rem;
 
   a {
     text-decoration: underline;
+    font-weight: bold;
 
     &:hover,
     &:focus {
@@ -104,12 +106,13 @@
   }
 
   .Icon-project {
-    max-width: 5.5rem;
+    width: 6rem;
     margin-bottom: 1.25rem;
   }
 
   .Detail-title {
     font-size: 2rem;
+    padding-right: 0.9rem;
   }
 
   .Detail-panel--primary {

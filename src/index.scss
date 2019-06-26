@@ -7,6 +7,15 @@ $maxWidth: 60rem;
 
 @import url('https://fonts.googleapis.com/css?family=Rammetto+One|Source+Code+Pro');
 
+::selection {
+  background: #333;
+  color: #fff;
+}
+::-moz-selection {
+  background: #333;
+  color: #fff;
+}
+
 html {
   font-size: 100%;
   min-height: 100%;

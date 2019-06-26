@@ -23,10 +23,7 @@ const App = ({ isExpanded, setIsExpanded, setLocation }) => {
   const windowWidth = useDebouncedWindowWidth(200)
   const isLarge = windowWidth > breakpoint // TODO: this
 
-  console.log('ren drag')
-
   return (
-    
     <section ref={outerRef} className="section">
 
       <h2 className="sub-heading">Recent work</h2>

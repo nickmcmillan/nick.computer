@@ -4,7 +4,9 @@ import brSm from './imgs/br-sm.jpg'
 import brLg from './imgs/br-lg.jpg'
 import realasSm from './imgs/realas-sm.jpg'
 import realasLg from './imgs/realas-lg.jpg'
-import mcfrench from './imgs/mcfrench.png'
+
+import mcfrenchLg from './imgs/mcfrench-lg.jpg'
+import mcfrenchSm from './imgs/mcfrench-sm.jpg'
 
 import realAsSvg from './icons/realas.svg'
 import fentonSvg from './icons/fenton.svg'
@@ -16,12 +18,14 @@ import { ReactComponent as CraftIcon } from './icons/craft.svg'
 import { ReactComponent as ReactIcon } from './icons/react.svg'
 import { ReactComponent as ReduxIcon } from './icons/redux.svg'
 import { ReactComponent as Google } from './icons/google.svg'
+import { ReactComponent as ReactSpring } from './icons/react-spring.svg'
+import { ReactComponent as Cloudinary } from './icons/cloudinary.svg'
 
 export default [
   {
     title: 'Fenton',
     path: '/fenton',
-    offsetY: 60,
+    offsetY: 100,
     logo: fentonSvg,
     icons: [
       {
@@ -34,8 +38,8 @@ export default [
     imageSm: fentonSm,
     intro: 'A three.js website for the Melbourne band Fenton',
     subtitle: 'A three.js website for the Melbourne band Fenton',
-    description: '<p>Built as a playful online presence for the band which I\'m a part of.</p><p>In terms of the code it uses a combination of ThreeJS and CannonJS which provides the physics. The models used were found online but were tweaked and cleaned up using Blender to make them download as fast as possible.</p><p>It works great on mobile and desktop, and on larger screens you can play around with a few of the camera and physics settings for fun.</p><p>Made in 2019. The source code is available on <a href="https://github.com/nickmcmillan/fenton-three-cannon" target="_blank">Github</a>.</p>',
-    theme: '#e6efff',
+    description: '<p>Built as a playful online presence for the band which I\'m a part of.</p><p>In terms of the code it uses a combination of <a href="#">three.js</a> and <a href="#">cannon.js</a> which provides the physics. The models used were found online but were tweaked and cleaned up using Blender to make them download as fast as possible.</p><p>It works great on mobile and desktop, and on larger screens you can play around with a few of the camera and physics settings for fun.</p><p>Made in 2019. The source code is available on <a href="https://github.com/nickmcmillan/fenton-three-cannon" target="_blank">Github</a>.</p>',
+    theme: '#f4f592',
   },
   {
     title: 'Realas',
@@ -59,7 +63,7 @@ export default [
     url: 'https://www.realas.com/',
     imageLg: realasLg,
     imageSm: realasSm,
-    intro: 'Australian real estate property price search tool',
+    intro: 'A search tool for Australian real estate property prices',
     subtitle: 'Australia’s most accurate real estate price predictions',
     description: '<p>Whilst at Accenture I worked in a dedicated and agile team on-site at ANZ. We developed a real estate search tool which boasts having Australia’s most accurate real estate price prediction algorithm - designed to solve the problem of inaccurate price estimates in Australian property listings.</p><p>I started the project from scratch with a basic prototype built in React. Over the course of 6 months I helped develop multiple iterations of the app, eventually building up a small front-end team until finally handing the finished codebase and documentation over to ANZ.</p><p>Launched in 2017.</p>',
     theme: '#465b9b',
@@ -68,24 +72,35 @@ export default [
   {
     title: 'mcfrench.co',
     path: '/mcfrench',
+    activeOpacity: 0.8,
+    offsetY: 80,
     icons: [
       {
         Icon: ReactIcon,
         title: 'React'
       },
+      {
+        Icon: ReactSpring,
+        title: 'React Spring'
+      },
+      {
+        Icon: Cloudinary,
+        title: 'Cloudinary'
+      },
     ],
     url: 'https://www.mcfrench.co',
-    imageLg: mcfrench,
-    imageSm: mcfrench,
-    intro: 'blahblahahah',
-    subtitle: 'A photo collection of our time spent living in Amsterdam.',
-    description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa, beatae autem consequatur quas natus, rerum corporis labore, optio omnis inventore maxime aspernatur voluptatum? Mollitia cumque laboriosam neque architecto enim necessitatibus!',
-    theme: '#eee',
+    imageLg: mcfrenchLg,
+    imageSm: mcfrenchSm,
+    intro: 'A photo collection of our time spent living in Amsterdam',
+    subtitle: 'A photo collection of our time spent living in Amsterdam',
+    description: '<p>I wanted to document and share the 1.5 year period where my partner and I lived in my second favourite city, Amsterdam (Melbourne being my number one).</p><p>The collection became enormous. So my challenge was to find a way to organise and layout the whole collection, all in a single page, without the browser choking on 3000+ images.</p><p>Inspired by <a href="https://medium.com/google-design/google-photos-45b714dfbed1">Antin Harasymiv\'s write-up</a> of how Google Photos does it, I forked <a href="https://github.com/schlosser/pig.js/">previous work</a> and extended it into an open-source module for React called <a href="https://github.com/nickmcmillan/react-pig">React Pig</a>.</p><p>I wrote Node functions which bulk upload images to Cloudinary. I chose Cloudinary as they support on-the-fly image resizing and have a well documented API.</p><p>React Pig works great. It can render thousands of images, creating a seemless scrolling experience with lazy-loading, clickable thumbnails, and can even group images by dates</p>',
+    theme: '#dfecfb',
   },
   {
     title: 'Bike Repair',
     path: '/bike-repair',
     offsetY: 0,
+    activeOpacity: 1,
     logo: bikerepairSvg,
     icons: [
       {
@@ -97,6 +112,10 @@ export default [
         title: 'Redux'
       },
       {
+        Icon: ReactSpring,
+        title: 'React Spring'
+      },
+      {
         Icon: Google,
         title: 'Google Places APIs'
       },
@@ -104,6 +123,7 @@ export default [
         Icon: CraftIcon,
         title: 'Craft CMS'
       },
+      
     ],
     url: 'https://www.bikerepair.com/',
     imageLg: brLg,
@@ -111,7 +131,7 @@ export default [
     intro: 'A curated search tool for specialised bike shops.',
     subtitle: 'Hand-picked repair services that keep you riding',
     description: '<p><a href="https://www.bikerepair.com/" target="_blank">Bikerepair.com</a> is a curated search tool for specialised bike shops.</p><p>I built the front-end using React + Redux for the UI and state management, <a href="https://github.com/google-map-react/google-map-react" target="_blank">Google Maps React</a> for the map, and <a href="https://github.com/react-spring/react-spring" target="_blank">react-spring</a> for the transitions and animations throughout the site.</p><p>Craft CMS runs on the backend to provide all the bike shop data which is then combined with ratings and customer reviews from Google Places API.</p><p>Built whilst at Momkai in 2018.</p>',
-    theme: 'rgb(0, 175, 233)',
+    theme: '#1a8acc',
     textColor: '#fff'
   },
   // {
