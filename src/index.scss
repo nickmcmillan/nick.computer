@@ -136,29 +136,10 @@ h2 {
   font-weight: normal;
 }
 
-.Overlay {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: #333;
-  z-index: 1;
-  pointer-events: none;
-}
-
 @media screen and (min-width: 768px) {
   .container {
     position: inherit;
     padding: var(--padding-lg);
-    // padding-top: var(--padding-lg);
-    // padding-bottom: var(--padding-lg);
-    // padding-left: var(--padding-lg);
-    // padding-right: var(--padding-lg);
-  }
-
-  .dragger {
-    position: inherit;
   }
 }
 

@@ -86,7 +86,6 @@ const Card = ({
       onBlur={() => handleHover(null)}
       href="/"
       style={{
-        
         color: item.textColor || '#333',
         transform: cardTransform.interpolate(t => t),
         zIndex: zIndex.interpolate(t => Math.ceil(t)), // smooths out shoadow transition when hovering from one card to another
@@ -112,7 +111,6 @@ const Card = ({
         className="card_content"
         style={{
           transform: cardTextTransform.interpolate(t => t),
-          // borderRadius: isActive ? '0px' : '12px',
         }}
       >
         <h2 className="card_title">{item.title}</h2>
@@ -132,9 +130,8 @@ const Card = ({
           className="card_media"
           // perf: switch for larger version when active,
           // but only if its on a large screen
-          // src={isHovered || isActive ? item.imageLg : item.imageSm}
-          // src={!isActive || !isLarge ? item.imageSm : item.imageLg}
-          src={winWidth < breakpoint ? item.imageSm : item.imageLg}
+          src={!isActive || !isLarge ? item.imageSm : item.imageLg}
+          // src={winWidth < breakpoint ? item.imageSm : item.imageLg}
           alt=""
           style={{
             transform: transformImage.interpolate(t => t),
