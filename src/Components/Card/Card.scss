@@ -68,8 +68,8 @@ $easing: cubic-bezier(0, 0, 0.2, 1);
 }
 
 .card_content {
-  padding: 2rem;
-  width: 100%;
+  position: absolute;
+  padding: 3rem 2.5rem;
 }
 
 .card_title {
@@ -86,6 +86,12 @@ $easing: cubic-bezier(0, 0, 0.2, 1);
   will-change: transform;
   z-index: -1;
   transform-origin: bottom;
+}
+
+.Icon-project.Icon--card {
+  height: 2rem;
+  margin-bottom: 2rem;
+  max-width: 6rem;
 }
 
 @media screen and (min-width: 768px) {

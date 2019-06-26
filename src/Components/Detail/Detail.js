@@ -11,14 +11,12 @@ import '../../Icon.scss'
 
 import { breakpoint, configMain } from '../../App'
 
-// const config = { tension: 300, friction: 70, mass: 5 }
-
 export default function Detail({
   active,
   handleClose
 }) {
 
-  const escapePressed = useKeyPress('Escape');
+  const escapePressed = useKeyPress('Escape')
   if (escapePressed) {
     handleClose()
   }
@@ -44,12 +42,10 @@ export default function Detail({
 
   useChain(active ? [springRef, transRef] : [transRef, springRef], [active ? 0.5 : 0, 0 ])
 
-
-
   return (
     <FocusLock
-      autoFocus
-      returnFocus
+      autoFocus // kinda need it
+      // returnFocus // no
       disabled={!active}
     >
       {transitions.map(({ item, key, props }) => item && (

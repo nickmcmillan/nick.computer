@@ -113,7 +113,8 @@ const Card = ({
           transform: cardTextTransform.interpolate(t => t),
         }}
       >
-        <h2 className="card_title">{item.title}</h2>
+        {/* <h2 className="card_title">{item.title}</h2> */}
+        {item.logo ? <img className="Icon-project Icon--card" src={item.logo} alt={`${item.title} logo`} /> : <p className="Icon-fallback Icon--card">{item.title}</p>}
         <p>{item.intro}</p>
       </animated.div>
       
