@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Dragger from './Components/Dragger/Dragger'
 import useLocation from 'wouter/use-location'
 
@@ -24,12 +24,15 @@ const App = () => {
   // Routing
   const [location, setLocation] = useLocation()
   const matchedLocationFromData = cardData.find(item => item.path === location)
-  if (matchedLocationFromData) {
-    setTimeout(() => {
+  useEffect(() => {
+    if (matchedLocationFromData) {
       disableBodyScroll()
       setIsExpanded(matchedLocationFromData.title)
-    }, 0)
-  }
+    } else {
+      clearAllBodyScrollLocks()
+      setIsExpanded(null)
+    }
+  }, [matchedLocationFromData])
 
   return (
     <main className="container">
