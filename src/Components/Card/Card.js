@@ -67,7 +67,7 @@ const Card = ({
 
   const parallaxVal = (draggerX + x) / (-winWidth / 30)
   const imageOff = `translate3d(${parallaxVal}px, 0px, 0px) scale(1.5)` // 1.5
-  const imageOn = `translate3d(0px, ${item.offsetY || 0}px, 0px) scale(1.25)` // 1.25
+  const imageOn = `translate3d(0px, ${isLarge ? item.offsetY || 0 : 0}px, 0px) scale(1.25)` // 1.25
   const { transformImage, opacityImage } = useSpring({
     transformImage: isActive ? imageOn : imageOff,
     opacityImage: winWidth < breakpoint && isActive ? 0 : isActive ? item.activeOpacity || 1 : 1, // fade out on mobile
