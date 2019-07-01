@@ -6,6 +6,7 @@
   height: 2.5rem;
   display: flex;
   justify-content: center;
+  align-items: center; // firefox
 
   &:focus {
     outline: 0;
