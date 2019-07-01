@@ -78,7 +78,7 @@ export default [
     title: 'mcfrench.co',
     path: '/mcfrench',
     activeOpacity: 0.9,
-    offsetY: 80,
+    offsetY: 50,
     icons: [
       {
         Icon: ReactIcon,
@@ -98,8 +98,8 @@ export default [
     imageSm: mcfrenchSm,
     intro: 'A photo collection of our time spent living in Amsterdam',
     subtitle: 'A photo collection of our time spent living in Amsterdam',
-    description: '<p>I wanted to document and share the 1.5 year period where my partner and I lived in my second favourite city, Amsterdam (Melbourne being my number one).</p><p>The collection became enormous. So my challenge was to find a way to organise and layout the whole collection, all in a single page, without the browser choking on 3000+ images.</p><p>Inspired by <a href="https://medium.com/google-design/google-photos-45b714dfbed1">Antin Harasymiv\'s write-up</a> of how Google Photos does it, I forked <a href="https://github.com/schlosser/pig.js/" rel="noopener nofollow" target="_blank">previous work</a> and extended it into an open-source module for React called <a href="https://github.com/nickmcmillan/react-pig" rel="noopener nofollow" target="_blank">React Pig</a>.</p><p>I wrote Node functions which bulk upload images to Cloudinary. I chose Cloudinary as they support on-the-fly image resizing and have a well documented API.</p><p>React Pig works great. It can render thousands of images, creating a seemless scrolling experience with lazy-loading, clickable thumbnails, and can even group images by dates</p>',
-    theme: '#dfecfb',
+    description: '<p>I wanted a way to share my photo collection from the 1.5 year period where my partner and I lived in my second favourite city, Amsterdam (Melbourne being my number one).</p><p>The collection was enormous though. So my challenge was to find a way to organise and layout the photos - all in a single page - and without the browser choking on 3000+ images.</p><p>Inspired by <a href="https://medium.com/google-design/google-photos-45b714dfbed1">Antin Harasymiv\'s write-up</a> of how Google Photos does it, I forked <a href="https://github.com/schlosser/pig.js/" rel="noopener nofollow" target="_blank">previous work</a> and extended it into an open-source module for React called <a href="https://github.com/nickmcmillan/react-pig" rel="noopener nofollow" target="_blank">React Pig</a>.</p><p>I wrote Node functions which bulk upload images to Cloudinary. I chose Cloudinary as they support on-the-fly image resizing and have a well documented API.</p><p>React Pig works great. It can render thousands of images, creating a seemless scrolling experience with lazy-loading, clickable thumbnails, and can even group images by dates</p>',
+    theme: '#dce9f8',
   },
   {
     title: 'Bike Repair',
