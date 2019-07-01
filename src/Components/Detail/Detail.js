@@ -56,7 +56,7 @@ export default function Detail({
             transform: breakpoint > window.innerWidth ? 'none' : `translateY(${window.scrollY}px)`,
             color: item.textColor || '#333',
             pointerEvents: active ? 'all' : 'none', // so cards are interactive faster
-            filter: active ? `drop-shadow(2px 4px 6px ${item.theme})` : 'none',
+            // filter: active ? `drop-shadow(2px 4px 6px ${item.theme})` : 'none',
           }}
         >
 
@@ -74,7 +74,6 @@ export default function Detail({
 
             <animated.div
               style={{
-              // filter: `drop-shadow(${'#fff' || '#333'} 2px 4px 0)`,
                 ...props
               }}
             >
@@ -91,6 +90,13 @@ export default function Detail({
                   <OpenIcon />
                 </a>
               </h1>
+
+              <h3>Technologies used</h3>
+
+              <div className="Detail-iconlist">
+                {item.icons.map(({ Icon, title }) => <Icon className="Icon-list-item" key={title} title={title} />)}
+              </div>
+
             </animated.div>
           </div>
 
@@ -102,11 +108,7 @@ export default function Detail({
           >
             <div className="Detail-paragraph" dangerouslySetInnerHTML={{ __html: item.description }} />
 
-            <h3>Technologies used</h3>
-
-            <div className="Detail-iconlist">
-              {item.icons.map(({ Icon, title }) => <Icon className="Icon-list-item" key={title} title={title} />)}
-            </div>
+            
           </animated.div>
 
         </section>

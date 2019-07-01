@@ -1,6 +1,7 @@
 .Detail {
   overflow-y: scroll;
   overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
   position: fixed;
   top: 0;
   left: 0;
