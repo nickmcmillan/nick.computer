@@ -26,7 +26,7 @@ export default [
   {
     title: 'Fenton',
     path: '/fenton',
-    offsetY: 80,
+    offsetY: 60,
     logo: fentonSvg,
     icons: [
       {
@@ -78,7 +78,7 @@ export default [
     title: 'mcfrench.co',
     path: '/mcfrench',
     activeOpacity: 0.9,
-    offsetY: 50,
+    offsetY: 60, 
     icons: [
       {
         Icon: ReactIcon,
@@ -104,7 +104,7 @@ export default [
   {
     title: 'Bike Repair',
     path: '/bike-repair',
-    offsetY: 0,
+    offsetY: 20,
     activeOpacity: 1,
     logo: bikerepairSvg,
     icons: [
@@ -136,7 +136,7 @@ export default [
     intro: 'A curated search tool for specialised bike shops.',
     subtitle: 'Hand-picked repair services that keep you riding',
     description: '<p><a href="https://www.bikerepair.com/" target="_blank">Bikerepair.com</a> is a curated search tool for specialised bike shops.</p><p>I built the front-end using React + Redux for the UI and state management, <a href="https://github.com/google-map-react/google-map-react" rel="noopener nofollow" target="_blank">Google Maps React</a> for the map, and <a href="https://github.com/react-spring/react-spring" rel="noopener nofollow" target="_blank">react-spring</a> for the transitions and animations throughout the site.</p><p>Craft CMS runs on the backend to provide all the bike shop data which is then combined with ratings and customer reviews from Google Places API.</p><p>Built whilst at Momkai in 2018.</p>',
-    theme: '#1a8acc',
+    theme: '#0a6cbc',
     textColor: '#fff'
   },
   // {
