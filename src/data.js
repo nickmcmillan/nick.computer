@@ -1,5 +1,5 @@
-import fentonSm from './imgs/fenton-sm.png'
-import fentonLg from './imgs/fenton-lg.png'
+import fentonSm from './imgs/fenton-sm.jpg'
+import fentonLg from './imgs/fenton-lg.jpg'
 import brSm from './imgs/br-sm.jpg'
 import brLg from './imgs/br-lg.jpg'
 import realasSm from './imgs/realas-sm.jpg'
