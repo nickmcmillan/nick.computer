@@ -1,5 +1,4 @@
-
-.trails-main {
+.name {
   position: relative;
   width: 100%;
   height: 100%;
@@ -8,7 +7,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Rammetto One';
+  font-family: "Rammetto One";
   font-size: 2rem;
   display: block;
   width: 15rem;
@@ -16,33 +15,22 @@
   font-weight: normal;
 }
 
-.trails-text {
+.name-split {
   position: relative;
   width: 100%;
   height: 40px;
   line-height: 40px;
-  // color: palevioletred;
-  // font-size: 5em;
-  // font-weight: 800;
-  // text-transform: uppercase;
   will-change: transform, opacity;
   overflow: hidden;
-}
 
-.trails-text > div {
-  overflow: hidden;
+  > div {
+    overflow: hidden;
+  }
 }
 
 .title {
   margin-bottom: 2rem;
-  // letter-spacing: -0.4px;
-  // max-width: 60%;
   will-change: opacity;
-  
-}
-
-.name {
-  
 }
 
 .intro {

@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import { useTransition, useSpring,  useChain, animated } from 'react-spring'
-import FocusLock from 'react-focus-lock'
+import FocusTrap from 'react-focus-trap'
 
 import useKeyPress from '../../Hooks/useKeyPress'
 import BackButton from '../BackButton/BackButton'
@@ -42,11 +42,7 @@ export default function Detail({
   useChain(active ? [springRef, transRef] : [transRef, springRef], [active ? 0.5 : 0, 0 ])
 
   return (
-    <FocusLock
-      autoFocus // kinda need it
-      // returnFocus // no
-      disabled={!active}
-    >
+    <FocusTrap active={!!active}>
       {transitions.map(({ item, key, props }) => item && (
 
         <section
@@ -107,12 +103,10 @@ export default function Detail({
             }}
           >
             <div className="Detail-paragraph" dangerouslySetInnerHTML={{ __html: item.description }} />
-
-            
           </animated.div>
 
         </section>
       ))}
-    </FocusLock>
+    </FocusTrap>
   )
 }

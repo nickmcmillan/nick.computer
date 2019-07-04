@@ -19,12 +19,12 @@ const Title = () => {
 
   return (
       <h1 className="title">
-        <div className="trails-main" onClick={() => set(state => !state)}>
+        <div className="name" onClick={() => set(state => !state)}>
 
           {trail.map(({ x, height, ...rest }, index) => (
             <animated.div
               key={items[index]}
-              className="trails-text"
+              className="name-split"
               style={{ ...rest, transform: x.interpolate(x => `translate3d(0,${x}px,0)`) }}>
               <animated.div style={{ height }}>{items[index]}</animated.div>
             </animated.div>
