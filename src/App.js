@@ -15,7 +15,7 @@ import cardData from './data.js'
 
 export const breakpoint = 768
 export const configMain = { tension: 500, friction: 80, mass: 3 }
-export const configBouncey = { mass: 5, tension: 2000, friction: 100 }
+export const configBouncey = { mass: 5, tension: 1600, friction: 100 }
 
 const App = () => {
 

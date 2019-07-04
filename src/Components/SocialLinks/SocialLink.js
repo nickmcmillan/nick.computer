@@ -13,8 +13,9 @@ export default function SocialLink({
   const [hovered, setHovered] = useState(false)
   const [pressed, setPressed] = useState(false)
   
-  const { scale, opacity } = useSpring({
+  const { scale, opacity, color } = useSpring({
     scale: hovered ? 'scale(1.25)' : 'scale(0.5)',
+    color: hovered ? '#fff' : '#333',
     opacity: hovered ? 1 : 0,
     config: configBouncey,
   })
@@ -38,6 +39,7 @@ export default function SocialLink({
         target="_blank"
         rel="noopener noreferrer" 
         style={{
+          color: color.interpolate(t => t),
           transform: pressedScale.interpolate(t => t),
           opacity: style.interpolate(t => t)
         }}

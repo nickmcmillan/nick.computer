@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { useTrail, animated } from 'react-spring'
+import React, { useState, useRef } from 'react'
+import { useTrail, useChain, useSpring, animated } from 'react-spring'
 
 import './Title.scss'
 
@@ -10,12 +10,25 @@ const Title = () => {
 
   const [toggle, set] = useState(true)
 
+
+  const springRef = useRef()
+  const trailRef = useRef()
+
+  const { opacity } = useSpring({
+    ref: springRef,
+    opacity: 1,
+    from: { opacity: 0 },
+  })
+
   const trail = useTrail(items.length, {
     config,
+    ref: trailRef,
     x: toggle ? 0 : 40,
     height: toggle ? 40 : 0,
     from: { x: 40, height: 0 },
   })
+
+  useChain([trailRef, springRef], [0.25, 0.5])
 
   return (
       <h1 className="title">
@@ -32,9 +45,14 @@ const Title = () => {
 
         </div>
 
-        <p className="intro">
+        <animated.p
+          className="intro"
+          style={{
+            opacity: opacity.interpolate(t => t)
+          }}
+        >
           I’m a freelance website developer who likes Javascript, UI's, and making music.
-        </p>
+        </animated.p>
         
       </h1>
   )

@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { useTransition, useSpring,  useChain, animated } from 'react-spring'
+import { useTransition, useSpring, useChain, animated } from 'react-spring'
 import FocusTrap from 'react-focus-trap'
 
 import useKeyPress from '../../Hooks/useKeyPress'

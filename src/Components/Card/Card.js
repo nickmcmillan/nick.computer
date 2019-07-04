@@ -123,7 +123,7 @@ const Card = ({
           transform: transformBackdrop.interpolate(t => t),
           backgroundColor: item.theme,
           borderRadius: isActive ? '0px' : '12px',
-          boxShadow: isActive ? '-60px 60px 40px 10px rgba(51, 51, 51, 0.15)' : 'none',
+          // boxShadow: isActive ? '-60px 60px 40px 10px rgba(51, 51, 51, 0.15)' : 'none',
         }}
       >
         <animated.img
