@@ -7,6 +7,7 @@ export default function SocialLink({
   svg,
   href,
   screenReaderText,
+  style,
 }) {
 
   const [hovered, setHovered] = useState(false)
@@ -38,6 +39,7 @@ export default function SocialLink({
         rel="noopener noreferrer" 
         style={{
           transform: pressedScale.interpolate(t => t),
+          opacity: style.interpolate(t => t)
         }}
       >
 

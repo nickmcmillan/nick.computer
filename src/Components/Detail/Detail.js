@@ -6,9 +6,9 @@ import useKeyPress from '../../Hooks/useKeyPress'
 import BackButton from '../BackButton/BackButton'
 import { ReactComponent as OpenIcon } from '../../icons/open.svg'
 
-import './Detail.scss'
-
 import { breakpoint, configMain } from '../../App'
+
+import './Detail.scss'
 
 export default function Detail({
   active,

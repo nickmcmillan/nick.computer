@@ -32,7 +32,9 @@ const Title = () => {
 
         </div>
 
-        <span className="intro">I’m a freelance website developer who likes Javascript, UI's, and making music.</span>
+        <p className="intro">
+          I’m a freelance website developer who likes Javascript, UI's, and making music.
+        </p>
         
       </h1>
   )
