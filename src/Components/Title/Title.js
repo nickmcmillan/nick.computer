@@ -28,7 +28,7 @@ const Title = () => {
     from: { x: 40, height: 0 },
   })
 
-  useChain([trailRef, springRef], [0.25, 0.5])
+  useChain([trailRef, springRef], [0.25, 0.35])
 
   return (
       <h1 className="title">
