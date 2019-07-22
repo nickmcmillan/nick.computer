@@ -8,6 +8,7 @@ import Title from './Components/Title/Title'
 import SocialLinks from './Components/SocialLinks/SocialLinks'
 import Detail from './Components/Detail/Detail'
 // import Career from './Components/Career/Career'
+import OpenSource from './Components/OpenSource/OpenSource'
 
 import './index.scss';
 
@@ -59,6 +60,7 @@ const App = () => {
       />
 
       {/* <Career /> */}
+      <OpenSource />
 
     </main>
   )

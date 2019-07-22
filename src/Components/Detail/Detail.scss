@@ -10,7 +10,7 @@
   z-index: 1;
   // font-size: 1.05rem;
   margin: 0 auto;
-  padding: 1.5rem 1.25rem;//var(--padding);
+  padding: 1.5rem 1.25rem; //var(--padding);
   max-width: 60rem;
 }
 
@@ -20,7 +20,7 @@
 
 .Detail-title {
   font-size: 1.75rem;
-  font-family: 'Rammetto One';
+  font-family: "Rammetto One";
   margin-bottom: 2rem;
   font-weight: 100;
   letter-spacing: -0.75px;
@@ -32,7 +32,6 @@
     text-decoration: underline;
   }
 }
-
 
 .Icon-project {
   width: 4.5rem;
@@ -64,7 +63,6 @@
 .Detail-panel--secondary {
   margin-bottom: 4rem;
   max-width: 40rem;
-  
 }
 
 .Detail-paragraph {
@@ -72,12 +70,18 @@
   padding-right: 2rem;
 
   a {
-    text-decoration: underline;
     font-weight: bold;
+    background-size: 100% 1.15vw;
+    background-position: 0 16px;
+
+    background-repeat: no-repeat;
+    background-image: linear-gradient(to right, #333, #333 70%);
+    text-decoration: none;
 
     &:hover,
     &:focus {
       text-decoration: none;
+      background-image: linear-gradient(to right, #ff8c42, #e33532 70%);
     }
   }
 }

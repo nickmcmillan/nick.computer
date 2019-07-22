@@ -18,6 +18,13 @@
   margin-right: 1rem;
   position: relative;
   justify-content: center;
+
+  svg {
+    width: 2.25rem;
+    height: 2.25rem;
+    fill: currentColor;
+    z-index: 1;
+  }
 }
 
 .Social-anchor-circle {

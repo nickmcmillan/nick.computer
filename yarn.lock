@@ -8140,6 +8140,14 @@ react-focus-trap@^2.7.1:
   resolved "https://registry.yarnpkg.com/react-focus-trap/-/react-focus-trap-2.7.1.tgz#681b8fd72908df420befe9512a2fbbfe712b87ce"
   integrity sha512-23LD3kjQiL27L5pSZBFSnR0pmI0kg9PlPdfpNdMg5gTXF7YyxZhYwKX6D5zIFif3cI2z7i9f5ToPruUiTWvNFQ==
 
+react-intersection-observer@^8.24.1:
+  version "8.24.1"
+  resolved "https://registry.yarnpkg.com/react-intersection-observer/-/react-intersection-observer-8.24.1.tgz#f98ec6807a039c7f1456d457e4fe2f434a28d12e"
+  integrity sha512-4ugly0PWrYpGIgZeMD/aqjBzSlA5+W8k89+1FBC7T8w9Q0k1aOXFyQrcKQOoGfxSUnCPItqmWLsg7j50WsfVnw==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    invariant "^2.2.4"
+
 react-is@^16.8.1, react-is@^16.8.4:
   version "16.8.6"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.6.tgz#5bbc1e2d29141c9fbdfed456343fe2bc430a6a16"
