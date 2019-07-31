@@ -10,6 +10,8 @@ import Card from '../Card/Card'
 
 import cardData from '../../data.js'
 
+import styles from './Dragger.module.css'
+
 export const breakpoint = 800
 export const configMain = { tension: 500, friction: 80, mass: 3 }
 export const configBouncey = { mass: 5, tension: 2000, friction: 100 }
@@ -42,7 +44,7 @@ const App = ({ isExpanded, setIsExpanded, setLocation }) => {
           setIsExpanded(cardData[id].title)
           setLocation(cardData[id].path)
         }}
-        // className="dragger"
+        className={styles.Dragger}
         disabled={!!isExpanded}
       >
         {cardData.map((item, i) => (
