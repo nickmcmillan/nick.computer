@@ -27,8 +27,7 @@ const ListItem = ({desc, Icon, href, title}) => {
     config: configBouncey,
   })
 
-  const { opacityIo, height, x } = useSpring({
-    opacityIo: onScreen ? 1 : 0,
+  const { x } = useSpring({
     x: onScreen ? 0 : 100,
     config: configMain
   })

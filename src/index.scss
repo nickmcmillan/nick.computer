@@ -144,11 +144,16 @@ h2 {
   margin-bottom: 5rem;
 }
 
+.sub-heading-wrapper {
+  overflow: hidden;
+  margin-bottom: 1.35rem;
+}
+
 .sub-heading {
   font-family: "Rammetto One";
   font-size: 1.25rem;
-  margin-bottom: 1.35rem;
   font-weight: normal;
+  margin-bottom: 0;
 }
 
 @media screen and (min-width: 768px) {

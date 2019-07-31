@@ -10,23 +10,24 @@ const List = ({title, data}) => {
   const ref = useRef()
   const onScreen = useOnScreen(ref, '-100px')
 
-  const { opacity } = useSpring({
-    opacity: onScreen ? 1 : 0,
+  const { x } = useSpring({
+    x: onScreen ? 0 : 100,
     config: configMain
   })
 
-
   return (
     <section className="section">
-      <animated.h2
-        className="sub-heading"
-        ref={ref}
-        style={{
-          opacity
-        }}
-      >
-        {title}
-      </animated.h2>
+      <div className="sub-heading-wrapper" ref={ref}>
+        <animated.h2
+          className="sub-heading"
+          style={{
+            transform: x.interpolate(x => `translate3d(0,${x}%,0)`),
+          }}
+        >
+          {title}
+        </animated.h2>
+      </div>
+
       <ul className="list">
         {data.map(item => (
           <ListItem
