@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react'
-import { animated, useSpring } from 'react-spring'
+import { animated, useSpring, interpolate } from 'react-spring'
 
 import useOnScreen from '../../Hooks/useOnScreen'
 import { configMain, configBouncey } from '../../App'
@@ -23,12 +23,13 @@ const ListItem = ({desc, Icon, href, title}) => {
   })
 
   const { pressedScale } = useSpring({
-    pressedScale: pressed ? 'scale(0.9)' : 'scale(1)',
+    pressedScale: pressed ? 0.9 : 1,
     config: configBouncey,
   })
 
-  const { x } = useSpring({
-    x: onScreen ? 0 : 100,
+  const { x, o } = useSpring({
+    x: onScreen ? 0 : 60,
+    o: onScreen ? 0.99 : 0.01,
     config: configMain
   })
 
@@ -52,9 +53,10 @@ const ListItem = ({desc, Icon, href, title}) => {
         onMouseOver={() => setHovered(true)}
         onMouseLeave={() => { setHovered(false); setPressed(false) }}
         style={{
-          transform: x.interpolate(x => `translate3d(0,${x}%,0)`),
-          // transform: pressedScale.interpolate(t => t),
-          // opacity: opacityIo
+          transform: interpolate([x, pressedScale], (x, pressedScale) => (
+            `translate3d(0,${x}px,0) scale(${pressedScale})`
+          )),
+          opacity: o
         }}
       >
         <animated.div
@@ -78,7 +80,6 @@ const ListItem = ({desc, Icon, href, title}) => {
           <p className={style.para}>{desc}</p>
         </div>
 
-        
       </animated.a>
     </animated.li>
 
