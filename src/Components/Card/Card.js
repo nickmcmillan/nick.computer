@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react'
-import { useSpring, animated, useTrail, useChain } from 'react-spring'
+import { useSpring, animated, useTrail, useChain, interpolate } from 'react-spring'
 
 import './Card.scss';
 import './Shadow.scss'
@@ -91,8 +91,8 @@ const Card = ({
       inert={inert ? '' : undefined}
       style={{
         color: item.textColor || '#333',
-        transform: cardTransform,
-        opacity: style,
+        transform: interpolate([style.y, cardTransform], (y, cardTransform) => `translateY(${y}%) ${cardTransform}`),
+        opacity: style.opacity,
         zIndex: zIndex.interpolate(t => Math.ceil(t)), // smooths out shoadow transition when hovering from one card to another
       }}
     >

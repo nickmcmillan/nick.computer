@@ -27,34 +27,34 @@ const App = ({ isExpanded, setIsExpanded, setLocation }) => {
   const windowWidth = useDebouncedWindowWidth(200)
   const isLarge = windowWidth > breakpoint // TODO: this
 
+  const { y } = useSpring({
+    y: 0,
+    config: configMain,
+    delay: 1000,
+    from: { y: 100 }
+  })
 
   const springRef = useRef()
 
   const trail = useTrail(cardData.length, {
     ref: springRef,
-    config: configMain,
+    config: { mass: 2, tension: 160, friction: 24 },
+    y: 0,
     opacity: 1,
-    from: { opacity: 0 },
+    delay: 600,
+    from: { y: 20, opacity: 0 },
   })
 
-  useChain([10, springRef, 10], [ 10 ])
-
-  const ref = useRef()
-  const onScreen = useOnScreen(ref, '-100px')
-
-  const { x } = useSpring({
-    x: onScreen ? 0 : 100,
-    config: configMain
-  })
+  useChain([springRef], [0])
 
   return (
     <section ref={outerRef} className="section">
 
-      <div className="sub-heading-wrapper" ref={ref}>
+      <div className="sub-heading-wrapper">
         <animated.h2
           className="sub-heading"
           style={{
-            transform: x.interpolate(x => `translate3d(0,${x}%,0)`),
+            transform: y.interpolate(y => `translate3d(0,${y}%,0)`),
           }}
         >
           Recent Work
@@ -77,13 +77,13 @@ const App = ({ isExpanded, setIsExpanded, setLocation }) => {
         className={styles.Dragger}
         disabled={!!isExpanded}
       >
-        {trail.map(({ opacity }, index) => {
+        {trail.map((style, index) => {
           const item = cardData[index]
           return (
             <Card
               key={item.title}
               id={index}
-              style={opacity}
+              style={style}
               draggerX={draggerX}
               containerX={outerRefSize.x}
               shouldHide={isExpanded && isExpanded !== item.title} // whether the card should translate downwards

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useSpring, animated } from 'react-spring'
+import { useSpring, animated, interpolate } from 'react-spring'
 
 import { configBouncey } from '../../App'
 
@@ -14,14 +14,14 @@ export default function SocialLink({
   const [pressed, setPressed] = useState(false)
   
   const { scale, opacity, color } = useSpring({
-    scale: hovered ? 'scale(1.25)' : 'scale(0.5)',
+    scale: hovered ? 1.25 : 0.5,
     color: hovered ? '#fff' : '#333',
     opacity: hovered ? 1 : 0,
     config: configBouncey,
   })
-  
+
   const { pressedScale } = useSpring({
-    pressedScale: pressed ? 'scale(0.8)' : 'scale(1)',
+    pressedScale: pressed ? 0.8 : 1,
     config: configBouncey,
   })
 
@@ -39,9 +39,9 @@ export default function SocialLink({
         target="_blank"
         rel="noopener noreferrer" 
         style={{
-          color: color.interpolate(t => t),
-          transform: style.x.interpolate(x => `translateY(${x}%)`),
+          color,
           opacity: style.opacity,
+          transform: interpolate([style.y, pressedScale], (y, pressedScale) => `translateY(${y}%) scale(${pressedScale})`),
         }}
       >
 
@@ -54,8 +54,8 @@ export default function SocialLink({
         <animated.div
           className="Social-anchor-circle"
           style={{
-            transform: scale.interpolate(t => t),
-            opacity: opacity.interpolate(t => t),
+            transform: scale.interpolate(s => `scale(${s})`),
+            opacity,
           }}
         />
       </animated.a>

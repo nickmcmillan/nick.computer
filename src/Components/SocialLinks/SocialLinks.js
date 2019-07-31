@@ -41,11 +41,10 @@ const SocialLinks = ({inert}) => {
   const trail = useTrail(links.length, {
     ref: springRef,
     config: configBouncey,
-    x: 0,
+    y: 0,
     opacity: 1,
-    // unique: true,
-    trail: 400 / links.length,
-    from: { x: 100, opacity: 0 },
+    // delay: 200,
+    from: { y: 100, opacity: 0 },
   })
 
   useChain([springRef], [0.5])

@@ -12,6 +12,11 @@
   max-width: 31rem;
 }
 
+.anchor:hover .title,
+.anchor:focus .title {
+  text-decoration: underline;
+}
+
 .title {
   margin-bottom: 0.35rem;
 }
