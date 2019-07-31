@@ -1,3 +1,5 @@
+// @import-normalize;
+
 $maxWidth: 60rem;
 
 :root {
@@ -14,6 +16,10 @@ $maxWidth: 60rem;
 ::-moz-selection {
   background: #333;
   color: #fff;
+}
+
+button:focus {
+  outline: none;
 }
 
 html {
@@ -88,10 +94,6 @@ button {
   -webkit-appearance: none;
 }
 
-button::-moz-focus-inner {
-  border: 0;
-}
-
 a,
 button,
 input,
@@ -142,11 +144,16 @@ h2 {
   margin-bottom: 5rem;
 }
 
+.sub-heading-wrapper {
+  overflow: hidden;
+  margin-bottom: 1.35rem;
+}
+
 .sub-heading {
   font-family: "Rammetto One";
   font-size: 1.25rem;
-  margin-bottom: 1.25rem;
   font-weight: normal;
+  margin-bottom: 0;
 }
 
 @media screen and (min-width: 768px) {

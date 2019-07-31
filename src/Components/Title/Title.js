@@ -10,7 +10,6 @@ const Title = () => {
 
   const [toggle, set] = useState(true)
 
-
   const springRef = useRef()
   const trailRef = useRef()
 
@@ -21,40 +20,39 @@ const Title = () => {
   })
 
   const trail = useTrail(items.length, {
-    config,
     ref: trailRef,
     x: toggle ? 0 : 40,
-    height: toggle ? 40 : 0,
-    from: { x: 40, height: 0 },
+    from: { x: 40 },
+    config,
   })
 
-  useChain([trailRef, springRef], [0.25, 0.35])
+  useChain([trailRef, springRef], [0.25, 1])
 
   return (
-      <h1 className="title">
-        <div className="name" onClick={() => set(state => !state)}>
+    <header className="title">
+      <div className="name" onClick={() => set(state => !state)}>
 
-          {trail.map(({ x, height, ...rest }, index) => (
-            <animated.div
-              key={items[index]}
-              className="name-split"
-              style={{ ...rest, transform: x.interpolate(x => `translate3d(0,${x}px,0)`) }}>
-              <animated.div style={{ height }}>{items[index]}</animated.div>
-            </animated.div>
-          ))}
+        {trail.map(({ x,  }, index) => (
+          <div
+            key={items[index]}
+            className="name-split"
+          >
+            <animated.div style={{ transform: x.interpolate(x => `translate3d(0,${x}px,0)`) }}>{items[index]}</animated.div>
+          </div>
+        ))}
 
-        </div>
+      </div>
 
-        <animated.p
-          className="intro"
-          style={{
-            opacity: opacity.interpolate(t => t)
-          }}
-        >
-          I’m a freelance website developer who likes Javascript, UI's, and making music.
-        </animated.p>
-        
-      </h1>
+      <animated.h1
+        className="intro"
+        style={{
+          opacity
+        }}
+      >
+        I’m a freelance website developer who likes Javascript, UI's, and making music.
+      </animated.h1>
+      
+    </header>
   )
 }
 

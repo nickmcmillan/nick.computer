@@ -7,11 +7,14 @@ import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
 import Title from './Components/Title/Title'
 import SocialLinks from './Components/SocialLinks/SocialLinks'
 import Detail from './Components/Detail/Detail'
-// import Career from './Components/Career/Career'
+import List from './Components/List/List'
 
-import './index.scss';
+
+import './index.scss'
 
 import cardData from './data.js'
+import dataOpenSource from './dataOpenSource.js'
+import dataVolunteer from './dataVolunteer.js'
 
 export const breakpoint = 768
 export const configMain = { tension: 500, friction: 80, mass: 3 }
@@ -35,15 +38,16 @@ const App = () => {
   }, [matchedLocationFromData])
 
   return (
-    <main className="container">
+    <main className="container" >
 
       <Title />
-      <SocialLinks />
+      <SocialLinks inert={!!isExpanded} />
 
       <Dragger
         isExpanded={isExpanded}
         setIsExpanded={setIsExpanded}
         setLocation={setLocation}
+        inert={isExpanded}
       />
 
       <Detail
@@ -58,7 +62,16 @@ const App = () => {
         }}
       />
 
-      {/* <Career /> */}
+      <List
+        title="Open Source"
+        data={dataOpenSource}
+        inert={isExpanded}
+      />
+      <List
+        title="Volunteer"
+        data={dataVolunteer}
+        inert={isExpanded}
+      />
 
     </main>
   )

@@ -1,13 +1,13 @@
 import React, { useRef, useEffect, useState } from 'react'
-import { useSpring, animated } from 'react-spring'
+import { useSpring, animated, interpolate } from 'react-spring'
 
-import './Card.scss';
+import './Card.scss'
 import './Shadow.scss'
 
-import { breakpoint, configMain } from '../../App'
+import { breakpoint } from '../../App'
 
 // const parallaxFactor = -23
-// const configMain = { tension: 1000, friction: 200, mass: 5 }
+const configMain = { tension: 90, friction: 21, mass: 1 }
 // const configMain = { tension: 400, friction: 100, mass: 0.1 }
 
 const Card = ({
@@ -20,6 +20,8 @@ const Card = ({
   draggerX = 0,
   containerX = 0,
   isLarge,
+  inert,
+  style,
 }) => {
   
   const refBackdrop = useRef(null)
@@ -56,8 +58,8 @@ const Card = ({
   })
 
   // hover interaction spring
-  const { shadowTransform, shadowOpacityUpper, shadowOpacityLower, zIndex, cardTransform } = useSpring({
-    cardTransform: isHovered && !isActive ? `translate3d(0px, -2.5%, 0px)` : `translate3d(0px, ${shouldHide ? 50 : 0}%, 0px)`,
+  const { shadowTransform, shadowOpacityUpper, shadowOpacityLower, zIndex, cardTransformY } = useSpring({
+    cardTransformY: isHovered && !isActive ? -2.5 : shouldHide ? 30 : 0,
     shadowTransform: isHovered ? 'scale(1)' : 'scale(0.75)',
     shadowOpacityUpper: isHovered ? 1 : 0.1,
     shadowOpacityLower: isHovered ? 0.5 : 1,
@@ -66,12 +68,12 @@ const Card = ({
   })
 
   const parallaxVal = (draggerX + x) / (isLarge ? -20 : -10)
-  const imageOff = `translate3d(${parallaxVal}px, 0px, 0px) scale(1.5)` // 1.5
-  const imageOn = `translate3d(0px, ${isLarge ? item.offsetY || 0 : 0}px, 0px) scale(1.1)` // 1.25
+  const imageOff = `translate3d(${parallaxVal}px, 0px, 0px) scale(1.75)` // 1.5
+  const imageOn = `translate3d(0px, ${isLarge ? item.offsetY || 0 : 0}px, 0px) scale(1)` // 1.25
   const { transformImage, opacityImage } = useSpring({
     transformImage: isActive ? imageOn : imageOff,
     opacityImage: winWidth < breakpoint && isActive ? 0 : isActive ? item.activeOpacity || 1 : 1, // fade out on mobile
-    // config: configMain
+    config: configMain
   })
 
   return (
@@ -85,9 +87,15 @@ const Card = ({
       onMouseLeave={() => handleHover(null)}
       onBlur={() => handleHover(null)}
       href="/"
+      inert={inert ? '' : undefined}
       style={{
         color: item.textColor || '#333',
-        transform: cardTransform.interpolate(t => t),
+        transform: interpolate([style.y, cardTransformY], (y, cardTransformY) => {
+          return `translate3d(0, ${cardTransformY}%, 0)`
+          // return `translate3d(0, ${y}%, 0) translate3d(0, ${cardTransformY}%, 0)`
+        }),
+        //transform: cardTransformY.interpolate(x => x),
+        opacity: style.opacity,
         zIndex: zIndex.interpolate(t => Math.ceil(t)), // smooths out shoadow transition when hovering from one card to another
       }}
     >
@@ -95,22 +103,22 @@ const Card = ({
       <animated.div
         className="shadow shadow-upper"
         style={{
-          opacity: shadowOpacityUpper.interpolate(t => t),
-          transform: shadowTransform.interpolate(t => t),
+          opacity: shadowOpacityUpper,
+          transform: shadowTransform,
         }}
       />
 
       <animated.div
         className="shadow shadow-lower"
         style={{
-          opacity: shadowOpacityLower.interpolate(t => t),
+          opacity: shadowOpacityLower,
         }}
       />
 
       <animated.div
         className="card_content"
         style={{
-          transform: cardTextTransform.interpolate(t => t),
+          transform: interpolate([style.y, cardTextTransform], (y, cardTextTransform) => `translate3d(0, ${y*3}%, 0) ${cardTextTransform}`),
         }}
       >
         {item.logo ? <img className="Icon-project Icon--card" src={item.logo} alt={`${item.title} logo`} /> : <p className="Icon-fallback Icon--card">{item.title}</p>}
@@ -120,22 +128,21 @@ const Card = ({
       <animated.div
         className="backdrop"
         style={{
-          transform: transformBackdrop.interpolate(t => t),
+          transform: interpolate([style.y, transformBackdrop], (y, transformBackdrop) => `translate3d(0, ${y}%, 0) ${transformBackdrop}`),
           backgroundColor: item.theme,
-          borderRadius: isActive ? '0px' : '12px',
-          // boxShadow: isActive ? '-60px 60px 40px 10px rgba(51, 51, 51, 0.15)' : 'none',
+          // borderRadius: isActive ? '0px' : '12px',
         }}
       >
         <animated.img
           className="card_media"
           // perf: switch for larger version when active,
           // but only if its on a large screen
-          src={!isActive || !isLarge ? item.imageSm : item.imageLg}
-          // src={winWidth < breakpoint ? item.imageSm : item.imageLg}
+          // src={!isActive || !isLarge ? item.imageSm : item.imageLg}
+          src={item.imageLg}
           alt=""
           style={{
-            transform: transformImage.interpolate(t => t),
-            opacity: opacityImage.interpolate(t => t),
+            transform: transformImage,
+            opacity: opacityImage,
           }}
         />
 

@@ -1,0 +1,40 @@
+.list {
+  margin-bottom: 2.5rem;
+  overflow: hidden;
+}
+
+.list:last-child {
+  margin-bottom: 0;
+}
+
+.anchor {
+  display: inline-flex;
+  max-width: 31rem;
+}
+
+.anchor:hover .title,
+.anchor:focus .title {
+  text-decoration: underline;
+}
+
+.title {
+  margin-bottom: 0.35rem;
+}
+
+.icon {
+  width: 2rem;
+  height: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.iconWrap {
+  position: relative;
+  width: 2rem;
+  height: 2rem;
+  margin-right: 1rem;
+}
+
+.para {
+  margin-bottom: 0;
+}

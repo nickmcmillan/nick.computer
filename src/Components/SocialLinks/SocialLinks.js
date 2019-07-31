@@ -34,26 +34,28 @@ const links = [
   },
 ]
 
-const SocialLinks = () => {
+const SocialLinks = ({inert}) => {
 
   const springRef = useRef()
 
   const trail = useTrail(links.length, {
     ref: springRef,
     config: configBouncey,
+    y: 0,
     opacity: 1,
-    from: { opacity: 0 },
+    // delay: 200,
+    from: { y: 100, opacity: 0 },
   })
 
-  useChain([springRef], [1])
+  useChain([springRef], [0.5])
 
   return (
-    <ul className="social-links">
-      {trail.map(({ opacity }, index) => {
+    <ul className="social-links" inert={inert ? '' : undefined}>
+      {trail.map((style, index) => {
         const item = links[index]
         return (
           <SocialLink
-            style={opacity}
+            style={style}
             key={item.href}
             href={item.href}
             screenReaderText={item.screenReaderText}
