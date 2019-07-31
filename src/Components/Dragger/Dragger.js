@@ -28,7 +28,9 @@ const App = ({ isExpanded, setIsExpanded, setLocation }) => {
   return (
     <section ref={outerRef} className="section">
 
-      <h2 className="sub-heading">Recent work</h2>
+      <div className="sub-heading-wrapper">
+        <h2 className="sub-heading">Recent work</h2>
+      </div>
 
       <Dragger
         friction={0.9}
