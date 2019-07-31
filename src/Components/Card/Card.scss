@@ -24,7 +24,7 @@ $easing: cubic-bezier(0, 0, 0.2, 1);
   &:first-child {
     margin-left: 0;
   }
-  
+
   &:last-child {
     margin-right: 0;
   }
@@ -51,7 +51,6 @@ $easing: cubic-bezier(0, 0, 0.2, 1);
   flex-direction: column;
   justify-content: flex-end;
   height: 100%;
-  z-index: -1;
   will-change: transform;
   overflow: hidden;
   transform-origin: bottom;
@@ -69,6 +68,7 @@ $easing: cubic-bezier(0, 0, 0.2, 1);
 
 .card_content {
   position: absolute;
+  z-index: 1;
   padding: 3rem 2.5rem;
 }
 

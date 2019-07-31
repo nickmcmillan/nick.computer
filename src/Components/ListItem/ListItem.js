@@ -27,15 +27,21 @@ const ListItem = ({desc, Icon, href, title}) => {
     config: configBouncey,
   })
 
-  const { opacityIo } = useSpring({
+  const { opacityIo, height, x } = useSpring({
     opacityIo: onScreen ? 1 : 0,
+    x: onScreen ? 0 : 100,
     config: configMain
   })
 
   return (
-    <li className={style.list}>
+    <animated.li
+      ref={ref}
+      className={style.list}
+      style={{
+        overflow: x.interpolate(x => x < 1 ? 'visible' : 'hidden')
+      }}
+    >
       <animated.a
-        ref={ref}
         href={href}
         className={style.anchor}
         target="_blank"
@@ -47,8 +53,9 @@ const ListItem = ({desc, Icon, href, title}) => {
         onMouseOver={() => setHovered(true)}
         onMouseLeave={() => { setHovered(false); setPressed(false) }}
         style={{
-          transform: pressedScale.interpolate(t => t),
-          opacity: opacityIo
+          transform: x.interpolate(x => `translate3d(0,${x}%,0)`),
+          // transform: pressedScale.interpolate(t => t),
+          // opacity: opacityIo
         }}
       >
         <animated.div
@@ -74,7 +81,7 @@ const ListItem = ({desc, Icon, href, title}) => {
 
         
       </animated.a>
-    </li>
+    </animated.li>
 
   )
 }
