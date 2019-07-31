@@ -6,7 +6,6 @@ import { configMain, configBouncey } from '../../App'
 
 import style from './ListItem.module.css'
 
-
 const ListItem = ({desc, Icon, href, title}) => {
 
   const ref = useRef()

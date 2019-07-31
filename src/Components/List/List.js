@@ -5,7 +5,7 @@ import { configMain } from '../../App'
 
 import ListItem from '../ListItem/ListItem'
 
-const List = ({title, data}) => {
+const List = ({title, data, inert}) => {
 
   const ref = useRef()
   const onScreen = useOnScreen(ref, '-100px')
@@ -16,7 +16,7 @@ const List = ({title, data}) => {
   })
 
   return (
-    <section className="section">
+    <section className="section" inert={inert ? '' : undefined}>
       <div className="sub-heading-wrapper" ref={ref}>
         <animated.h2
           className="sub-heading"

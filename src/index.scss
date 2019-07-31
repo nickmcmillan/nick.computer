@@ -1,4 +1,4 @@
-@import-normalize;
+// @import-normalize;
 
 $maxWidth: 60rem;
 
@@ -16,6 +16,10 @@ $maxWidth: 60rem;
 ::-moz-selection {
   background: #333;
   color: #fff;
+}
+
+button:focus {
+  outline: none;
 }
 
 html {
@@ -88,10 +92,6 @@ button {
   -webkit-font-smoothing: inherit;
   -moz-osx-font-smoothing: inherit;
   -webkit-appearance: none;
-}
-
-button::-moz-focus-inner {
-  border: 0;
 }
 
 a,

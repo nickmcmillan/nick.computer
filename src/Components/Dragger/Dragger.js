@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
+import { useSpring, animated, useTrail, useChain } from 'react-spring'
 import ResizeObserver from 'resize-observer-polyfill'
 import Dragger from 'react-physics-dragger'
 
@@ -7,6 +8,7 @@ import { disableBodyScroll } from 'body-scroll-lock'
 import useDimensions from '../../Hooks/useDimensions'
 import useDebouncedWindowWidth from '../../Hooks/useDebouncedWindowWidth'
 import Card from '../Card/Card'
+import useOnScreen from '../../Hooks/useOnScreen'
 
 import cardData from '../../data.js'
 
@@ -25,15 +27,41 @@ const App = ({ isExpanded, setIsExpanded, setLocation }) => {
   const windowWidth = useDebouncedWindowWidth(200)
   const isLarge = windowWidth > breakpoint // TODO: this
 
+
+  const springRef = useRef()
+
+  const trail = useTrail(cardData.length, {
+    ref: springRef,
+    config: configMain,
+    opacity: 1,
+    from: { opacity: 0 },
+  })
+
+  useChain([10, springRef, 10], [ 10 ])
+
+  const ref = useRef()
+  const onScreen = useOnScreen(ref, '-100px')
+
+  const { x } = useSpring({
+    x: onScreen ? 0 : 100,
+    config: configMain
+  })
+
   return (
     <section ref={outerRef} className="section">
 
-      <div className="sub-heading-wrapper">
-        <h2 className="sub-heading">Recent Work</h2>
+      <div className="sub-heading-wrapper" ref={ref}>
+        <animated.h2
+          className="sub-heading"
+          style={{
+            transform: x.interpolate(x => `translate3d(0,${x}%,0)`),
+          }}
+        >
+          Recent Work
+        </animated.h2>
       </div>
 
       <Dragger
-        friction={0.9}
         ResizeObserver={ResizeObserver}
         onFrame={e => setDraggerX(e.x)}
         onStaticClick={clickedEl => {
@@ -49,28 +77,32 @@ const App = ({ isExpanded, setIsExpanded, setLocation }) => {
         className={styles.Dragger}
         disabled={!!isExpanded}
       >
-        {cardData.map((item, i) => (
-          <Card
-            key={item.title}
-            id={i}
-            draggerX={draggerX}
-            containerX={outerRefSize.x}
-            shouldHide={isExpanded && isExpanded !== item.title} // whether the card should translate downwards
-            isActive={isExpanded === item.title}
-            isHovered={hovered === item.title}
-            item={item}
-            isLarge={isLarge}
-            handleHover={i => {
-              if (i === null) {
-                setHovered(null)
-              } else {
-                if (window.innerWidth < breakpoint) return
-                setHovered(item.title)
-              }
-            }}
-          />
-
-        ))}
+        {trail.map(({ opacity }, index) => {
+          const item = cardData[index]
+          return (
+            <Card
+              key={item.title}
+              id={index}
+              style={opacity}
+              draggerX={draggerX}
+              containerX={outerRefSize.x}
+              shouldHide={isExpanded && isExpanded !== item.title} // whether the card should translate downwards
+              inert={isExpanded && isExpanded !== item.title}
+              isActive={isExpanded === item.title}
+              isHovered={hovered === item.title}
+              item={item}
+              isLarge={isLarge}
+              handleHover={i => {
+                if (i === null) {
+                  setHovered(null)
+                } else {
+                  if (window.innerWidth < breakpoint) return
+                  setHovered(item.title)
+                }
+              }}
+            />
+          )
+        })}
       </Dragger>
 
     </section>

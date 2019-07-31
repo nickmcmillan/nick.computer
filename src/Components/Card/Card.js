@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react'
-import { useSpring, animated } from 'react-spring'
+import { useSpring, animated, useTrail, useChain } from 'react-spring'
 
 import './Card.scss';
 import './Shadow.scss'
@@ -20,6 +20,8 @@ const Card = ({
   draggerX = 0,
   containerX = 0,
   isLarge,
+  inert,
+  style,
 }) => {
   
   const refBackdrop = useRef(null)
@@ -62,6 +64,7 @@ const Card = ({
     shadowOpacityUpper: isHovered ? 1 : 0.1,
     shadowOpacityLower: isHovered ? 0.5 : 1,
     zIndex: isActive ? 1 : 0,
+    // from: { cardTransform: `translate3d(0px, 20%, 0px)` },
     config: configMain,
   })
 
@@ -85,9 +88,11 @@ const Card = ({
       onMouseLeave={() => handleHover(null)}
       onBlur={() => handleHover(null)}
       href="/"
+      inert={inert ? '' : undefined}
       style={{
         color: item.textColor || '#333',
-        transform: cardTransform.interpolate(t => t),
+        transform: cardTransform,
+        opacity: style,
         zIndex: zIndex.interpolate(t => Math.ceil(t)), // smooths out shoadow transition when hovering from one card to another
       }}
     >
@@ -123,7 +128,6 @@ const Card = ({
           transform: transformBackdrop.interpolate(t => t),
           backgroundColor: item.theme,
           borderRadius: isActive ? '0px' : '12px',
-          // boxShadow: isActive ? '-60px 60px 40px 10px rgba(51, 51, 51, 0.15)' : 'none',
         }}
       >
         <animated.img
@@ -131,7 +135,6 @@ const Card = ({
           // perf: switch for larger version when active,
           // but only if its on a large screen
           src={!isActive || !isLarge ? item.imageSm : item.imageLg}
-          // src={winWidth < breakpoint ? item.imageSm : item.imageLg}
           alt=""
           style={{
             transform: transformImage.interpolate(t => t),

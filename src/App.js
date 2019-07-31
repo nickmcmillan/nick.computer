@@ -40,15 +40,16 @@ const App = () => {
   }, [matchedLocationFromData])
 
   return (
-    <main className="container">
+    <main className="container" >
 
       <Title />
-      <SocialLinks />
+      <SocialLinks inert={!!isExpanded} />
 
       <Dragger
         isExpanded={isExpanded}
         setIsExpanded={setIsExpanded}
         setLocation={setLocation}
+        inert={isExpanded}
       />
 
       <Detail
@@ -66,10 +67,12 @@ const App = () => {
       <List
         title="Open Source"
         data={dataOpenSource}
+        inert={isExpanded}
       />
       <List
         title="Volunteer"
         data={dataVolunteer}
+        inert={isExpanded}
       />
 
     </main>

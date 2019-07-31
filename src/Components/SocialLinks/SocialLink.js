@@ -40,8 +40,8 @@ export default function SocialLink({
         rel="noopener noreferrer" 
         style={{
           color: color.interpolate(t => t),
-          transform: pressedScale.interpolate(t => t),
-          opacity: style.interpolate(t => t)
+          transform: style.x.interpolate(x => `translateY(${x}%)`),
+          opacity: style.opacity,
         }}
       >
 
