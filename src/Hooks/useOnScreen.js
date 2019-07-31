@@ -1,27 +1,30 @@
+// https://usehooks.com/useOnScreen/
 import { useState, useEffect } from 'react'
 
-// Hook
 export default function useOnScreen(ref, rootMargin = '0px') {
   // State and setter for storing whether element is visible
-  const [isIntersecting, setIntersecting] = useState(false);
+  const [isIntersecting, setIntersecting] = useState(false)
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        // Update our state when observer callback fires
-        setIntersecting(entry.isIntersecting);
-      },
-      {
-        rootMargin
+    const newRef = ref.current
+    const observer = new IntersectionObserver(([entry]) => {
+      // Update our state when observer callback fires
+      // only if its actually visible
+      if (entry.isIntersecting) {
+        setIntersecting(entry.isIntersecting)
+        // and then stop observing (only fire once)
+        observer.unobserve(entry.target)
       }
-    );
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-    return () => {
-      observer.unobserve(ref.current);
-    };
-  }, []); // Empty array ensures that effect is only run on mount and unmount
+    }, { rootMargin })
 
-  return isIntersecting;
+    if (newRef) {
+      observer.observe(newRef)
+    }
+
+    return () => {
+      observer.unobserve(newRef)
+    }
+  }, [ref, rootMargin]) // Empty array ensures that effect is only run on mount and unmount
+
+  return isIntersecting
 }

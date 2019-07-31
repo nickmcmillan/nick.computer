@@ -1,46 +1,32 @@
-import React, { useRef, useState } from 'react'
-import { useTrail, animated, useChain, useSpring } from 'react-spring'
-import { useInView, InView } from 'react-intersection-observer'
+import React from 'react'
 
 import ListItem from '../ListItem/ListItem'
 import { ReactComponent as GithubIcon } from '../../icons/github.svg'
-import { configBouncey } from '../../App'
-
-import './OpenSource.scss'
+import { ReactComponent as CodePenIcon } from '../../icons/codepen.svg'
 
 const items = [
   {
     href: 'https://github.com/nickmcmillan/react-physics-dragger',
     title: 'React Physics Dragger',
-    desc: 'A simple, no-frills horiztonal dragger/slider with physics',
+    desc: 'A simple, no-frills horiztonal dragger/slider with physics.',
+    Icon: GithubIcon,
   },
   {
     href: 'https://github.com/nickmcmillan/react-pig',
     title: 'React Pig',
-    desc: 'Arrange images in a responsive, progressive-loading grid managed in JavaScript using CSS transforms',
+    desc: 'Arrange images in a responsive, progressive-loading grid managed in JavaScript using CSS transforms.',
+    Icon: GithubIcon,
+  },
+  {
+    href: 'https://codepen.io/collection/DYxPGN/',
+    title: 'Generic reusable',
+    desc: 'A collection of common re-usable components. Created to save time given these components are often always the same.',
+    Icon: CodePenIcon,
   },
 ]
 
 
 const OpenSource = () => {
-
-  // const ref = useRef()
-
-  // const trail = useTrail(items.length, {
-  //   ref: springRef,
-  //   config: configBouncey,
-  //   opacity: 1,
-  //   from: { opacity: 0 },
-  // })
-
-  // useChain([springRef], [1])
-
-  // const [ref, inView] = useInView(ref, {
-  //   threshold: 0.5,
-  // })
-  // const props = useSpring({ opacity: inView ? 1 : 0 })
-
-
 
   return (
     <section className="section">
@@ -49,9 +35,11 @@ const OpenSource = () => {
         {items.map(item => {
           return (
             <ListItem
+              key={item.href}
               href={item.href}
               title={item.title}
               desc={item.desc}
+              Icon={item.Icon}
             />
           )})}
 
