@@ -8,7 +8,6 @@ import { disableBodyScroll } from 'body-scroll-lock'
 import useDimensions from '../../Hooks/useDimensions'
 import useDebouncedWindowWidth from '../../Hooks/useDebouncedWindowWidth'
 import Card from '../Card/Card'
-import useOnScreen from '../../Hooks/useOnScreen'
 
 import cardData from '../../data.js'
 
@@ -18,19 +17,20 @@ export const breakpoint = 800
 export const configMain = { tension: 500, friction: 80, mass: 3 }
 export const configBouncey = { mass: 5, tension: 2000, friction: 100 }
 
-const App = ({ isExpanded, setIsExpanded, setLocation }) => {
+const DraggerContainer = ({ isExpanded, setIsExpanded, setLocation }) => {
 
   const [draggerX, setDraggerX] = useState(0)
   const [hovered, setHovered] = useState(null)
   const [outerRef, outerRefSize] = useDimensions()
 
-  const windowWidth = useDebouncedWindowWidth(200)
+  const windowWidth = useDebouncedWindowWidth(400)
   const isLarge = windowWidth > breakpoint // TODO: this
 
   const { y } = useSpring({
     y: 0,
     config: configMain,
-    delay: 1000,
+    immediate: isExpanded,
+    delay: 1200,
     from: { y: 100 }
   })
 
@@ -41,7 +41,11 @@ const App = ({ isExpanded, setIsExpanded, setLocation }) => {
     config: { mass: 2, tension: 160, friction: 24 },
     y: 0,
     opacity: 1,
-    delay: 600,
+    delay: 500,
+    // onRest: (a) => {
+      
+    // },
+    immediate: isExpanded,
     from: { y: 20, opacity: 0 },
   })
 
@@ -109,4 +113,4 @@ const App = ({ isExpanded, setIsExpanded, setLocation }) => {
   )
 }
 
-export default App
+export default DraggerContainer
