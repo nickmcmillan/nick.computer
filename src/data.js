@@ -148,7 +148,7 @@ export default [
     logo: knvbSvg,
     icons: [
     ],
-    url: 'https://tekentool.netlify.com/',
+    url: 'https://knvbdrawingtool.netlify.com/',
     imageLg: drawingtoolLg,
     imageSm: drawingtoolSm,
     intro: 'A web-based 2D drawing tool for strategising soccer matches',
