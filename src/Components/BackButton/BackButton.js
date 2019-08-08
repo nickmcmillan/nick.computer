@@ -5,7 +5,6 @@ import { ReactComponent as BackIcon } from '../../icons/left.svg'
 import './BackButton.scss'
 
 import { configBouncey } from '../../App'
-// const config = { mass: 5, tension: 2000, friction: 100 }
 
 export default function BackButton({
   style,
@@ -32,7 +31,7 @@ export default function BackButton({
       className="Back-btn"
       style={{
         color: hovered ? '#333' : 'currentColor',
-        transform: pressedScale.interpolate(t => t),
+        transform: pressedScale,
         ...style
       }}
       onFocus={() => setHovered(true)}
@@ -46,8 +45,8 @@ export default function BackButton({
       <animated.div
         className="Back-btn-circle"
         style={{
-          transform: scale.interpolate(t => t),
-          opacity: opacity.interpolate(t => t),
+          transform: scale,
+          opacity,
         }}
       />
     </animated.button>
