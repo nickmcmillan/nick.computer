@@ -94,11 +94,15 @@ export default function Detail({
                 </a>
               </h1>
 
-              <h3>Technologies used</h3>
+              {!!item.icons.length &&
+                <>
+                  <h3>Technologies used</h3>
 
-              <div className="Detail-iconlist">
-                {item.icons.map(({ Icon, title }) => <Icon className="Icon-list-item" key={title} title={title} />)}
-              </div>
+                  <div className="Detail-iconlist">
+                    {item.icons.map(({ Icon, title }) => <Icon className="Icon-list-item" key={title} title={title} />)}
+                  </div>
+                </>
+              }
 
             </animated.div>
           </div>
