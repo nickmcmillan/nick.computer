@@ -1,6 +1,6 @@
 {
   "short_name": "nick.computer",
-  "name": "Melbourne Front End Developer | Nick McMillan",
+  "name": "Melbourne Freelance Front End Developer | Nick McMillan",
   "icons": [
     {
       "src": "/favicons/favicon.ico",
@@ -20,7 +20,7 @@
   ],
   "start_url": "./index.html",
   "display": "standalone",
-  "theme_color": "#333333",
+  "theme_color": "#efefef",
   "orientation": "portrait-primary",
   "background_color": "#ffffff"
 }
