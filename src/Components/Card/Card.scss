@@ -9,12 +9,10 @@ $easing: cubic-bezier(0, 0, 0.2, 1);
   display: inline-flex;
   flex-direction: column;
   padding: 0;
+  font-size: 0.9rem;
   margin: 0 1rem;
-  // font-size: 1rem;
   height: var(--itemHeight);
   width: var(--itemWidth);
-  // transition: transform $timing $easing;
-  // will-change: transform;
   white-space: normal;
   justify-content: space-between;
   position: relative;
@@ -67,7 +65,7 @@ $easing: cubic-bezier(0, 0, 0.2, 1);
 .card_content {
   position: absolute;
   z-index: 1;
-  padding: 3rem 2.5rem;
+  padding: 2.5rem 2.25rem;
 }
 
 .card_title {
@@ -94,6 +92,14 @@ $easing: cubic-bezier(0, 0, 0.2, 1);
 }
 
 @media screen and (min-width: 768px) {
+  .card {
+    font-size: 1rem;
+  }
+
+  .card_content {
+    padding: 3rem 2.5rem;
+  }
+
   .Icon-project.Icon--card,
   .Icon-fallback.Icon--card {
     margin-bottom: 2rem;
