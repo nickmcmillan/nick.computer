@@ -47,7 +47,7 @@ const Title = () => {
           opacity
         }}
       >
-        I’m a freelance website developer who likes Javascript, UI's, and making music.
+        I’m a freelance website maker who wants to help make the internet a more creative, accessible, and better place.
       </animated.h1>
       
     </header>
