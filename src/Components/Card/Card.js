@@ -62,6 +62,7 @@ const Card = React.memo(({
     shadowOpacityUpper: isHovered ? 1 : 0.1,
     shadowOpacityLower: isHovered ? 0.5 : 1,
     zIndex: isActive ? 1 : 0,
+    from: { shadowOpacityLower: -1000 },
     config: configMain,
   })
 
@@ -88,9 +89,7 @@ const Card = React.memo(({
       inert={inert ? '' : undefined}
       style={{
         color: item.textColor || '#333',
-        transform: interpolate([style.y, cardTransformY], (y, cardTransformY) => {
-          return `translate3d(0, ${cardTransformY}%, 0)`
-        }),
+        transform: cardTransformY.interpolate(y => `translate3d(0, ${y}%, 0)`),
         opacity: style.opacity,
         zIndex: zIndex.interpolate(t => Math.ceil(t)), // smooths out shoadow transition when hovering from one card to another
       }}
@@ -114,7 +113,7 @@ const Card = React.memo(({
       <animated.div
         className="card_content"
         style={{
-          transform: interpolate([style.y, cardTextTransform], (y, cardTextTransform) => `translate3d(0, ${y*3}%, 0) ${cardTextTransform}`),
+          transform: interpolate([style.y, cardTextTransform], (y, cardTextTransform) => `translate3d(0, ${y }%, 0) ${cardTextTransform}`),
         }}
       >
         {item.logo ? <img className="Icon-project Icon--card" src={item.logo} alt={`${item.title} logo`} /> : <p className="Icon-fallback Icon--card">{item.title}</p>}
