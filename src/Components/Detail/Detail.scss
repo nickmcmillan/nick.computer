@@ -74,14 +74,14 @@
     background-size: 100% 1.15vw;
     background-position: 0 16px;
 
-    background-repeat: no-repeat;
-    background-image: linear-gradient(to right, #333, #333 70%);
-    text-decoration: none;
+    // background-repeat: no-repeat;
+    // background-image: linear-gradient(to right, #333, #333 70%);
+    // text-decoration: none;
 
     &:hover,
     &:focus {
-      text-decoration: none;
-      background-image: linear-gradient(to right, #ff8c42, #e33532 70%);
+      text-decoration: underline;
+      // background-image: linear-gradient(to right, #ff8c42, #e33532 70%);
     }
   }
 }
