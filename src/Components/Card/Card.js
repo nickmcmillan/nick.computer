@@ -61,7 +61,7 @@ const Card = React.memo(({
     shadowTransform: isHovered ? 'scale(1)' : 'scale(0.75)',
     shadowOpacityUpper: isHovered ? 1 : 0.1,
     shadowOpacityLower: isHovered ? 0.5 : 1,
-    zIndex: isActive ? 1 : 0,
+    zIndex: isActive ? 10 : 0,
     from: { shadowOpacityLower: -1000 },
     config: configMain,
   })
@@ -72,7 +72,7 @@ const Card = React.memo(({
   const { transformImage, opacityImage } = useSpring({
     transformImage: isActive ? imageOn : imageOff,
     opacityImage: winWidth < breakpoint && isActive ? 0 : 1, // fade out on mobile
-    config: configMain
+    config: configMain,
   })
 
   return (
