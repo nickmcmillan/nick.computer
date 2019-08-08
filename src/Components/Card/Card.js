@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react'
 import { useSpring, animated, interpolate } from 'react-spring'
+import { disableBodyScroll } from 'body-scroll-lock'
 
 import './Card.scss'
 import './Shadow.scss'
@@ -20,6 +21,8 @@ const Card = React.memo(({
   isLarge,
   inert,
   style,
+  setIsExpanded,
+  setLocation,
 }) => {
   
   const refBackdrop = useRef(null)
@@ -87,6 +90,13 @@ const Card = React.memo(({
       onBlur={() => handleHover(null)}
       href="/"
       inert={inert ? '' : undefined}
+      onKeyPress={e => {
+        if (e.key === 'Enter') {
+          disableBodyScroll()
+          setIsExpanded(item.title)
+          setLocation(item.path)
+        }
+      }}
       style={{
         color: item.textColor || '#333',
         transform: cardTransformY.interpolate(y => `translate3d(0, ${y}%, 0)`),

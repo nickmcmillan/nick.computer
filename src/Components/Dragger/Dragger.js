@@ -98,6 +98,8 @@ const DraggerContainer = ({ isExpanded, setIsExpanded, setLocation }) => {
               isHovered={hovered === item.title}
               item={item}
               isLarge={isLarge}
+              setIsExpanded={setIsExpanded}
+              setLocation={setLocation}
               handleHover={i => {
                 if (i === null) {
                   setHovered(null)
