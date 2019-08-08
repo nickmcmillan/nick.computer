@@ -1,7 +1,3 @@
-$itemWidth: 20rem;
-$itemHeight: 30rem;
-$borderRadius: 12px;
-
 .shadow {
   position: absolute;
   top: 0;
@@ -12,9 +8,8 @@ $borderRadius: 12px;
   top: 0;
   left: 0;
   z-index: -1;
-  height: $itemHeight * 0.75;
-  width: $itemWidth * 0.75;
-  // border-radius: $borderRadius;
+  width: var(--itemWidth);
+  height: var(--itemHeight);
   will-change: opacity, transform;
 }
 
@@ -31,8 +26,8 @@ $borderRadius: 12px;
 }
 
 @media screen and (min-width: 768px) {
-  .shadow {
-    width: $itemWidth;
-    height: $itemHeight;
-  }
+  // .shadow {
+  //   width: --itemWidthLg;
+  //   height: --itemHeightLg;
+  // }
 }
