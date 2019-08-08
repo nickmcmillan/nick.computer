@@ -72,7 +72,7 @@ const App = () => {
         inert={isExpanded}
       />
       <List
-        title="Volunteer"
+        title="Volunteering"
         data={dataVolunteer}
         inert={isExpanded}
       />
