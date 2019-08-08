@@ -1,5 +1,6 @@
 import React, { useRef } from 'react'
 import { useTransition, useSpring, useChain, animated } from 'react-spring'
+import { Helmet } from 'react-helmet'
 // import FocusTrap from 'react-focus-trap'
 
 import useKeyPress from '../../Hooks/useKeyPress'
@@ -43,6 +44,12 @@ export default function Detail({
 
   return (
     <React.Fragment>
+
+      {active &&
+        <Helmet>
+          <meta content={active.theme} name="theme-color" />
+        </Helmet>
+      }
       {transitions.map(({ item, key, props }) => item && (
 
         <section

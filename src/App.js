@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import Dragger from './Components/Dragger/Dragger'
 import useLocation from 'wouter/use-location'
+import { Helmet } from 'react-helmet'
 
 import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
 
+import Dragger from './Components/Dragger/Dragger'
 import Title from './Components/Title/Title'
 import SocialLinks from './Components/SocialLinks/SocialLinks'
 import Detail from './Components/Detail/Detail'
@@ -39,6 +40,10 @@ const App = () => {
 
   return (
     <main className="container" >
+
+      <Helmet>
+        <meta content="#efefef" name="theme-color" />
+      </Helmet>
 
       <Title />
       <SocialLinks inert={!!isExpanded} />
