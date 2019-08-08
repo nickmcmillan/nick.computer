@@ -10,7 +10,6 @@ import SocialLinks from './Components/SocialLinks/SocialLinks'
 import Detail from './Components/Detail/Detail'
 import List from './Components/List/List'
 
-
 import './index.scss'
 
 import cardData from './data.js'

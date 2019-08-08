@@ -67,7 +67,7 @@ const Card = React.memo(({
   })
 
   const parallaxVal = (draggerX + x) / -20
-  const imageOff = `translate3d(${parallaxVal}px, 0px, 0px) scale(1.75)` // 1.5
+  const imageOff = `translate3d(${parallaxVal}px, 0px, 0px) scale(1.5)` // 1.5
   const imageOn = `translate3d(0px, ${isLarge ? item.offsetY || 0 : 0}px, 0px) scale(1)` // 1.25
   const { transformImage, opacityImage } = useSpring({
     transformImage: isActive ? imageOn : imageOff,
