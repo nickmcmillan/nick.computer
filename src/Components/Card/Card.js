@@ -6,11 +6,9 @@ import './Shadow.scss'
 
 import { breakpoint } from '../../App'
 
-// const parallaxFactor = -23
 const configMain = { tension: 90, friction: 21, mass: 1 }
-// const configMain = { tension: 400, friction: 100, mass: 0.1 }
 
-const Card = ({
+const Card = React.memo(({
   isActive,
   shouldHide,
   item,
@@ -59,7 +57,7 @@ const Card = ({
 
   // hover interaction spring
   const { shadowTransform, shadowOpacityUpper, shadowOpacityLower, zIndex, cardTransformY } = useSpring({
-    cardTransformY: isHovered && !isActive ? -2.5 : shouldHide ? 30 : 0,
+    cardTransformY: isHovered && !isActive ? -2.5 : shouldHide ? 20 : 0,
     shadowTransform: isHovered ? 'scale(1)' : 'scale(0.75)',
     shadowOpacityUpper: isHovered ? 1 : 0.1,
     shadowOpacityLower: isHovered ? 0.5 : 1,
@@ -67,12 +65,12 @@ const Card = ({
     config: configMain,
   })
 
-  const parallaxVal = (draggerX + x) / (isLarge ? -20 : -10)
+  const parallaxVal = (draggerX + x) / -20
   const imageOff = `translate3d(${parallaxVal}px, 0px, 0px) scale(1.75)` // 1.5
   const imageOn = `translate3d(0px, ${isLarge ? item.offsetY || 0 : 0}px, 0px) scale(1)` // 1.25
   const { transformImage, opacityImage } = useSpring({
     transformImage: isActive ? imageOn : imageOff,
-    opacityImage: winWidth < breakpoint && isActive ? 0 : isActive ? item.activeOpacity || 1 : 1, // fade out on mobile
+    opacityImage: winWidth < breakpoint && isActive ? 0 : 1, // fade out on mobile
     config: configMain
   })
 
@@ -92,9 +90,7 @@ const Card = ({
         color: item.textColor || '#333',
         transform: interpolate([style.y, cardTransformY], (y, cardTransformY) => {
           return `translate3d(0, ${cardTransformY}%, 0)`
-          // return `translate3d(0, ${y}%, 0) translate3d(0, ${cardTransformY}%, 0)`
         }),
-        //transform: cardTransformY.interpolate(x => x),
         opacity: style.opacity,
         zIndex: zIndex.interpolate(t => Math.ceil(t)), // smooths out shoadow transition when hovering from one card to another
       }}
@@ -149,6 +145,6 @@ const Card = ({
       </animated.div>
     </animated.button>
   )
-}
+})
 
 export default Card
