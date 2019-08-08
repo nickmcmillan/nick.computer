@@ -31,7 +31,7 @@ const DraggerContainer = ({ isExpanded, setIsExpanded, setLocation }) => {
     config: configMain,
     immediate: isExpanded,
     delay: 1200,
-    from: { y: 100 }
+    from: { y: 200 }
   })
 
   const springRef = useRef()
@@ -43,7 +43,7 @@ const DraggerContainer = ({ isExpanded, setIsExpanded, setLocation }) => {
     opacity: 1,
     delay: 500,
     immediate: isExpanded,
-    from: { y: 20, opacity: 0 },
+    from: { y: 20, opacity: 0.001 },
   })
 
   useChain([springRef], [0])
