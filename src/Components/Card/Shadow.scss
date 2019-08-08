@@ -7,7 +7,6 @@ $borderRadius: 12px;
   top: 0;
   left: 0;
   background: #fff;
-  border-radius: $borderRadius;
   will-change: transform;
   position: absolute;
   top: 0;
@@ -15,7 +14,7 @@ $borderRadius: 12px;
   z-index: -1;
   height: $itemHeight * 0.75;
   width: $itemWidth * 0.75;
-  border-radius: $borderRadius;
+  // border-radius: $borderRadius;
   will-change: opacity, transform;
 }
 

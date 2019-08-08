@@ -93,6 +93,7 @@ $easing: cubic-bezier(0, 0, 0.2, 1);
   height: 2rem;
   margin-bottom: 2rem;
   width: 7rem;
+  pointer-events: none;
 }
 
 @media screen and (min-width: 768px) {
