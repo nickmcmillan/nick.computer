@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react'
-import { animated, useSpring, interpolate } from 'react-spring'
+import { animated, useSpring } from 'react-spring'
 
 import useOnScreen from '../../Hooks/useOnScreen'
 import { configMain, configBouncey } from '../../App'
@@ -21,8 +21,8 @@ const ListItem = ({desc, Icon, href, title}) => {
     config: configBouncey,
   })
 
-  const { pressedScale } = useSpring({
-    pressedScale: pressed ? 0.9 : 1,
+  const { transform } = useSpring({
+    transform: pressed ? `scale(0.9)` : `scale(1)`,
     config: configBouncey,
   })
 
@@ -52,9 +52,7 @@ const ListItem = ({desc, Icon, href, title}) => {
         onMouseOver={() => setHovered(true)}
         onMouseLeave={() => { setHovered(false); setPressed(false) }}
         style={{
-          transform: interpolate([x, pressedScale], (x, pressedScale) => (
-            `translate3d(0,${x}px,0) scale(${pressedScale})`
-          )),
+          transform,
           opacity: o
         }}
       >
