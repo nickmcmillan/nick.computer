@@ -1,12 +1,16 @@
 import React, { useRef } from 'react'
 import { useTrail, useChain, useSpring, animated } from 'react-spring'
 
+import { breakpoint } from '../../App'
+
 import './Title.scss'
 
 const items = ['Nick', 'McMillan']
 const config = { mass: 5, tension: 4000, friction: 200 }
 
 const Title = () => {
+
+  const isLarge = window.innerWidth > breakpoint
 
   const springRef = useRef()
   const trailRef = useRef()
@@ -24,13 +28,13 @@ const Title = () => {
     config,
   })
 
-  useChain([trailRef, springRef], [0.25, 1])
+  useChain([trailRef, springRef], [0.25, isLarge ? 1 : 0.4])
 
   return (
     <header className="title">
       <div className="name">
 
-        {trail.map(({ x,  }, index) => (
+        {trail.map(({ x }, index) => (
           <div
             key={items[index]}
             className="name-split"
