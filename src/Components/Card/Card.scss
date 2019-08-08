@@ -87,19 +87,13 @@ $easing: cubic-bezier(0, 0, 0.2, 1);
 
 .Icon-project.Icon--card,
 .Icon-fallback.Icon--card {
-  height: 2rem;
+  // height: 2rem;
   margin-bottom: 1rem;
-  width: 6rem;
+  // width: 6rem;
   pointer-events: none;
 }
 
 @media screen and (min-width: 768px) {
-  // .card,
-  // .backdrop {
-  //   height: var(--itemHeightLg);
-  //   width: var(--itemWidthLg);
-  // }
-
   .Icon-project.Icon--card,
   .Icon-fallback.Icon--card {
     margin-bottom: 2rem;
