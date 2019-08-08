@@ -64,7 +64,7 @@ export default function Detail({
             <BackButton
               onClick={handleClose}
               style={{
-                opacity: opacity.interpolate(t => t),
+                opacity,
               }}
             />
 
@@ -99,7 +99,7 @@ export default function Detail({
           <animated.div
             className="Detail-panel Detail-panel--secondary"
             style={{
-              opacity: opacity.interpolate(t => t),
+              opacity,
             }}
           >
             <div className="Detail-paragraph" dangerouslySetInnerHTML={{ __html: item.description }} />
