@@ -77,7 +77,6 @@ export default [
   {
     title: 'mcfrench.co',
     path: '/mcfrench',
-    activeOpacity: 0.9,
     offsetY: 60, 
     icons: [
       {
@@ -105,7 +104,6 @@ export default [
     title: 'Bike Repair',
     path: '/bike-repair',
     offsetY: 20,
-    activeOpacity: 1,
     logo: bikerepairSvg,
     icons: [
       {
