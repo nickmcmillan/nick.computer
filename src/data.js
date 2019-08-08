@@ -47,7 +47,7 @@ export default [
     imageSm: fentonSm,
     intro: 'A three.js website for the Melbourne band Fenton',
     subtitle: 'A three.js website for the Melbourne band Fenton',
-    description: '<p>Built as a playful online presence for the band which I\'m a part of.</p><p>I\'ve used the popular <a href="https://threejs.org/" rel="noopener nofollow" target="_blank">three.js</a> and combined it with <a href="https://schteppe.github.io/cannon.js/" rel="noopener nofollow" target="_blank">cannon.js</a> which provides the physics. I downloaded most of the models from online marketplaces and cleaned them up using Blender - simplifying model complexity greatly reduces filesize.</p><p>It works great on mobile and desktop, and on larger screens you can play around with a few of the camera and physics settings for fun.</p><p>Made in 2019. The source code is available on <a href="https://github.com/nickmcmillan/fenton-three-cannon" rel="noopener nofollow" target="_blank">Github</a>.</p>',
+    description: '<p>Built as a playful online presence for the band which I\'m a part of.</p><p>I\'ve used the popular <a href="https://threejs.org/" rel="noopener nofollow" target="_blank">three.js</a> library and combined it with <a href="https://schteppe.github.io/cannon.js/" rel="noopener nofollow" target="_blank">cannon.js</a> which provides the physics. The models were found online and cleaned up using Blender - simplifying model complexity greatly reduced filesize.</p><p>It works great on mobile and desktop, and on larger screens you can play around with a few of the camera and physics settings for fun.</p><p>Made in 2019. The source code is available on <a href="https://github.com/nickmcmillan/fenton-three-cannon" rel="noopener nofollow" target="_blank">Github</a>.</p>',
     theme: '#f4f592',
   },
   {
@@ -74,7 +74,7 @@ export default [
     imageSm: realasSm,
     intro: 'A search tool for Australian real estate property prices',
     subtitle: 'Australia’s most accurate real estate price predictions',
-    description: '<p>Whilst at Accenture I worked in a dedicated and agile team on-site at ANZ. We developed a real estate search tool which boasts having Australia’s most accurate real estate price prediction algorithm - designed to solve the problem of inaccurate price estimates in Australian property listings.</p><p>I started the project from scratch with a basic prototype built in React. Over the course of 6 months I helped develop multiple iterations of the app, eventually building up a small front-end team until finally handing the finished codebase and documentation over to ANZ.</p><p>Launched in 2017.</p>',
+    description: '<p>Whilst at Accenture I worked in a dedicated and agile team to develop a real estate search tool which boasts having Australia’s most accurate real estate price prediction algorithm. It\'s designed to solve the problem of inaccurate price estimates in Australian property listings.</p><p>I joined the project to build a basic prototype, which quickly escalated, and ultimately over 8 months I developed it through multiple iterations into a fully featured app.</p><p>I helped build up and headed a small front-end team of 3 which worked alongside a larger team focused on the prediction logic and AEM backend. Towards the end of the project I worked on-site at ANZ to document and handover the codebase to their in-house team.</p><p>Launched in 2017.</p>',
     theme: '#465b9b',
     textColor: '#fff',
   },
