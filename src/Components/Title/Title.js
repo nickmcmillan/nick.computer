@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useRef } from 'react'
 import { useTrail, useChain, useSpring, animated } from 'react-spring'
 
 import './Title.scss'
@@ -7,8 +7,6 @@ const items = ['Nick', 'McMillan']
 const config = { mass: 5, tension: 4000, friction: 200 }
 
 const Title = () => {
-
-  const [toggle, set] = useState(true)
 
   const springRef = useRef()
   const trailRef = useRef()
@@ -21,7 +19,7 @@ const Title = () => {
 
   const trail = useTrail(items.length, {
     ref: trailRef,
-    x: toggle ? 0 : 40,
+    x: 0,
     from: { x: 40 },
     config,
   })
@@ -30,7 +28,7 @@ const Title = () => {
 
   return (
     <header className="title">
-      <div className="name" onClick={() => set(state => !state)}>
+      <div className="name">
 
         {trail.map(({ x,  }, index) => (
           <div
