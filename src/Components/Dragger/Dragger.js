@@ -7,13 +7,15 @@ import { disableBodyScroll } from 'body-scroll-lock'
 
 import useDimensions from '../../Hooks/useDimensions'
 import useDebouncedWindowWidth from '../../Hooks/useDebouncedWindowWidth'
+
 import Card from '../Card/Card'
+import { breakpoint } from '../../App'
 
 import cardData from '../../data.js'
 
 import styles from './Dragger.module.css'
 
-export const breakpoint = 800
+
 export const configMain = { tension: 500, friction: 80, mass: 3 }
 export const configBouncey = { mass: 5, tension: 2000, friction: 100 }
 
