@@ -42,9 +42,6 @@ const DraggerContainer = ({ isExpanded, setIsExpanded, setLocation }) => {
     y: 0,
     opacity: 1,
     delay: 500,
-    // onRest: (a) => {
-      
-    // },
     immediate: isExpanded,
     from: { y: 20, opacity: 0 },
   })
@@ -79,7 +76,10 @@ const DraggerContainer = ({ isExpanded, setIsExpanded, setLocation }) => {
           setLocation(cardData[id].path)
         }}
         className={styles.Dragger}
-        disabled={!!isExpanded}
+        // disabled={isExpanded}
+        style={{
+          pointerEvents: isExpanded ? 'none' : 'all'
+        }}
       >
         {trail.map((style, index) => {
           const item = cardData[index]
