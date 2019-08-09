@@ -7,17 +7,15 @@
     "typescript": "^3.5.1"
   },
   "dependencies": {
-    "body-scroll-lock": "^2.6.1",
+    "body-scroll-lock": "^2.6.4",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-focus-lock": "^2.0.0",
-    "react-focus-trap": "^2.7.1",
     "react-helmet": "^5.2.1",
     "react-physics-dragger": "^1.2.1",
-    "react-scripts": "3.0.0",
-    "react-spring": "^8.0.19",
+    "react-scripts": "^3.0.1",
+    "react-spring": "^8.0.27",
     "resize-observer-polyfill": "^1.5.1",
-    "wouter": "^2.0.0"
+    "wouter": "^2.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
