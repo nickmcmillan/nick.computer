@@ -50,6 +50,17 @@ body {
   color: #333;
 }
 
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #333;
+    color: #fff;
+  }
+
+  .Social-anchor-circle {
+    background-color: #fff;
+  }
+}
+
 *,
 *::before,
 *::after {

@@ -19,6 +19,11 @@ import dataVolunteer from './dataVolunteer.js'
 export const breakpoint = 768
 export const configMain = { tension: 500, friction: 80, mass: 3 }
 export const configBouncey = { mass: 5, tension: 1600, friction: 100 }
+export const prefersDarkMode = matchMedia('(prefers-color-scheme: dark)').matches
+export const colors = {
+  white: '#fff',
+  black: '#333',
+}
 
 const App = () => {
 
@@ -59,10 +64,7 @@ const App = () => {
         handleClose={() => {
           setIsExpanded(null)
           clearAllBodyScrollLocks()
-          setLocation('/')
-
-          // if (window.innerWidth < breakpoint) return
-          // setHovered(title) // keep it hovered, for z-index reasons
+          window.history.back() // otherwise back button adds to the history stack
         }}
       />
 

@@ -4,7 +4,7 @@ import { ReactComponent as BackIcon } from '../../icons/left.svg'
 
 import './BackButton.scss'
 
-import { configBouncey } from '../../App'
+import { configBouncey, colors } from '../../App'
 
 export default function BackButton({
   style,
@@ -30,7 +30,7 @@ export default function BackButton({
       onClick={onClick}
       className="Back-btn"
       style={{
-        color: hovered ? '#333' : 'currentColor',
+        color: hovered ? colors.black : 'currentColor',
         transform: pressedScale,
         ...style
       }}

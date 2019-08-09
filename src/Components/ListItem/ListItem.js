@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react'
 import { animated, useSpring } from 'react-spring'
 
 import useOnScreen from '../../Hooks/useOnScreen'
-import { configMain, configBouncey } from '../../App'
+import { configMain, configBouncey, prefersDarkMode, colors } from '../../App'
 
 import style from './ListItem.module.css'
 
@@ -16,7 +16,7 @@ const ListItem = ({desc, Icon, href, title}) => {
 
   const { scale, opacity, color } = useSpring({
     scale: hovered ? 'scale(1.25)' : 'scale(0.5)',
-    color: hovered ? '#fff' : '#333',
+    color: hovered ? prefersDarkMode ? colors.black : colors.white : prefersDarkMode ? colors.white : colors.black,
     opacity: hovered ? 1 : 0,
     config: configBouncey,
   })

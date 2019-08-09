@@ -5,7 +5,7 @@ import { disableBodyScroll } from 'body-scroll-lock'
 import './Card.scss'
 import './Shadow.scss'
 
-import { breakpoint } from '../../App'
+import { breakpoint, colors } from '../../App'
 
 const configMain = { tension: 90, friction: 21, mass: 1 }
 
@@ -98,7 +98,7 @@ const Card = React.memo(({
         }
       }}
       style={{
-        color: item.textColor || '#333',
+        color: item.textColor || colors.black,
         transform: cardTransformY.interpolate(y => `translate3d(0, ${y}%, 0)`),
         opacity: style.opacity,
         zIndex: zIndex.interpolate(t => Math.ceil(t)), // smooths out shoadow transition when hovering from one card to another

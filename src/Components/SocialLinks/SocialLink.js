@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useSpring, animated, interpolate } from 'react-spring'
 
-import { configBouncey } from '../../App'
+import { configBouncey, prefersDarkMode, colors } from '../../App'
 
 export default function SocialLink({
   svg,
@@ -15,7 +15,7 @@ export default function SocialLink({
   
   const { scale, opacity, color } = useSpring({
     scale: hovered ? 1.25 : 0.5,
-    color: hovered ? '#fff' : '#333',
+    color: hovered ? prefersDarkMode ? colors.black : colors.white : prefersDarkMode ? colors.white : colors.black,
     opacity: hovered ? 1 : 0,
     config: configBouncey,
   })
