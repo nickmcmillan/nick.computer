@@ -8,7 +8,6 @@
   right: 0;
   bottom: 0;
   z-index: 1;
-  // font-size: 1.05rem;
   margin: 0 auto;
   padding: 1.5rem 1.25rem; //var(--padding);
   max-width: 60rem;
@@ -46,14 +45,13 @@
 }
 
 .Icon-list-item {
-  // max-width: 8rem;
   max-height: 3rem;
   margin-right: 1rem;
 }
 
-.Detail-panel {
-  // max-width: 32rem;
-}
+// .Detail-panel {
+//   // max-width: 32rem;
+// }
 
 .Detail-panel--primary {
   max-width: 30rem;
@@ -101,8 +99,7 @@
   .Detail {
     position: absolute;
     display: flex;
-    // padding-left: var(--padding-lg);
-    // padding-right: var(--padding-lg);
+    overflow-y: inherit; // windows
     padding: var(--padding-lg);
   }
 
