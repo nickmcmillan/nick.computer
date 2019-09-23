@@ -3,19 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "node-sass": "^4.12.0",
-    "typescript": "^3.5.1"
+    "node-sass": "^4.12.0"
   },
   "dependencies": {
     "body-scroll-lock": "^2.6.4",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
     "react-helmet": "^5.2.1",
     "react-physics-dragger": "^1.2.1",
-    "react-scripts": "^3.0.1",
+    "react-scripts": "^3.1.2",
     "react-spring": "^8.0.27",
     "resize-observer-polyfill": "^1.5.1",
-    "wouter": "^2.1.1"
+    "wouter": "^2.2.1"
   },
   "scripts": {
     "start": "react-scripts start",
