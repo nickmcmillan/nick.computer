@@ -74,7 +74,7 @@ const ListItem = ({desc, Icon, href, title}) => {
 
         <div>
           <h3 className={style.title}>{title}</h3>
-          <p className={style.para}>{desc}</p>
+          {desc && <p className={style.para}>{desc}</p>}
         </div>
 
       </animated.a>

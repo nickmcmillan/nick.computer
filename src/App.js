@@ -15,6 +15,7 @@ import './index.scss'
 import cardData from './data.js'
 import dataOpenSource from './dataOpenSource.js'
 import dataVolunteer from './dataVolunteer.js'
+import dataWords from './dataWords.js'
 
 export const breakpoint = 768
 export const configMain = { tension: 500, friction: 80, mass: 3 }
@@ -71,6 +72,11 @@ const App = () => {
       <List
         title="Open Source"
         data={dataOpenSource}
+        inert={isExpanded}
+      />
+      <List
+        title="Words"
+        data={dataWords}
         inert={isExpanded}
       />
       <List
