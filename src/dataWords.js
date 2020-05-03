@@ -7,6 +7,12 @@ const dataOpenSource = [
     // desc: 'A simple, no-frills horiztonal dragger/slider with physics.',
     Icon: MediumIcon,
   },
+  {
+    href: 'https://medium.com/@nick.a.mcmillan/adding-a-site-wide-search-to-a-gatsby-wordpress-project-84a65f40ab0f',
+    title: 'Adding a site-wide search to a Gatsby Wordpress project',
+    // desc: 'A simple, no-frills horiztonal dragger/slider with physics.',
+    Icon: MediumIcon,
+  },
 ]
 
 export default dataOpenSource
