@@ -33,9 +33,9 @@ export default function Detail({
   const transitions = useTransition(active, null, {
     ref: transRef,
     unique: true,
-    from:  { transform: 'translate3d(-150%, 0, 0)'},
-    enter: { transform: 'translate3d(0, 0, 0)' },
-    leave: { transform: 'translate3d(-150%, 0, 0)' },
+    from: { transform: 'translate3d(-150%, 0, 0)', opacity: 0, },
+    enter: { transform: 'translate3d(0, 0, 0)', opacity: 1, },
+    leave: { transform: 'translate3d(-150%, 0, 0)', opacity: 0, },
     config: configMain,
   })
 
