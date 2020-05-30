@@ -1,7 +1,12 @@
+import massSm from './imgs/mass-sm.png'
+import massLg from './imgs/mass-lg.png'
+
 import fentonSm from './imgs/fenton-sm.jpg'
 import fentonLg from './imgs/fenton-lg.jpg'
+
 import brSm from './imgs/br-sm.jpg'
 import brLg from './imgs/br-lg.jpg'
+
 import realasSm from './imgs/realas-sm.jpg'
 import realasLg from './imgs/realas-lg.jpg'
 
@@ -11,8 +16,9 @@ import mcfrenchSm from './imgs/mcfrench-sm.jpg'
 import drawingtoolLg from './imgs/drawingtool-lg.png'
 import drawingtoolSm from './imgs/drawingtool-sm.png'
 
-import realAsSvg from './icons/realas.svg'
+import massSvg from './icons/mass.svg'
 import fentonSvg from './icons/fenton.svg'
+import realAsSvg from './icons/realas.svg'
 import bikerepairSvg from './icons/bikerepair.svg'
 import knvbSvg from './icons/knvb.svg'
 
@@ -25,8 +31,37 @@ import { ReactComponent as Google } from './icons/google.svg'
 import { ReactComponent as ReactSpring } from './icons/react-spring.svg'
 import { ReactComponent as Cloudinary } from './icons/cloudinary.svg'
 import { ReactComponent as Blender } from './icons/blender.svg'
+import { ReactComponent as Gatsby } from './icons/gatsby.svg'
 
 export default [
+  {
+    title: 'MASS',
+    path: '/mass',
+    offsetY: 90,
+    logo: massSvg,
+    icons: [
+      {
+        Icon: Gatsby,
+        title: 'Gatsby'
+      },
+      {
+        Icon: ReactIcon,
+        title: 'React'
+      },
+      {
+        Icon: ReactSpring,
+        title: 'React Spring'
+      },
+    ],
+    url: 'https://www.studiomass.com.au/',
+    imageLg: massLg,
+    imageSm: massSm,
+    intro: 'A new website for the Melbourne design studio — MASS',
+    subtitle: 'A new website for the Melbourne design studio — MASS',
+    description: '<p>A full website rebuild, both front-end and back. The backend consists of Prismic as the headless CMS with Netlify as the CI and hosting tool, and the front end is all Gatsby.</p><p>Sprinkled throughout are some unique visual flourishes - like the SVG bloating text effect, and imagery that moves based on mouse and scroll position.</p><p>It was absolute joy to work on this site, and with the talented and lovely folks at MASS. It even won an <a href="https://thefwa.com/cases/mass" rel="noopener nofollow" target="_blank">FWA of the Day</a> award.</p><p>You can read more about it in <a href="https://medium.com/mass-thinks/creating-the-mass-website-felt-like-i-was-getting-paid-to-have-fun-3ab4f4670035" rel="noopener nofollow" target="_blank">this article.</a></p>',
+    theme: '#1F1F1F',
+    textColor: '#fff',
+  },
   {
     title: 'Fenton',
     path: '/fenton',
@@ -49,34 +84,6 @@ export default [
     subtitle: 'A three.js website for the Melbourne band Fenton',
     description: '<p>Built as a playful online presence for the band which I\'m a part of.</p><p>I\'ve used the popular <a href="https://threejs.org/" rel="noopener nofollow" target="_blank">three.js</a> library and combined it with <a href="https://schteppe.github.io/cannon.js/" rel="noopener nofollow" target="_blank">cannon.js</a> which provides the physics. The models were found online and cleaned up using Blender - simplifying model complexity greatly reduced filesize.</p><p>It works great on mobile and desktop, and on larger screens you can play around with a few of the camera and physics settings for fun.</p><p>Made in 2019. The source code is available on <a href="https://github.com/nickmcmillan/fenton-three-cannon" rel="noopener nofollow" target="_blank">Github</a>.</p>',
     theme: '#f4f592',
-  },
-  {
-    title: 'Realas',
-    path: '/realas',
-    offsetY: 0,
-    logo: realAsSvg,
-    icons: [
-      {
-        Icon: ReactIcon,
-        title: 'React'
-      },
-      {
-        Icon: ReduxIcon,
-        title: 'Redux'
-      },
-      {
-        Icon: Google,
-        title: 'Google Places APIs'
-      },
-    ],
-    url: 'https://www.realas.com/',
-    imageLg: realasLg,
-    imageSm: realasSm,
-    intro: 'A search tool for Australian real estate property prices',
-    subtitle: 'Australia’s most accurate real estate price predictions',
-    description: '<p>Whilst at Accenture I worked in a dedicated and agile team to develop a real estate search tool which boasts having Australia’s most accurate real estate price prediction algorithm. It\'s designed to solve the problem of inaccurate price estimates in Australian property listings.</p><p>I joined the project to build a basic prototype, which quickly escalated, and ultimately over 8 months I developed it through multiple iterations into a fully featured app.</p><p>I helped build up and headed a small front-end team of 3 which worked alongside a larger team focused on the prediction logic and AEM backend. Towards the end of the project I worked on-site at ANZ to document and handover the codebase to their in-house team.</p><p>Launched in 2017.</p>',
-    theme: '#465b9b',
-    textColor: '#fff',
   },
   {
     title: 'mcfrench.co',
@@ -130,7 +137,6 @@ export default [
         Icon: CraftIcon,
         title: 'Craft CMS'
       },
-      
     ],
     url: 'https://www.bikerepair.com/',
     imageLg: brLg,
@@ -140,6 +146,34 @@ export default [
     description: '<p><a href="https://www.bikerepair.com/" rel="noopener nofollow" target="_blank">Bikerepair.com</a> is a curated search tool for specialised bike shops.</p><p>I built the front-end using React + Redux for the UI and state management, <a href="https://github.com/google-map-react/google-map-react" rel="noopener nofollow" target="_blank">Google Maps React</a> for the map, and <a href="https://github.com/react-spring/react-spring" rel="noopener nofollow" target="_blank">react-spring</a> for the transitions and animations throughout the site.</p><p>Craft CMS runs on the backend to provide all the bike shop data which is then combined with ratings and customer reviews from Google Places API.</p><p>Built whilst at <a href="https://www.momkai.com/" rel="noopener nofollow" target="_blank">Momkai</a> in 2018.</p>',
     theme: '#0a6cbc',
     textColor: '#fff'
+  },
+  {
+    title: 'Realas',
+    path: '/realas',
+    offsetY: 0,
+    logo: realAsSvg,
+    icons: [
+      {
+        Icon: ReactIcon,
+        title: 'React'
+      },
+      {
+        Icon: ReduxIcon,
+        title: 'Redux'
+      },
+      {
+        Icon: Google,
+        title: 'Google Places APIs'
+      },
+    ],
+    url: 'https://www.realas.com/',
+    imageLg: realasLg,
+    imageSm: realasSm,
+    intro: 'A search tool for Australian real estate property prices',
+    subtitle: 'Australia’s most accurate real estate price predictions',
+    description: '<p>Whilst at Accenture I worked in a dedicated and agile team to develop a real estate search tool which boasts having Australia’s most accurate real estate price prediction algorithm. It\'s designed to solve the problem of inaccurate price estimates in Australian property listings.</p><p>I joined the project to build a basic prototype, which quickly escalated, and ultimately over 8 months I developed it through multiple iterations into a fully featured app.</p><p>I helped build up and headed a small front-end team of 3 which worked alongside a larger team focused on the prediction logic and AEM backend. Towards the end of the project I worked on-site at ANZ to document and handover the codebase to their in-house team.</p><p>Launched in 2017.</p>',
+    theme: '#465b9b',
+    textColor: '#fff',
   },
   {
     title: 'KNVB Drawing Tool',
