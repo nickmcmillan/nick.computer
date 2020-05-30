@@ -127,7 +127,6 @@ const Card = React.memo(({
         }}
       >
         {item.logo ? <img className="Icon-project Icon--card" src={item.logo} alt={`${item.title} logo`} /> : <p className="Icon-fallback Icon--card">{item.title}</p>}
-        <p>{item.intro}</p>
       </animated.div>
       
       <animated.div
