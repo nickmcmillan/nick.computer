@@ -1,7 +1,6 @@
 import React, { useRef } from 'react'
 import { useTransition, useSpring, useChain, animated } from 'react-spring'
 import { Helmet } from 'react-helmet'
-// import FocusTrap from 'react-focus-trap'
 
 import useKeyPress from '../../Hooks/useKeyPress'
 import BackButton from '../BackButton/BackButton'
